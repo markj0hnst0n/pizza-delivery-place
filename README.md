@@ -1,45 +1,141 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+<div align="center">
+<h1>Le Munch</h1>
+</div>
 
-Welcome USER_NAME,
+![]()
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use.
+Le Munch is here to help you decide what to have for your next meal!  You can upload your own recipes so you have your own online cookbook and
+search and browse through other users recipes to give you ideas of what to cook.  Develop your love of food by deep diving on food pics and you
+can like recipes to show your support for the food you like and to help other users find the most popular dishes on the site.
 
-## Gitpod Reminders
+To go to the live site click [here](http://le-munch-flask-markjohnston.herokuapp.com/)
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
 
-`python3 -m http.server`
+# UX
 
-A blue button should appear to click: *Make Public*,
+## User Stories
 
-Another blue button should appear to click: *Open Browser*.
+There will be 2 main user types and the user types are not mutually exclusive.  The same user could fall into both categories dependent on the their behaviour.
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+The uploader user will be the primary content creators and will produce the recipes for the site.  Their goal is to show off what they can do and see how popular their recipes are.
 
-A blue button should appear to click: *Make Public*,
 
-Another blue button should appear to click: *Open Browser*.
 
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+The browser user will be mainly focused on looking at recipe pictures and recipe content.  They can give their approval to recipes through ‘likes’ or ‘upvotes’ and are mainly there to find inspiration for what to cook or look at nice food pictures.
 
-## Updates Since The Instructional Video
 
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
 
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
+Site owner goal
 
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
 
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
+See separate Testing.md file for information on how these user stories were tested [here](testing/testing.md)
 
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
+## Wireframes
 
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
 
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
 
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
+## Colour Scheme
 
---------
 
-Happy coding!
+
+### Features
+
+
+### Features not implimented
+
+
+# Technologies Used
+
+[HTML5](https://en.wikipedia.org/wiki/HTML5)
+for the structure of the website
+
+[CSS 3](https://en.wikipedia.org/wiki/Cascading_Style_Sheets#CSS_3)
+for the look of the website
+
+[Python 3 Language](https://www.python.org/)
+to write code for data manipulation at the back end of the app within the flask framework.
+
+[Bootstrap](https://getbootstrap.com/
+website framework with html, css and javascript.
+
+[Fontawesome](https://fontawesome.com/)
+for icons.
+
+[Javascript](https://en.wikipedia.org/wiki/JavaScript)
+for the logic of the game.  To manipulate the HTML and CSS on the screen.
+
+[jQuery](https://en.wikipedia.org/wiki/JQuery)
+to manipulate the HTML and CSS on the screen.
+
+[JShint](https://jshint.com/)
+to validate javscript code.
+
+[Coolors](https://coolors.co/)
+for help with colours and colours scheme
+
+[Webformatter](https://webformatter.com/)
+for formatting HTML, CSS and javascript code.
+
+[Asana](https://asana.com/)
+for project management
+
+[Balsamiq Wireframes](https://balsamiq.com/wireframes/)
+for creating Wireframes for initial visual development
+
+[Gitpod](https://www.gitpod.io/)
+for writing and testing code.
+
+[GitHub](https://github.com/)
+for storing code.
+
+[Google Fonts](https://fonts.google.com/)
+for fonts used in the project.
+
+[Google Chrome Development Tools](https://developers.google.com/web/tools/chrome-devtools) for testing code on various device sizes during development and debugging.
+
+[Amazon Web Services](https://aws.amazon.com/) Simple Email Service for STMP mail server.
+
+[Google Lighthouse](https://developers.google.com/web/tools/lighthouse) for testing code health, accessibility, speed and search engine optimisation.
+
+# Information Architechture
+
+
+## Conceptual Database Design
+
+
+## Logical Data Model
+
+
+## Security considerations
+
+# Testing
+
+See separate Testing.md file [here](testing/testing.md)
+
+# Deployment
+
+
+# Credits
+
+## Content
+
+Written content by Mark Johnston
+
+## Media
+
+All media is user generated and the responsibility of the user.  If copyright is breached please use the contact form to get in touch and we can remove any offending content.
+
+## Influences
+
+## Acknowledgements
+
+Thanks to the following people for making the project happen:
+
+- My Mentor Can Suncullu for his advice, patience and motivation.
+- The [Code Institute](https://codeinstitute.net/) Slack Community.
+- The [Code Institute](https://codeinstitute.net/) tutors and instructional material.  Espcially tutor Johann for his help with the like functionality.
+- My Wife Joanna Johnston for her (constructive) criticism and understanding when I lock myself away in the attic for hours on end
+
+## Disclaimer
+
+This site is intended for educational purposes only, and is not intended for use in any other capacity.
