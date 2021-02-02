@@ -12,13 +12,63 @@
 ## User Stories
 
 
+### Navigation
+
+
+|   As a	| I want to be able to | So that I can |
+|-----------|----------------------|---------------|
+| Customer | View list of available menu items | Order some food
+| Customer | See a list of the ingredients and prices | Narrow down my menu choice
+| Customer | See special offer bundles | Get the best value for money with my purchases
+
+
+### User Accounts
+
+|   As a	| I want to be able to | So that I can |
+|-----------|----------------------|---------------|
+| User | Register for an account | See my Order History and save my personal information
+| User | Receive email confirmations | See my registration has been successful
+| User | Log in easily | see my order history and see/update my personal details
+| User | Recover access to my account if I forget my password | Retreive my information
+
+
+
+### Menu Item location
+
+|   As a	| I want to be able to | So that I can |
+|-----------|----------------------|---------------|
+| User | Sort a list of available menu items | See the best rated, cheapest and menu items sorted by category
+| Customer | Search by name for a specific menu item | Quickly find the one i want to purchase
+| Customer | Add an item to baskey as soon as I see it | Get to the checkout as soon as possible
+
+
+### Purchasing
+
+
+|   As a	| I want to be able to | So that I can |
+|-----------|----------------------|---------------|
+| Customer | Easily select the size and quantity of the item | Purchase the right quantity for my needs
+| Customer | Make purchases easily using my credit card | Just think about my food after I have ordered
+| Customer | View summary of my order before completing my purchase | Make sure I have selected the right items
+| User | Rate experience and leave comments | Pass on my experience to other users
+| User | Get an email confirming my purchase | See the process has worked correctly
+
+
+### Site Owner Goals
+
+
+|   As a	| I want to be able to | So that I can |
+|-----------|----------------------|---------------|
+| Site Owner | Create, read, update or delete menu items and quantities | Easily manage the items on the menu
+| Site Owner | See a record of the order history sort by date | Check previous orders to make sure they are correct
+| Site Owner | Book a time slot for delivery | Make sure the food is delivered when it makes the customer happy
+
 
 ## Wireframes
 
-
+## Fonts
 
 ## Colour Scheme
-
 
 
 ### Features
@@ -106,7 +156,7 @@ Written content by Mark Johnston
 
 ## Media
 
-All media is user generated and the responsibility of the user.  If copyright is breached please use the contact form to get in touch and we can remove any offending content.
+
 
 ## Influences
 
