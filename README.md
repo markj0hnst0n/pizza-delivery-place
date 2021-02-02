@@ -1,34 +1,17 @@
 <div align="center">
-<h1>Le Munch</h1>
+<h1></h1>
 </div>
 
 ![]()
 
-Le Munch is here to help you decide what to have for your next meal!  You can upload your own recipes so you have your own online cookbook and
-search and browse through other users recipes to give you ideas of what to cook.  Develop your love of food by deep diving on food pics and you
-can like recipes to show your support for the food you like and to help other users find the most popular dishes on the site.
 
-To go to the live site click [here](http://le-munch-flask-markjohnston.herokuapp.com/)
 
 
 # UX
 
 ## User Stories
 
-There will be 2 main user types and the user types are not mutually exclusive.  The same user could fall into both categories dependent on the their behaviour.
 
-The uploader user will be the primary content creators and will produce the recipes for the site.  Their goal is to show off what they can do and see how popular their recipes are.
-
-
-
-The browser user will be mainly focused on looking at recipe pictures and recipe content.  They can give their approval to recipes through ‘likes’ or ‘upvotes’ and are mainly there to find inspiration for what to cook or look at nice food pictures.
-
-
-
-Site owner goal
-
-
-See separate Testing.md file for information on how these user stories were tested [here](testing/testing.md)
 
 ## Wireframes
 
