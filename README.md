@@ -66,6 +66,8 @@
 
 ## Wireframes
 
+[Wireframes Repository](https://github.com/markj0hnst0n/pizza-delivery-place/tree/master/README/wireframes)
+
 ## Fonts
 
 ## Colour Scheme
@@ -131,6 +133,12 @@ for fonts used in the project.
 [Google Lighthouse](https://developers.google.com/web/tools/lighthouse) for testing code health, accessibility, speed and search engine optimisation.
 
 # Information Architechture
+
+## Data Models
+
+### User Model
+
+The model used was the Django standard user model from django.contrib.auth.models
 
 
 ## Conceptual Database Design
