@@ -39,7 +39,7 @@
 |-----------|----------------------|---------------|
 | User | Sort a list of available menu items | See the best rated, cheapest and menu items sorted by category
 | Customer | Search by name for a specific menu item | Quickly find the one i want to purchase
-| Customer | Add an item to baskey as soon as I see it | Get to the checkout as soon as possible
+| Customer | Add an item to basket as soon as I see it | Get to the checkout as soon as possible
 
 
 ### Purchasing
