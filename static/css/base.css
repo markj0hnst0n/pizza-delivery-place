@@ -1,0 +1,9 @@
+html {
+    height: 100%;
+}
+
+body {
+    background: url('/media/pizza-slice-pattern.png') repeat;
+    height: 200px;
+    width: 200px;
+}
