@@ -3,11 +3,11 @@ html {
 }
 
 body {
-    background: url('/media/pizza-slice-pattern.png') repeat;
+    background: url('/media/rsz_1pizza-slice-pattern.png') repeat;
 }
 
 .nav-color {
-    background-color: #FCF8CA;
+    background-color: #000;
 }
 
 /* from Bulma */
@@ -29,18 +29,21 @@ body {
 }
 
 .btn-black {
-    background: black;
-    color: white;
+    background: #FFF;
+    color: #000;
 }
 
 .text-black {
-    color: #000;
+    color: #FFF;
 }
 
 .border-black {
     border: 1px solid black;
 }
 
+.shop-now-button:hover,
+.shop-now-button:active,
+.shop-now-button:focus,
 .btn-black:hover,
 .btn-black:active,
 .btn-black:focus {
