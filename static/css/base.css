@@ -4,6 +4,46 @@ html {
 
 body {
     background: url('/media/pizza-slice-pattern.png') repeat;
-    height: 200px;
-    width: 200px;
+}
+
+.nav-color {
+    background-color: #FCF8CA;
+}
+
+/* from Bulma */
+.icon {
+    align-items: center;
+    display: inline-flex;
+    justify-content: center;
+    height: 1.5rem;
+    width: 1.5rem;
+}
+
+.logo-font {
+    font-family: 'Noto Sans JP', sans-serif;
+    text-transform: uppercase;
+}
+
+.main-logo-link {
+    width: fit-content;
+}
+
+.btn-black {
+    background: black;
+    color: white;
+}
+
+.text-black {
+    color: #000;
+}
+
+.border-black {
+    border: 1px solid black;
+}
+
+.btn-black:hover,
+.btn-black:active,
+.btn-black:focus {
+    background: #222;
+    color: white;
 }
