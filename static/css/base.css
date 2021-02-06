@@ -4,6 +4,8 @@ html {
 
 body {
     background: url('/media/rsz_1pizza-slice-pattern.png') repeat;
+    font-family: 'Montserrat', sans-serif;
+    color: #222;
 }
 
 .nav-color {
@@ -29,11 +31,11 @@ body {
 }
 
 .btn-black {
-    background: #FFF;
-    color: #000;
+    background: #000;
+    color: #FFF;
 }
 
-.text-black {
+.text-white {
     color: #FFF;
 }
 
@@ -41,12 +43,11 @@ body {
     border: 1px solid black;
 }
 
-.shop-now-button:hover,
-.shop-now-button:active,
-.shop-now-button:focus,
+
 .btn-black:hover,
 .btn-black:active,
 .btn-black:focus {
     background: #222;
     color: white;
 }
+
