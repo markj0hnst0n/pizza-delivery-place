@@ -43,7 +43,9 @@ body {
     border: 1px solid black;
 }
 
-
+.deals-button:hover,
+.deals-button:active,
+.deals-button:focus,
 .btn-black:hover,
 .btn-black:active,
 .btn-black:focus {

@@ -34,20 +34,17 @@
     <title>The Pizza Place {% block extra_title %}{% endblock %}</title>
   </head>
   <body>
-    <header class="fixed-top" >
+    <header class="container-fluid fixed-top">
         {% include 'includes/main-nav.html' %}
     </header>
     {% block page_header %}
     {% endblock %}
-
-    <main>
         {% if messages %}
         <div class="message-container"></div>
         {% endif %}
         
         {% block content %}
         {% endblock %}
-    </main>
     <footer id="footer" class="container-fluid">
         {% include 'includes/footer.html' %}
     </footer>
