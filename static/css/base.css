@@ -2,11 +2,15 @@ html {
     height: 100%;
 }
 
+
 body {
-    background: url('/media/rsz_1pizza-slice-pattern.png') repeat;
+    background: url('/media/rsz_1pizza-slice-pattern.png') repeat center center fixed;
     font-family: 'Montserrat', sans-serif;
-    color: #222;
-    height: 100%;
+    height: 100vh;
+}
+
+hr {
+    border: 1px solid #FFF;
 }
 
 .nav-color {
