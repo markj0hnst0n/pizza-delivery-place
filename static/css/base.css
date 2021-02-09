@@ -13,6 +13,17 @@ body {
     background-color: #000;
 }
 
+.navbar-toggler {
+    background-color: #000;
+    border-color: #FFF;
+    border-width: 1px;
+}
+
+.nav-menu-or-footer-link:hover {
+    text-decoration: none;
+    background: #222;
+}
+
 /* from Bulma */
 .icon {
     align-items: center;

@@ -33,10 +33,12 @@
     <title>The Pizza Place {% block extra_title %}{% endblock %}</title>
   </head>
   <body>
-    <header class="container-fluid fixed-top w-100 nav-color">
+    <header class="container-fluid fixed-top px-0 w-100 nav-color">
+        <div class="container">
         {% include 'includes/main-nav.html' %}
         {% include 'includes/mobile-tablet-nav.html' %}          
         {% include 'includes/menu-choice-header.html' %}      
+      </div>
     </header>
     {% block page_header %}
     {% endblock %}
@@ -47,7 +49,9 @@
     {% block content %}
     {% endblock %}
     <footer id="footer" class="container-fluid py-0 nav-color">
-        {% include 'includes/footer.html' %}
+        <div class="container">
+          {% include 'includes/footer.html' %}
+        </div>
     </footer>
 
     {% block postloadjs %}
