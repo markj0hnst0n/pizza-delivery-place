@@ -25,6 +25,7 @@ body {
 .logo-font {
     font-family: 'Noto Sans JP', sans-serif;
     text-transform: uppercase;
+    font-size: 1.8rem;
 }
 
 .main-logo-link {
