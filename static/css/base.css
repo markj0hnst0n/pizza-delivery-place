@@ -4,7 +4,7 @@ html {
 
 
 body {
-    background: url('/media/rsz_1pizza-slice-pattern.png') repeat center center fixed;
+    background: url('/media/rsz_1pizza-slice-pattern.png') repeat;
     font-family: 'Montserrat', sans-serif;
     height: 100vh;
 }

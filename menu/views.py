@@ -6,8 +6,10 @@ from .models import MenuItem
 
 def menu(request):    
     """ A view to show all menu items, including sorting and search queries """
+
     menu = MenuItem.objects.all()
+    
     context = {
-        'Menu': menu,
+        'menu': menu,
     }
     return render(request, 'menu/menu.html', context)
