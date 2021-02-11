@@ -9,8 +9,12 @@ body {
     height: 100vh;
 }
 
-hr {
+.hr-white {
     border: 1px solid #FFF;
+}
+
+.hr-black {
+    border: 1px solid #000;
 }
 
 .nav-color {
@@ -70,3 +74,30 @@ hr {
     color: #f5f5f5;
 }
 
+.intro-background {
+    background-color: #FCF8CA;
+    border: 1.5px solid #000;
+}
+
+.content-block {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    top: 200px;
+    left: 0;
+    bottom: 180px;
+    z-index: 100;
+}
+
+.overlay {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background: #FCF8CA;
+}
+
+footer {
+    z-index: 1030;
+}
