@@ -3,6 +3,16 @@ from .models import Day, Time, Timeslot
 
 # Register your models here.
 
-admin.site.register(Day)
-admin.site.register(Time)
-admin.site.register(Timeslot)
+
+
+
+class SlotInline(admin.TabularInline):
+    model = Timeslot
+
+class TimeslotAdmin(admin.ModelAdmin):
+    inlines = [
+        SlotInline,
+    ]
+
+
+admin.site.register(Day, TimeslotAdmin)
