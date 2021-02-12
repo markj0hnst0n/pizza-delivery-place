@@ -83,6 +83,7 @@ These businesses typically only work a few days a week and release all their del
 </p>
 </details>
 
+<details>
 <summary>Time Slot Page wireframes</summary>
 <p align="center">
     <img height="400" src="https://github.com/markj0hnst0n/pizza-delivery-place/blob/master/README/wireframes/time-slot-page-browser.png">
@@ -91,6 +92,7 @@ These businesses typically only work a few days a week and release all their del
 </p>
 </details>
 
+<details>
 <summary>Menu Page wireframes</summary>
 <p align="center">
     <img height="400" src="https://github.com/markj0hnst0n/pizza-delivery-place/blob/master/README/wireframes/sample-menu-page-browser.png">
@@ -99,6 +101,7 @@ These businesses typically only work a few days a week and release all their del
 </p>
 </details>
 
+<details>
 <summary>Menu Page wireframes</summary>
 <p align="center">
     <img height="400" src="https://github.com/markj0hnst0n/pizza-delivery-place/blob/master/README/wireframes/sample-menu-page-browser.png">
@@ -107,6 +110,7 @@ These businesses typically only work a few days a week and release all their del
 </p>
 </details>
 
+<details>
 <summary>Menu Item Detail wireframes</summary>
 <p align="center">
     <img height="400" src="https://github.com/markj0hnst0n/pizza-delivery-place/blob/master/README/wireframes/menu-item-detail-browser.png">
@@ -115,6 +119,7 @@ These businesses typically only work a few days a week and release all their del
 </p>
 </details>
 
+<details>
 <summary>Shopping Cart  wireframes</summary>
 <p align="center">
     <img height="400" src="https://github.com/markj0hnst0n/pizza-delivery-place/blob/master/README/wireframes/basket-browser.png">
@@ -123,6 +128,7 @@ These businesses typically only work a few days a week and release all their del
 </p>
 </details>
 
+<details>
 <summary>Checkout wireframes</summary>
 <p align="center">
     <img height="400" src="https://github.com/markj0hnst0n/pizza-delivery-place/blob/master/README/wireframes/checkout-browser.png">
@@ -131,6 +137,7 @@ These businesses typically only work a few days a week and release all their del
 </p>
 </details>
 
+<details>
 <summary>User Profile wireframes</summary>
 <p align="center">
     <img height="400" src="https://github.com/markj0hnst0n/pizza-delivery-place/blob/master/README/wireframes/user-profile-browser.png">
@@ -139,6 +146,7 @@ These businesses typically only work a few days a week and release all their del
 </p>
 </details>
 
+<details>
 <summary>Admin Profile wireframes</summary>
 <p align="center">
     <img height="400" src="https://github.com/markj0hnst0n/pizza-delivery-place/blob/master/README/wireframes/admin-page-browser.png">
@@ -147,6 +155,7 @@ These businesses typically only work a few days a week and release all their del
 </p>
 </details>
 
+<details>
 <summary>Contact Form Page wireframes</summary>
 <p align="center">
     <img height="400" src="https://github.com/markj0hnst0n/pizza-delivery-place/blob/master/README/wireframes/admin-page-browser.png">
