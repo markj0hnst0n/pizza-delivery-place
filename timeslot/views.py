@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from .models import Timeslot
 
 # Create your views here.
 def timeslot(request):    
