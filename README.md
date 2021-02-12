@@ -74,6 +74,13 @@ These businesses typically only work a few days a week and release all their del
 
 [Wireframes Repository](https://github.com/markj0hnst0n/pizza-delivery-place/tree/master/README/wireframes)
 
+<details>
+<summary>Home wireframes</summary>
+<p align="center">
+    <img height="400" src="https://github.com/markj0hnst0n/pizza-delivery-place/blob/master/README/wireframes/index-browser.png">
+</p>
+</details>
+
 ## Fonts
 
 ## Colour Scheme
