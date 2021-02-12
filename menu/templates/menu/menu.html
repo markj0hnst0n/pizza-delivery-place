@@ -9,25 +9,23 @@
 {% block content %}
 <div class="overlay"></div>
 <div class="container h-100">
-    <div class="content-block">
-        <div class="container">
-            <div class="row">
-                <div class="col text-center pt-2">
-                    <h2 class="logo-font">
-                        Menu
-                    </h2>
-                    <hr class="hr-black w-50 mb-1">
-                </div>
+    <div class="container">
+        <div class="row">
+            <div class="col text-center pt-2">
+                <h2 class="logo-font">
+                    Menu
+                </h2>
+                <hr class="hr-black w-50 mb-1">
             </div>
-            <div class="row">
-                {% for item in menu %}
-                    {% if item.image %}
-                        <a href="">
-                            <img  src="{{ item.image.url }}" alt="">
-                        </a>
-                    {% endif %}
-                {% endfor %}
-            </div>
+        </div>
+        <div class="row">
+            {% for item in menu %}
+                {% if item.image %}
+                    <a href="">
+                        <img  src="{{ item.image.url }}" alt="" width="200" height="200">
+                    </a>
+                {% endif %}
+            {% endfor %}
         </div>
     </div>
 </div>

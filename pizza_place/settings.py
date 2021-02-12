@@ -47,6 +47,8 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'home',
     'menu',
+    'timeslot',
+    'django_truncate',
 ]
 
 MIDDLEWARE = [

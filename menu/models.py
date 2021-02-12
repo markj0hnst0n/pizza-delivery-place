@@ -36,7 +36,7 @@ class MenuItem(models.Model):
     image = models.ImageField(null=True, blank=True)
     spicy = models.BooleanField(default=False)
     vegetarian = models.BooleanField(default=False)
-    allergens = models.TextField()
+    allergens = models.ForeignKey('Allergens', null=True, blank=True, on_delete=models.SET_NULL)
 
     def __str__(self):
         return self.name
