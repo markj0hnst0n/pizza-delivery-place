@@ -78,6 +78,8 @@ These businesses typically only work a few days a week and release all their del
 <summary>Home wireframes</summary>
 <p align="center">
     <img height="400" src="https://github.com/markj0hnst0n/pizza-delivery-place/blob/master/README/wireframes/index-browser.png">
+    <img height="400" src="https://github.com/markj0hnst0n/pizza-delivery-place/blob/master/README/wireframes/index-tablet.png">
+    <img height="400" src="https://github.com/markj0hnst0n/pizza-delivery-place/blob/master/README/wireframes/index-phone.png">
 </p>
 </details>
 
