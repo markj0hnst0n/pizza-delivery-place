@@ -83,6 +83,79 @@ These businesses typically only work a few days a week and release all their del
 </p>
 </details>
 
+<summary>Time Slot Page wireframes</summary>
+<p align="center">
+    <img height="400" src="https://github.com/markj0hnst0n/pizza-delivery-place/blob/master/README/wireframes/time-slot-page-browser.png">
+    <img height="400" src="https://github.com/markj0hnst0n/pizza-delivery-place/blob/master/README/wireframes/time-slot-page-tablet.png">
+    <img height="400" src="https://github.com/markj0hnst0n/pizza-delivery-place/blob/master/README/wireframes/time-slot-page-phone.png">
+</p>
+</details>
+
+<summary>Menu Page wireframes</summary>
+<p align="center">
+    <img height="400" src="https://github.com/markj0hnst0n/pizza-delivery-place/blob/master/README/wireframes/sample-menu-page-browser.png">
+    <img height="400" src="https://github.com/markj0hnst0n/pizza-delivery-place/blob/master/README/wireframes/sample-menu-page-tablet.png">
+    <img height="400" src="https://github.com/markj0hnst0n/pizza-delivery-place/blob/master/README/wireframes/sample-menu-page-phone.png">
+</p>
+</details>
+
+<summary>Menu Page wireframes</summary>
+<p align="center">
+    <img height="400" src="https://github.com/markj0hnst0n/pizza-delivery-place/blob/master/README/wireframes/sample-menu-page-browser.png">
+    <img height="400" src="https://github.com/markj0hnst0n/pizza-delivery-place/blob/master/README/wireframes/sample-menu-page-tablet.png">
+    <img height="400" src="https://github.com/markj0hnst0n/pizza-delivery-place/blob/master/README/wireframes/sample-menu-page-phone.png">
+</p>
+</details>
+
+<summary>Menu Item Detail wireframes</summary>
+<p align="center">
+    <img height="400" src="https://github.com/markj0hnst0n/pizza-delivery-place/blob/master/README/wireframes/menu-item-detail-browser.png">
+    <img height="400" src="https://github.com/markj0hnst0n/pizza-delivery-place/blob/master/README/wireframes/menu-item-detail-tablet.png">
+    <img height="400" src="https://github.com/markj0hnst0n/pizza-delivery-place/blob/master/README/wireframes/menu-item-detail-phone.png">
+</p>
+</details>
+
+<summary>Shopping Cart  wireframes</summary>
+<p align="center">
+    <img height="400" src="https://github.com/markj0hnst0n/pizza-delivery-place/blob/master/README/wireframes/basket-browser.png">
+    <img height="400" src="https://github.com/markj0hnst0n/pizza-delivery-place/blob/master/README/wireframes/basket-phone.png">
+    <img height="400" src="https://github.com/markj0hnst0n/pizza-delivery-place/blob/master/README/wireframes/basket-phone.png">
+</p>
+</details>
+
+<summary>Checkout wireframes</summary>
+<p align="center">
+    <img height="400" src="https://github.com/markj0hnst0n/pizza-delivery-place/blob/master/README/wireframes/checkout-browser.png">
+    <img height="400" src="https://github.com/markj0hnst0n/pizza-delivery-place/blob/master/README/wireframes/checkout-tablet.png>
+    <img height="400" src="https://github.com/markj0hnst0n/pizza-delivery-place/blob/master/README/wireframes/checkout-phone.png">
+</p>
+</details>
+
+<summary>User Profile wireframes</summary>
+<p align="center">
+    <img height="400" src="https://github.com/markj0hnst0n/pizza-delivery-place/blob/master/README/wireframes/user-profile-browser.png">
+    <img height="400" src="https://github.com/markj0hnst0n/pizza-delivery-place/blob/master/README/wireframes/user-profile-tablet.png">
+    <img height="400" src="https://github.com/markj0hnst0n/pizza-delivery-place/blob/master/README/wireframes/user-profile-phone.png">
+</p>
+</details>
+
+<summary>Admin Profile wireframes</summary>
+<p align="center">
+    <img height="400" src="https://github.com/markj0hnst0n/pizza-delivery-place/blob/master/README/wireframes/admin-page-browser.png">
+    <img height="400" src="https://github.com/markj0hnst0n/pizza-delivery-place/blob/master/README/wireframes/admin-page-tablet.png">
+    <img height="400" src="https://github.com/markj0hnst0n/pizza-delivery-place/blob/master/README/wireframes/admin-page-phone.png">
+</p>
+</details>
+
+<summary>Contact Form Page wireframes</summary>
+<p align="center">
+    <img height="400" src="https://github.com/markj0hnst0n/pizza-delivery-place/blob/master/README/wireframes/admin-page-browser.png">
+    <img height="400" src="https://github.com/markj0hnst0n/pizza-delivery-place/blob/master/README/wireframes/sample-input-form-tablet.png">
+    <img height="400" src="https://github.com/markj0hnst0n/pizza-delivery-place/blob/master/README/wireframes/sample-input-form-phone.png">
+</p>
+</details>
+
+
 ## Fonts
 
 ## Colour Scheme
