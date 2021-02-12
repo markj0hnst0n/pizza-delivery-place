@@ -1,12 +1,12 @@
 html {
-    height: 100%;
+    position: relative;
+    min-height: 100%;
 }
 
 
 body {
     background: url('/media/rsz_1pizza-slice-pattern.png') repeat;
     font-family: 'Montserrat', sans-serif;
-    height: 100vh;
 }
 
 .hr-white {
@@ -79,46 +79,17 @@ body {
     border: 1.5px solid #000;
 }
 
-.content-block {
-    position: fixed;
-    height: 100%;
-    width: 100%;
-    top: 200px;
-    left: 0;
-}
-
-.overlay {
-    position: fixed;
-    height: 100%;
-    width: 100%;
-    top: 0;
-    left: 0;
-    background: #FCF8CA;
+.header-container {
+    height: 181px;
 }
 
 footer {
-    position: relative;
+    position: absolute;
+    bottom: 0;
 }
 
-@media (min-width: 750px) {
+@media (max-width: 767px) {
     footer {
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        z-index: 1034;
-    }
-}
-
-@media (max-width: 750px) {
-    .content-block {
-        padding-bottom: 200px;
         position: relative;
     }
-}
-
-@media (max-width: 325px) {
-    .content-block {
-        padding-bottom: 300px;
-        position: relative;
-    } 
 }
