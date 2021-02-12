@@ -16,6 +16,8 @@ class Category(models.Model):
         return self.friendly_name
 
 class Allergens(models.Model):
+    class Meta:
+        verbose_name_plural  = 'Allergens'
     name = models.CharField(max_length=254)
     friendly_name = models.CharField(max_length=254, null=True, blank=True)
 
