@@ -8,11 +8,17 @@ from .models import Day, Time, Timeslot
 
 class SlotInline(admin.TabularInline):
     model = Timeslot
+    
+    
 
 class TimeslotAdmin(admin.ModelAdmin):
     inlines = [
         SlotInline,
     ]
+    ordering = ('id',)
 
+class TimeAdmin(admin.ModelAdmin):
+    ordering = ('id',)
 
 admin.site.register(Day, TimeslotAdmin)
+admin.site.register(Time, TimeAdmin)
