@@ -10,9 +10,22 @@
 <div class="overlay"></div>
 <div class="container h-100">
     <div class="container">
-        {% for s in slots %}
-            {{ s.day }}
-        {% endfor %}
+        <div class="row w-100">
+            {% for d in days %}
+            <div class="col text-center">
+                {{ d }}
+                {% for s in slots %}                
+                    {% if d == s.day %}
+                        <div class="row w-100">
+                            <div class="col text-center">
+                            {{ s.time }}
+                        </div>
+                        </div>
+                    {% endif %}                
+                {% endfor %}
+            </div>
+            {% endfor %}
+        </div>
     </div>
 </div>
 {% endblock %}
