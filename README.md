@@ -245,7 +245,7 @@ The model used was the Django standard user model from django.contrib.auth.model
 <details>
 <summary>Data Schema</summary>
 <p align="center">
-    <img height="400" src="https://github.com/markj0hnst0n/pizza-delivery-place/blob/master/README/database_schema/pizza-place-logical-data-modelv1.2.png">
+    <img height="400" src="https://github.com/markj0hnst0n/pizza-delivery-place/blob/master/README/database_schema/pizza-place-logical-data-modelv1.3.png">
 </p>
 </details>
 
