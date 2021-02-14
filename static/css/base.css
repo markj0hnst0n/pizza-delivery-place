@@ -88,7 +88,17 @@ footer {
     bottom: 0;
 }
 
-@media (max-width: 767px) {
+.overlay {
+	height: 100%;
+	width: 100%;
+	top: 0;
+	left: 0;
+	position: fixed;
+    background: #FCF8CA;
+	z-index: -1;
+}
+
+@media (max-width: 400px) {
     footer {
         position: relative;
     }
