@@ -8,26 +8,27 @@
 
 {% block content %}
 
-<div class="container py-5 w-100 h-100">
-    <div class="container">
+<div class="container py-5 px-0 h-100">
+    <div class="container w-100">
         <div class="row">
             {% for d in days %}
-            <div class="col-12 col-md-4 text-center m-1 pb-5 intro-background">
+            <div class="col-12 col-md-4 text-center pb-5 intro-background">
                 <div class="row py-2">
                     <div class="col text-uppercase">
                     {{ d.friendly_name }}
                     </div>
+                    <hr class="w-100 border-black">
                 </div>
                 {% for s in slots %}                
                     {% if d == s.day %}
-                        <div class="row w-100 mx-0 pt-2">
+                        <div class="row pt-2">
                             <div class="col text-center py-1">
                                 <div class="text-white nav-color btn btn-lg rounded-pill">
                                     {{ s.time }}
                                 </div>
                             </div>
                         </div>
-                    {% endif %}                
+                    {% endif %}
                 {% endfor %}
             </div>
             {% endfor %}

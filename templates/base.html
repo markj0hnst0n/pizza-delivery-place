@@ -48,12 +48,13 @@
         
     {% block content %}
     {% endblock %}
+    {% block page_footer %}
+    {% endblock %}
     <footer id="footer" class="container-fluid py-0 nav-color">
         <div class="container">
           {% include 'includes/footer.html' %}
         </div>
-    </footer>
-
+    </footer>    
     {% block postloadjs %}
     {% endblock %}
   </body>
