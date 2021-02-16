@@ -9,66 +9,85 @@
 {% block content %}
 <div class="overlay"></div>
 <div class="container-fluid">
-    <div class="container pb-2">
-        <div class="row">
-            <div class="col text-center pt-2">
-                <h2 class="logo-font">
-                    Menu
-                </h2>
-                <hr class="hr-black w-50 mb-1">
-            </div>
+    <div class="row">
+        <div class="col text-center pt-2">
+            <h2 class="logo-font">
+                Menu
+            </h2>
+            <hr class="hr-black w-50 mb-1">
         </div>
-        <div class="row pt-3">
-            {% for item in menu %}
-                {% if item.image %}
-                    <div class="col-sm-12 col-md-4 col-lg-3">
-                        <div class="card h-100 border-2">
-                            <a href="{% url 'item_detail' item.id %}">
-                                <img  src="{{ item.image.url }}" alt="{{ item.name }} - {{ item.description }}" >
-                            </a>
-                            <div class="card-body pb-0">
-                                <p class="mb-0">{{ item.name }}</p>
-                                {% if item.spicy or item.vegetarian or item.allergens %}
-                                    <div class="row py-2">
-                                        {% if item.spicy %}
-                                        <div class="col text-center">
-                                            S <i class="fas fa-pepper-hot"></i>
-                                        </div>
-                                        {% endif %}
-                                        {% if item.vegetarian %}
-                                        <div class="col text-center">
-                                            V <i class="fas fa-seedling"></i>
-                                        </div>
-                                        {% endif %}
-                                        {% if item.allergens %}
-                                        <div class="col text-center">
-                                            A <i class="fas fa-ban"></i>
-                                        </div>
-                                        {% endif %}
+    </div>
+    <div class="row">
+        <div class="menu-container col-10 offset-1">
+            <div class="row mt-1 mb-2"></div>
+            <div class="row">
+                {% for item in menu %}
+                <div class="col-sm-12 col-md-4 col-lg-3">
+                    <div class="card h-100 border-2">
+                        <a href="{% url 'item_detail' item.id %}">
+                            <img  src="{{ item.image.url }}" alt="{{ item.name }} - {{ item.description }}" >
+                        </a>
+                        <div class="card-body pb-0">
+                            <p class="mb-0">{{ item.name }}</p>
+                            {% if item.spicy or item.vegetarian or item.allergens %}
+                                <div class="row py-2">
+                                    {% if item.spicy %}
+                                    <div class="col text-center">
+                                        S <i class="fas fa-pepper-hot"></i>
                                     </div>
-                                {% endif %}
-                            </div>
-                            <div class="card-footer bd-white pt-1 border-0 text-left">
-                                <div class="row">
-                                    <div class="col">
-                                        <p class="lead mb-0 text-left font-weight-bold">£{{ item.price }}</p>
+                                    {% endif %}
+                                    {% if item.vegetarian %}
+                                    <div class="col text-center">
+                                        V <i class="fas fa-seedling"></i>
                                     </div>
-                                    <div class="col text-right">
-                                        <button>
-                                            Order
-                                        </button>
-                                    </div>                                
+                                    {% endif %}
+                                    {% if item.allergens %}
+                                    <div class="col text-center">
+                                        A <i class="fas fa-ban"></i>
+                                    </div>
+                                    {% endif %}
                                 </div>
+                            {% endif %}
+                        </div>
+                        <div class="card-footer bd-white pt-1 border-0 text-left">
+                            <div class="row">
+                                <div class="col">
+                                    <p class="lead mb-0 text-left font-weight-bold">£{{ item.price }}</p>
+                                </div>
+                                <div class="col text-right">
+                                    <button>
+                                        Order
+                                    </button>
+                                </div>                                
                             </div>
                         </div>
                     </div>
-                {% endif %}
-            {% endfor %}
+                </div>
+                {% endfor %}
+            </div>
+            <div class="row footer-container">
+                
+            </div>
         </div>
     </div>
 </div>
 {% endblock %}
 
+<div class="row">
+    <div class="col text-center pt-2">
+        <h2 class="logo-font">
+            Menu
+        </h2>
+        <hr class="hr-black w-50 mb-1">
+    </div>
+</div>
+
+
+
+
+
+
+
 {% block page_footer %}
-<div class="container footer-container"></div>
+
 {% endblock %}
