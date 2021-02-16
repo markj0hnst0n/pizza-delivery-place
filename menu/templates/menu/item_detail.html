@@ -8,7 +8,52 @@
 
 {% block content %}
 <div class="overlay"></div>
-<div class="container-fluid">
+<div class="container-fluid w-60">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="card h-100 border-2">
+                    <a href="{% url 'item_detail' item.id %}">
+                        <img  src="" alt="{{ item.name }} - {{ item.description }}" >
+                    </a>
+                    <div class="card-body pb-0">
+                        <p class="mb-0">{{ item.name }}</p>
+                        {% if item.spicy or item.vegetarian or item.allergens %}
+                            <div class="row py-2">
+                                {% if item.spicy %}
+                                <div class="col text-center">
+                                    S <i class="fas fa-pepper-hot"></i>
+                                </div>
+                                {% endif %}
+                                {% if item.vegetarian %}
+                                <div class="col text-center">
+                                    V <i class="fas fa-seedling"></i>
+                                </div>
+                                {% endif %}
+                                {% if item.allergens %}
+                                <div class="col text-center">
+                                    A <i class="fas fa-ban"></i>
+                                </div>
+                                {% endif %}
+                            </div>
+                        {% endif %}
+                    </div>
+                    <div class="card-footer bd-white pt-1 border-0 text-left">
+                        <div class="row">
+                            <div class="col">
+                                <p class="lead mb-0 text-left font-weight-bold">£{{ item.price }}</p>
+                            </div>
+                            <div class="col text-right">
+                                <button>
+                                    Order
+                                </button>
+                            </div>                                
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     
 </div>
 {% endblock %}
