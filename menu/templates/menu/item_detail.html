@@ -11,28 +11,32 @@
 <div class="container-fluid w-60">
     <div class="container">
         <div class="row">
-            <div class="col-12">
-                <div class="card h-100 border-2">
-                    <a href="{% url 'item_detail' item.id %}">
-                        <img  src="" alt="{{ item.name }} - {{ item.description }}" >
-                    </a>
-                    <div class="card-body pb-0">
-                        <p class="mb-0">{{ item.name }}</p>
+            <div class="col-sm-12 col-md-6 offset-md-3 col-lg-4 offset-lg-4">
+                <div class="card border-2 my-3">
+                    <div class="p-2">
+                        <a href="{{ item.image.url }}" target="_blank">
+                            <img src="{{ item.image.url }}" alt="{{ item.name }} - {{ item.description }}" >
+                        </a>
+                    </div>
+                    <div class="card-body">
+                        <p>{{ item.name }}</p>
+                        <p>{{ item.description }}</p>
                         {% if item.spicy or item.vegetarian or item.allergens %}
                             <div class="row py-2">
                                 {% if item.spicy %}
                                 <div class="col text-center">
-                                    S <i class="fas fa-pepper-hot"></i>
+                                    Spicy
                                 </div>
                                 {% endif %}
                                 {% if item.vegetarian %}
                                 <div class="col text-center">
-                                    V <i class="fas fa-seedling"></i>
+                                    Vegetarian
                                 </div>
                                 {% endif %}
                                 {% if item.allergens %}
                                 <div class="col text-center">
-                                    A <i class="fas fa-ban"></i>
+                                    Allergens:
+                                    {{ item.allergens.friendly_name }}
                                 </div>
                                 {% endif %}
                             </div>
@@ -53,6 +57,7 @@
                 </div>
             </div>
         </div>
+        <div class="row footer-container"></div>
     </div>
     
 </div>
