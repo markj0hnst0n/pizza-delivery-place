@@ -21,12 +21,15 @@
         <div class="col">
             {% if cart_items %}
             {% else %}
-                <p class="lead mb-5">Your cart is empty</p>
-                <a href="{% url 'menu' %}" class="text-white nav-color btn btn-lg rounded-pill">
-                    <span class="icon">
-                        <i class="fas fa-chevron-left"></i>
-                    </span>
-                </a>
+                <div>
+                    <p class="lead mb-5">Your cart is empty</p>
+                    <a href="{% url 'menu' %}" class="text-white nav-color btn btn-lg rounded-pill">
+                        <span class="icon">
+                            <i class="fas fa-chevron-left"></i>
+                        </span>
+                        <span class="text-uppercase">Back to the menu</span>
+                    </a>
+                </div>
             {% endif %}
         </div>
     </div>
