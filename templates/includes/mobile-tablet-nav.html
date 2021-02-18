@@ -12,7 +12,7 @@
         </a>
     </div>
     <div class="col-4 my-auto">
-        <a class="{% if grand_total %}text-info font-weight-bold{% else %}text-white{% endif %} nav-link btn-black" href="">
+        <a class="{% if grand_total %}text-info font-weight-bold{% else %}text-white{% endif %} nav-link btn-black" href="{% url 'cart' %}">
             <div class="text-right">
                 <div class="pr-2 mr-1"><i class="fas fa-shopping-cart fa-lg"></i></div>
                 <p class="my-0 pl-1">

@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_header %}
+<div class="container header-container"></div>
+<div class="row"></div>
+{% endblock %}
+
+{% block content %}
+<div class="overlay"></div>
+<div class="container">
+    <div class="row">
+        <div class="col text-center pt-2">
+            <h2 class="logo-font">
+                Cart
+            </h2>
+            <hr class="hr-black w-50 mb-1">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            {% if cart_items %}
+            {% else %}
+                <p class="lead mb-5">Your cart is empty</p>
+                <a href="{% url 'menu' %}" class="text-white nav-color btn btn-lg rounded-pill">
+                    <span class="icon">
+                        <i class="fas fa-chevron-left"></i>
+                    </span>
+                </a>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}

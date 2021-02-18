@@ -48,7 +48,7 @@ INSTALLED_APPS = [
     'home',
     'menu',
     'timeslot',
-    'django_truncate',
+    'cart',
 ]
 
 MIDDLEWARE = [
