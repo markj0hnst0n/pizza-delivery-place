@@ -23,9 +23,6 @@ def cart_contents(request):
             'item': item,
         })
     
-
-    
-        
     if cart_items:
         grand_total = delivery + total
 
