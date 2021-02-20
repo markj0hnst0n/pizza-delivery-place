@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.contrib import messages
 from .models import Timeslot, Time, Day
 
 
@@ -17,10 +18,12 @@ def timeslot(request):
 def book_a_slot(request, s_id):
     """ Reserve a slot and add it to the cart """
 
-    redirect_url = request.POST.get('redirect_url')
-    cart = request.session.get('cart', {})
-    cart[F"slot_{s_id}"] = True
-    request.session['cart'] = cart
-    print(request.session['cart'])
+    slot = request.session.get('slot', {})
+    if slot:
+        messages.error(request, "You've booked a slot already")
+        return redirect('menu')
+    else:
+        slot[s_id] = True
+        request.session['slot'] = slot
 
-    return redirect('menu')
+        return redirect('menu')

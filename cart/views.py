@@ -13,9 +13,10 @@ def add_to_cart(request, item_id):
 
     quantity = int(request.POST.get('quantity'))
     redirect_url = request.POST.get('redirect_url')
+    slot = request.session.get('slot', {})
     cart = request.session.get('cart', {})
 
-    if cart == {}:
+    if slot == {}:
         messages.error(request, "You need to book a timeslot first!")
         return redirect('timeslot')
     else:
@@ -25,6 +26,7 @@ def add_to_cart(request, item_id):
             cart[item_id] = quantity
 
         request.session['cart'] = cart
+        print(request.session['slot']) 
         print(request.session['cart'])
 
         return redirect(redirect_url)
