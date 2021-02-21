@@ -31,11 +31,13 @@
                             <th scope="col">Subtotal</th>
                         </tr>
                     </thead>
-                    {{ cart }}
                     {% for item in cart_items %}
                         <tr>
                             <td class="p-3 w-25">
-                                <img src="{{ item.item.image.url }}" alt="{{ item.item.name }} - {{ item.item.description }}">
+                                <img class="img-fluid rounded" src="{{ item.item.image.url }}" alt="{{ item.item.name }} - {{ item.item.description }}">
+                            </td>
+                            <td class="py-3">
+                                <p class="my-0">{{ item.item.name }}</p>
                             </td>
                             <td class="py-3">
                                 <p class="my-0">{{ item.item.price }}</p>
