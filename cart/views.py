@@ -60,11 +60,10 @@ def remove_from_cart(request, item_id):
             messages.error(request, "You need to book a timeslot first!")
             return redirect('timeslot')
         else:
-            cart.pop[item_id]
+            cart.pop(item_id)
             
-            request.session['cart'] = cart 
-
-            return HttpResponse(status=200)
+        request.session['cart'] = cart 
+        return HttpResponse(status=200)
 
     except Exception as e:
         return HttpResponse(status=500)
