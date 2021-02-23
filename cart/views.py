@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect, reverse, HttpResponse
+from menu.models import MenuItem
 from django.contrib import messages
 
 # Create your views here.
@@ -11,6 +12,7 @@ def cart(request):
 def add_to_cart(request, item_id):
     """ Add quantity of the menu item to the cart """
 
+    item = MenuItem.objects.get(pk=item_id)
     quantity = int(request.POST.get('quantity'))
     redirect_url = request.POST.get('redirect_url')
     slot = request.session.get('slot', {})
@@ -27,6 +29,7 @@ def add_to_cart(request, item_id):
 
         request.session['cart'] = cart
 
+        messages.success(request, f'Added {item.name} to cart!')
         return redirect(redirect_url)
 
 def adjust_cart(request, item_id):
