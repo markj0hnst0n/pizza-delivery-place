@@ -35,6 +35,7 @@ def add_to_cart(request, item_id):
 def adjust_cart(request, item_id):
     """ Adjust quantity of the menu item """
 
+    item = MenuItem.objects.get(pk=item_id)
     quantity = int(request.POST.get('quantity'))
     slot = request.session.get('slot', {})
     cart = request.session.get('cart', {})
@@ -45,16 +46,18 @@ def adjust_cart(request, item_id):
     else:
         if quantity > 0:
             cart[item_id] = quantity
+            messages.success(request, f'Updated {item.name} quantity to {cart[item_id]}')
         else:
             cart.pop[item_id]
+            messages.success(request, f'Removed {item.name} from shopping cart')
         
         request.session['cart'] = cart 
-
         return redirect(reverse('cart'))
 
 def remove_from_cart(request, item_id):
     """ Remove menu item from bag """
 
+    item = MenuItem.objects.get(pk=item_id)
     slot = request.session.get('slot', {})
     cart = request.session.get('cart', {})
 
@@ -64,6 +67,7 @@ def remove_from_cart(request, item_id):
             return redirect('timeslot')
         else:
             cart.pop(item_id)
+            messages.success(request, f'Removed {item.name} from shopping cart')
             
         request.session['cart'] = cart 
         return HttpResponse(status=200)
