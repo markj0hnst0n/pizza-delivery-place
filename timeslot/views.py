@@ -8,11 +8,20 @@ def timeslot(request):
 
     slots = Timeslot.objects.all()
     days = Day.objects.all()
+    total_slot_list = []
+    total_slots = 0
+
+    for s in slots:
+        total_slot_list.append(s.available_slots)
+    
+    total_slots = sum(total_slot_list)
 
     context = {
         'slots': slots,
         'days': days,
+        'total_slots': total_slots,
     }
+    
     return render(request, 'timeslot/timeslot.html', context)
 
 def book_a_slot(request, s_id):
