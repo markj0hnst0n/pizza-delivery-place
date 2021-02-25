@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect, reverse, HttpResponse
+from django.shortcuts import render, redirect, reverse, HttpResponse, get_object_or_404
 from menu.models import MenuItem
 from django.contrib import messages
 
@@ -12,7 +12,7 @@ def cart(request):
 def add_to_cart(request, item_id):
     """ Add quantity of the menu item to the cart """
 
-    item = MenuItem.objects.get(pk=item_id)
+    item = get_object_or_404(MenuItem, pk=item_id)
     quantity = int(request.POST.get('quantity'))
     redirect_url = request.POST.get('redirect_url')
     slot = request.session.get('slot', {})
@@ -35,7 +35,7 @@ def add_to_cart(request, item_id):
 def adjust_cart(request, item_id):
     """ Adjust quantity of the menu item """
 
-    item = MenuItem.objects.get(pk=item_id)
+    item = get_object_or_404(MenuItem, pk=item_id)
     quantity = int(request.POST.get('quantity'))
     slot = request.session.get('slot', {})
     cart = request.session.get('cart', {})
@@ -57,7 +57,7 @@ def adjust_cart(request, item_id):
 def remove_from_cart(request, item_id):
     """ Remove menu item from bag """
 
-    item = MenuItem.objects.get(pk=item_id)
+    item = get_object_or_404(MenuItem, pk=item_id)
     slot = request.session.get('slot', {})
     cart = request.session.get('cart', {})
 
@@ -73,4 +73,5 @@ def remove_from_cart(request, item_id):
         return HttpResponse(status=200)
 
     except Exception as e:
+        messages.error(request, f'Error removing item: {e}')
         return HttpResponse(status=500)
