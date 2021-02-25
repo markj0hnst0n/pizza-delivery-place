@@ -27,7 +27,7 @@
                                     {% csrf_token %}
                                     <div class="form-row">
                                         <div class="col">
-                                            <input type="submit" class="text-white nav-color btn btn-lg rounded-pill" value="{{ s.time }}">
+                                            <input type="submit" class="text-white nav-color btn btn-lg rounded-pill" value="{{ s.time }}" {% if s.available_slots < 1 %} disabled {% endif %}>
                                         </div>
                                         <input type="hidden" name="redirect_url" value="{{ request.path }}">
                                     </div>

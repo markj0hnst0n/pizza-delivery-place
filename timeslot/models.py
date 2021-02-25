@@ -23,4 +23,4 @@ class Time(models.Model):
 class Timeslot(models.Model):    
     day = models.ForeignKey('Day', null=True, blank=True, on_delete=models.CASCADE)
     time = models.ForeignKey('Time', null=True, blank=True, on_delete=models.CASCADE)
-    available_slots = models.IntegerField(null=True)
+    available_slots = models.PositiveIntegerField(null=True)
