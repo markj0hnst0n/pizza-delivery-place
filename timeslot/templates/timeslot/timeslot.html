@@ -11,33 +11,39 @@
 <div class="container py-5 px-0 h-100">
     <div class="container w-100">
         <div class="row">
-            {% for d in days %}
-            <div class="col-12 col-md-4 text-center pb-5 intro-background">
-                <div class="row py-2">
-                    <div class="col text-uppercase">
-                    {{ d.friendly_name }}
-                    </div>
-                    <hr class="w-100 border-black">
-                </div>
-                {% for s in slots %}                
-                    {% if d == s.day %}
-                        <div class="row pt-2">
-                            <div class="col text-center py-1">
-                                <form class="form" action="{% url 'book_a_slot' s.id %}" method="POST">
-                                    {% csrf_token %}
-                                    <div class="form-row">
-                                        <div class="col">
-                                            <input type="submit" class="text-white nav-color btn btn-lg rounded-pill" value="{{ s.time }}" {% if s.available_slots < 1 %} disabled {% endif %}>
-                                        </div>
-                                        <input type="hidden" name="redirect_url" value="{{ request.path }}">
-                                    </div>
-                                </form>
-                            </div>
+            {% if s.available_slots in slots > 0 %}
+                {% for d in days %}
+                <div class="col-12 col-md-4 text-center pb-5 intro-background">
+                    <div class="row py-2">
+                        <div class="col text-uppercase">
+                        {{ d.friendly_name }}
                         </div>
-                    {% endif %}
+                        <hr class="w-100 border-black">
+                    </div>
+                    {% for s in slots %}                
+                        {% if d == s.day %}
+                            <div class="row pt-2">
+                                <div class="col text-center py-1">
+                                    <form class="form" action="{% url 'book_a_slot' s.id %}" method="POST">
+                                        {% csrf_token %}
+                                        <div class="form-row">
+                                            <div class="col">
+                                                <input type="submit" class="text-white nav-color btn btn-lg rounded-pill" value="{{ s.time }}" {% if s.available_slots < 1 %} disabled {% endif %}>
+                                            </div>
+                                            <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                </div>
                 {% endfor %}
-            </div>
-            {% endfor %}
+            {% else %}
+                <div class="col-sm-12 col-md-6 py-3 mx-2 offset-md-4 text-center logo-font intro-background">
+                    <h6>All Slots sold out</h6>
+                </div>
+            {% endif %}
         </div>
     </div>
 </div>
