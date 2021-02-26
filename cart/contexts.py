@@ -30,7 +30,6 @@ def cart_contents(request):
 
     for s_id in slot.keys():
         booked_slot=get_object_or_404(Timeslot, pk=s_id)
-        print(booked_slot)
     
     context = {
         'cart_items': cart_items,
