@@ -23,8 +23,27 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-12 col-lg-6 order-lg-last mb-5">
-            <p class="text-muted">Order Summary ({{ item_count }})</p>
+        <div class="col-12 col-lg-6 order-lg-last mb-2">
+            <p class="text-muted">Slot info</p>
+            <div class="row">
+                <div class="col">
+                    <p class="mb-1 mt-0 small text-muted">Day</p>
+                </div>
+                <div class="col">
+                    <p class="mb-1 mt-0 small text-muted">Time</p>
+                </div>
+            </div>
+            <div class="row mb-2">
+                <div class="col">
+                    {{ booked_slot.day.friendly_name }}
+                </div>
+                <div class="col">
+                    {{ booked_slot.time }} 
+                </div>
+            </div>
+            
+
+            <p class="text-muted">Order Summary ({{ item_count }})</p>            
             <div class="row">
                 <div class="col-7 offset-2">
                     <p class="mb-1 mt-0 small text-muted">Item</p>
@@ -33,6 +52,7 @@
                     <p class="mb-1 mt-0 small text-muted">Subtotal</p>
                 </div>
             </div>
+            
             {% for item in cart_items %}
                 <div class="row">
                     <div class="col-2 mb-1">
