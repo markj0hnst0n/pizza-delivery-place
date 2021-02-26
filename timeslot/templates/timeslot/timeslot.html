@@ -11,8 +11,13 @@
 <div class="container py-5 px-0 h-100">
     <div class="container w-100">
         <div class="row">
+            
             {% if total_slots <= 0 %}
-                Sold Out
+                <div class="col-sm-12 col-md-4 offset-md-4 intro-background">
+                    <p class="pt-2">
+                        <strong>This weeks slots are all sold out unfortunately.  We release our slots every Wednesday at 12 noon so please come back and try again next week!</strong>
+                    </p>
+                </div>
             {% else %}
                 {% for d in days %}
                 <div class="col-12 col-md-4 text-center pb-5 intro-background">
