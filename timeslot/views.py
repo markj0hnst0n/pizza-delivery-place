@@ -25,7 +25,7 @@ def timeslot(request):
     return render(request, 'timeslot/timeslot.html', context)
 
 def book_a_slot(request, s_id):
-    """ Reserve a slot and add it to the cart """
+    """ Reserve a slot from the database and add it to the session """
 
     slot = request.session.get('slot', {})
     db_slot = get_object_or_404(Timeslot, pk=s_id)
