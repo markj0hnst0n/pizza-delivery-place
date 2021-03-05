@@ -30,7 +30,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 DEBUG = os.environ.get('DEVELOPMENT')
 
 ALLOWED_HOSTS = [
-    '6c099de96018.ngrok.io'
+    '127.0.0.1'
 ]
 
 
@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     'cart',
     'checkout',
     'crispy_forms',
+    'profiles',
 ]
 
 MIDDLEWARE = [
