@@ -4,6 +4,7 @@ from django.contrib import messages
 from django.conf import settings
 
 from menu.models import MenuItem
+from timeslot.models import Timeslot
 from .models import Order, OrderLineItem
 from .forms import OrderForm
 from cart.contexts import cart_contents
@@ -122,15 +123,34 @@ def checkout_success(request, order_number):
     """
     Handle successful checkouts
     """
+    slot = request.session.get('slot', {})
+    s_id = list(slot.keys())[list(slot.values()).index(True)]
+    db_slot = get_object_or_404(Timeslot, pk=s_id)
+
+    if db_slot.available_slots < 1:
+        if 'slot' in request.session:
+            messages.error(request, "All requested slots now booked.  Please try another slot")
+            del request.session['slot']
+            return redirect('timeslot')
+    else:
+        if 'slot' in request.session:
+            db_slot.available_slots -= 1
+            db_slot.save()
+            del request.session['slot']
+        else:
+            messages.error(request, "You need to book a timeslot first!")
+            return redirect('timeslot')
+    
     save_info = request.session.get('save_info')
     order = get_object_or_404(Order, order_number=order_number)
     messages.success(request, f'Order successfully processed! \
         Your order number is {order_number}. A confirmation \
         email will be sent to {order.email}.')
     
-    if 'cart' and 'slot' in request.session:
+    
+    if 'cart' in request.session:
         del request.session['cart']
-        del request.session['slot']
+        
 
     template = 'checkout/checkout_success.html'
     context = {

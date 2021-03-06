@@ -28,15 +28,12 @@ def book_a_slot(request, s_id):
     """ Reserve a slot from the database and add it to the session """
 
     slot = request.session.get('slot', {})
-    db_slot = get_object_or_404(Timeslot, pk=s_id)
     if slot:
         messages.error(request, "You've booked a slot already")
         return redirect('menu')
     else:
         slot[s_id] = True
         request.session['slot'] = slot
-        db_slot.available_slots -= 1
-        db_slot.save()
 
         messages.success(request, "Slot booked in!")
         return redirect('menu')
