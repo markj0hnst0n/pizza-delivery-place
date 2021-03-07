@@ -266,11 +266,16 @@ See separate Testing.md file [here](testing/testing.md)
 
 Written content by Mark Johnston
 
+Pizza Loader code from:
+https://codepen.io/arcs/pen/pbPkPL
+
 ## Media
 
 
 
 ## Influences
+
+
 
 ## Acknowledgements
 
