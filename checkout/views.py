@@ -31,6 +31,18 @@ def cache_checkout_data(request):
 
 
 def checkout(request):
+    slot = request.session.get('slot', {})
+    if 'slot' in request.session:
+        s_id = list(slot.keys())[list(slot.values()).index(True)]
+        db_slot = get_object_or_404(Timeslot, pk=s_id)
+        if db_slot.available_slots < 1:        
+            messages.error(request, "All requested slots now booked.  Please try another slot")
+            del request.session['slot']
+            return redirect('timeslot')
+    else:
+        messages.error(request, "You need to book a timeslot!")
+        return redirect('timeslot')
+    
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
     stripe_secret_key = settings.STRIPE_SECRET_KEY
 
@@ -123,23 +135,26 @@ def checkout_success(request, order_number):
     """
     Handle successful checkouts
     """
-    slot = request.session.get('slot', {})
-    s_id = list(slot.keys())[list(slot.values()).index(True)]
-    db_slot = get_object_or_404(Timeslot, pk=s_id)
+    # slot = request.session.get('slot', {})
+    # s_id = list(slot.keys())[list(slot.values()).index(True)]
+    # db_slot = get_object_or_404(Timeslot, pk=s_id)
 
-    if db_slot.available_slots < 1:
-        if 'slot' in request.session:
-            messages.error(request, "All requested slots now booked.  Please try another slot")
-            del request.session['slot']
-            return redirect('timeslot')
+    # if db_slot.available_slots < 1:
+    #     if 'slot' in request.session:
+    #         messages.error(request, "All requested slots now booked.  Please try another slot")
+    #         del request.session['slot']
+    #         return redirect('timeslot')
+    # else:
+    slot = request.session.get('slot', {})
+    if 'slot' in request.session:
+        s_id = list(slot.keys())[list(slot.values()).index(True)]
+        db_slot = get_object_or_404(Timeslot, pk=s_id)
+        db_slot.available_slots -= 1
+        db_slot.save()
+        del request.session['slot']
     else:
-        if 'slot' in request.session:
-            db_slot.available_slots -= 1
-            db_slot.save()
-            del request.session['slot']
-        else:
-            messages.error(request, "You need to book a timeslot first!")
-            return redirect('timeslot')
+        messages.error(request, "You need to book a timeslot first!")
+        return redirect('timeslot')
     
     save_info = request.session.get('save_info')
     order = get_object_or_404(Order, order_number=order_number)
