@@ -14,9 +14,15 @@
             <div class="col-sm-12 col-md-8 offset-md-2 col-lg-6 offset-lg-3">
                 <div class="card border-2 my-3">
                     <div class="p-2">
+                        {% if item.image %}
                         <a href="{{ item.image.url }}" target="_blank">
                             <img src="{{ item.image.url }}" alt="{{ item.name }} - {{ item.description }}" >
                         </a>
+                        {% else %}
+                        <a href="">
+                            <img src="{{ MEDIA_URL }}noimage.png" alt="{{ item.name }} - {{ item.description }}">
+                        </a>
+                        {% endif %}                        
                     </div>
                     <div class="card-body">
                         <p>{{ item.name }}</p>

@@ -30,9 +30,15 @@
                 {% for item in menu %}
                 <div class="col-sm-12 col-md-4 col-lg-3 mb-2">
                     <div class="card h-100 border-2">
+                        {% if item.image %}
                         <a href="{% url 'item_detail' item.id %}">
                             <img  src="{{ item.image.url }}" alt="{{ item.name }} - {{ item.description }}" >
                         </a>
+                        {% else %}
+                        <a href="{% url 'item_detail' item.id %}">
+                            <img src="{{ MEDIA_URL }}noimage.png" alt="{{ item.name }} - {{ item.description }}">
+                        </a>
+                        {% endif %}   
                         <div class="card-body pb-0">
                             <p class="mb-0">{{ item.name }}</p>
                             {% if item.spicy or item.vegetarian or item.allergens %}

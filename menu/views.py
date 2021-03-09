@@ -50,8 +50,18 @@ def item_detail(request, item_id):
 
 def add_menu_item(request):
     """ Add an item to the menu """
-
-    form = MenuItemForm()
+    if request.method == 'POST':
+        form = MenuItemForm(request.POST, request.FILES)
+        if form.is_valid():
+            menu_item = form.save()
+            messages.success(request, 'Successfully added Menu Item!')
+            return redirect(reverse('item_detail', args=[menu_item.id]))
+        else:
+            messages.error(request,
+                           'Failed to add menu item. Please ensure the form is valid.')
+    else:
+        form = MenuItemForm()
+    
     template = 'menu/add_menu_item.html'
     context = {
         'form': form,
