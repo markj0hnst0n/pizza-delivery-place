@@ -27,6 +27,7 @@
 
 #loading-overlay {
   background: #17A2B8;
+  opacity: 0.9;
 	display: none;
 	position: fixed;
   top: 0;
