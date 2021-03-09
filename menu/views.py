@@ -1,6 +1,9 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.db.models import Q
+
+from .forms import MenuItemForm
+
 from .models import MenuItem, Category
 
 # Create your views here.
@@ -44,3 +47,14 @@ def item_detail(request, item_id):
         'item': item,
     }
     return render(request, 'menu/item_detail.html', context)
+
+def add_menu_item(request):
+    """ Add an item to the menu """
+
+    form = MenuItemForm()
+    template = 'menu/add_menu_item.html'
+    context = {
+        'form': form,
+    }
+
+    return render(request, template, context)
