@@ -41,6 +41,14 @@
                         {% endif %}   
                         <div class="card-body pb-0">
                             <p class="mb-0">{{ item.name }}</p>
+                            {% if request.user.is_superuser %}
+                                <div class="row">
+                                    <small class="ml-3">
+                                        <a href="{% url 'edit_menu_item' item.id %}">Edit</a>
+                                        <a class="text-danger" href="{% url 'delete_menu_item' item.id %}">Delete</a>
+                                    </small>
+                                </div>
+                            {% endif %}
                             {% if item.spicy or item.vegetarian or item.allergens %}
                                 <div class="row py-2">
                                     {% if item.spicy %}

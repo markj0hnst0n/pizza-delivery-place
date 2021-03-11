@@ -91,3 +91,12 @@ def edit_menu_item(request, item_id):
     }
 
     return render(request, template, context)
+
+
+def delete_menu_item(request, item_id):
+    """ Delete a item from the menu """
+
+    item = get_object_or_404(MenuItem, pk=item_id)
+    item.delete()
+    messages.success(request, 'Menu item deleted!')
+    return redirect(reverse('menu'))
