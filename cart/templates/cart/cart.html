@@ -35,10 +35,10 @@
                     {% for item in cart_items %}
                         <tr>
                             <td class="p-3 w-25">
-                                {% if item.image %}
-                                    <img  src="{{ item.image.url }}" alt="{{ item.item.name }} - {{ item.item.description }}" >
+                                {% if item.item.image %}
+                                    <img class="img-fluid rounded" src="{{ item.item.image.url }}" alt="{{ item.item.name }} - {{ item.item.description }}" >
                                 {% else %}
-                                    <img src="{{ MEDIA_URL }}noimage.png" alt="{{ item.item.name }} - {{ item.item.description }}">
+                                    <img class="img-fluid rounded" src="{{ MEDIA_URL }}noimage.png" alt="{{ item.item.name }} - {{ item.item.description }}">
                                 {% endif %}
                             </td>
                             <td class="py-3">
