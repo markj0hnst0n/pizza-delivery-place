@@ -22,12 +22,12 @@ def contact(request):
             'home/contact_emails/contact_email_subject.txt')
         body = render_to_string(
             'home/contact_emails/contact_email_body.txt')
-
+        
         send_mail(
             subject,
             body,
             settings.DEFAULT_FROM_EMAIL,
-            user_email
+            [user_email]
         )
         messages.success(request, "Contact From Sent")
 
