@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 
 from .forms import MenuItemForm
@@ -48,8 +49,14 @@ def item_detail(request, item_id):
     }
     return render(request, 'menu/item_detail.html', context)
 
+
+@login_required
 def add_menu_item(request):
     """ Add an item to the menu """
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only store owners can do that.')
+        return redirect(reverse('home'))
+
     if request.method == 'POST':
         form = MenuItemForm(request.POST, request.FILES)
         if form.is_valid():
@@ -69,8 +76,14 @@ def add_menu_item(request):
 
     return render(request, template, context)
 
+
+@login_required
 def edit_menu_item(request, item_id):
     """ Edit an item on the menu """
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only store owners can do that.')
+        return redirect(reverse('home'))
+
     item = get_object_or_404(MenuItem, pk=item_id)
     if request.method == 'POST':
         form = MenuItemForm(request.POST, request.FILES, instance=item)
@@ -93,9 +106,14 @@ def edit_menu_item(request, item_id):
     return render(request, template, context)
 
 
+@login_required
 def delete_menu_item(request, item_id):
     """ Delete a item from the menu """
 
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only store owners can do that.')
+        return redirect(reverse('home'))
+    
     item = get_object_or_404(MenuItem, pk=item_id)
     item.delete()
     messages.success(request, 'Menu item deleted!')
