@@ -69,7 +69,10 @@ def checkout(request):
             order = order_form.save(commit=False)
             pid = request.POST.get('client_secret').split('_secret')[0]
             order.stripe_pid = pid
-            order.original_cart = json.dumps(cart),
+            order.original_cart = json.dumps(cart)
+            current_cart = cart_contents(request)
+            delivery = current_cart['delivery']
+            order.delivery_cost = delivery
             order.save()
             for item_id, quantity in cart.items():
                 try:

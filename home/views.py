@@ -4,5 +4,9 @@ from django.shortcuts import render
 
 
 def index(request):
-    """ Returned Index/Homepage """
+    """ Returns Index/Homepage """
     return render(request, 'home/index.html')
+
+def about(request):
+    """ Shows about page for the business """
+    return render(request, 'home/about.html')
