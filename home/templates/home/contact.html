@@ -13,7 +13,8 @@
         <h2 class="logo-font">Contact us!</h2>
     </div>
     <hr class="hr-black w-50">
-    <form action="">
+    <form method="POST" action="{% url 'contact' %}">
+        {% csrf_token %}
         <div class="form-group">
             <label for="name">Name</label>
             <input class="form-control" id="name" type="text">
