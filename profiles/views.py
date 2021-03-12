@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from django.db.models import Q
 
 from checkout.models import Order
 from .models import UserProfile
@@ -44,6 +45,18 @@ def admin(request):
         return redirect(reverse('home'))
 
     orders = Order.objects.all()
+    query = None
+
+
+    if request.GET:
+        if 'order_q' in request.GET:
+            query = request.GET['order_q']
+            if not query:
+                messages.error(request, "You didn't enter any search criteria!")
+                return redirect(reverse('admin'))
+            
+            queries = Q(order_number__icontains=query) | Q(full_name__icontains=query)
+            orders = orders.filter(queries)
 
     template = 'profiles/admin.html'
     context = {
@@ -51,7 +64,6 @@ def admin(request):
     }
 
     return render(request, template, context)
-
 
 
 
