@@ -266,8 +266,7 @@ See separate Testing.md file [here](testing/testing.md)
 
 Written content by Mark Johnston
 
-Pizza Loader code from:
-https://codepen.io/arcs/pen/pbPkPL
+
 
 ## Media
 
@@ -275,6 +274,12 @@ https://codepen.io/arcs/pen/pbPkPL
 
 ## Influences
 
+Pizza Loader code from:
+https://codepen.io/arcs/pen/pbPkPL
+
+JS Timer in minutes and seconds from:
+
+https://stackoverflow.com/questions/41035992/jquery-countdown-timer-for-minutes-and-seconds
 
 
 ## Acknowledgements

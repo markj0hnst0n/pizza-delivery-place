@@ -147,21 +147,29 @@
                     </p>
                 </div>
             </form>
+            
         </div>
     </div>
-    <div class="row footer-container"></div>
+    <div class="row w-100 btn-black countdown">
+        <div class="container px-2">
+            <p>You currently have <span id="countdown"></span> to checkout.  If you do not checkout in this time your timeslot is in danger of being used.</p>    
+        </div>
+    </div>
+<div class="row footer-container"></div>
 </div>
 <div id="loading-overlay">
     <div class="pizza-wrapper">
         <canvas id="pizza"></canvas>
     </div>
 </div>
+
 {% endblock %}
 
 {% block postloadjs %}
     {{ block.super }}
     {{ stripe_public_key|json_script:"id_stripe_public_key" }}
     {{ client_secret|json_script:"id_client_secret" }}
+    <script src="{% static 'checkout/js/timer.js' %}"></script>
     <script src="{% static 'checkout/js/stripe_elements.js' %}"></script>
     <script src="{% static 'checkout/js/pizza-loader.js' %}"></script>
 {% endblock %}
