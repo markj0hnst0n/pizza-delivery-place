@@ -1,0 +1,2 @@
+Customer Name: {{ user_name }}
+Customer Query: {{ query }}
