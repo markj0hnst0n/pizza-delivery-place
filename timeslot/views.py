@@ -1,5 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
+
 from .models import Timeslot, Time, Day
 
 
@@ -37,3 +39,22 @@ def book_a_slot(request, s_id):
 
         messages.success(request, "Slot booked in!")
         return redirect('menu')
+
+
+@login_required
+def timeslot_refresh(request):
+    """ Adds 2 available slots to all current timeslots on the site """
+    """ This view assumes all slots are sold out currently """
+
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only store owners can use this page.')
+        return redirect(reverse('home'))
+
+    all_slots = Timeslot.objects.all()
+
+    for slot in all_slots:
+        slot.available_slots = 0
+        slot.available_slots += 2
+        slot.save()
+    
+    return redirect('timeslot')

@@ -1,9 +1,10 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 
 from checkout.models import Order
+from timeslot.models import Timeslot
 from .models import UserProfile
 from .forms import UserProfileForm
 
@@ -64,7 +65,6 @@ def admin(request):
     }
 
     return render(request, template, context)
-
 
 
 @login_required
