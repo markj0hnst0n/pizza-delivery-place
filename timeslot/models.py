@@ -11,6 +11,6 @@ class Day(models.Model):
 
 class Timeslot(models.Model):    
     day = models.ForeignKey('Day', null=True, blank=True, on_delete=models.SET_NULL)
-    start_time = models.TimeField('StartTime', null=True, blank=True)
-    end_time = models.TimeField('EndTime', null=True, blank=True)
+    start_time = models.TimeField('StartTime', help_text="Please use the following format: <em>XX:XX</em>")
+    end_time = models.TimeField('EndTime', help_text="Please use the following format: <em>XX:XX</em>")
     available_slots = models.PositiveIntegerField(null=True)

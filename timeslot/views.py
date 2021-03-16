@@ -1,6 +1,7 @@
-from django.shortcuts import render, redirect, get_object_or_404
+from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from .forms import TimeslotForm
 
 from .models import Timeslot, Day
 
@@ -8,7 +9,7 @@ from .models import Timeslot, Day
 def timeslot(request):    
     """ A view to show all available timeslots """
 
-    slots = Timeslot.objects.all()
+    slots = Timeslot.objects.all().order_by('-start_time')
     days = Day.objects.all()
     total_slot_list = []
     total_slots = 0
@@ -52,9 +53,49 @@ def timeslot_refresh(request):
 
     all_slots = Timeslot.objects.all()
 
-    for slot in all_slots:
-        slot.available_slots = 0
-        slot.available_slots += 2
-        slot.save()
+    if all_slots:
+        for slot in all_slots:
+            slot.available_slots = 0
+            slot.available_slots += 2
+            slot.save()
+    else:
+       messages.error(request, 'No timeslots in database.  Please create a timeslot')
+       return redirect('home')
+
     
     return redirect('timeslot')
+
+@login_required
+def create_timeslot(request):
+    """ Create a timeslot on the site """
+
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only store owners can use this page.')
+        return redirect(reverse('home'))
+
+    if request.method == 'POST':
+        form = TimeslotForm(request.POST, request.FILES)
+        if form.is_valid():
+            menu_item = form.save()
+            messages.success(request, 'Successfully added Timelsot!')
+            return redirect(reverse('timeslot'))
+        else:
+            messages.error(request,
+                           'Failed to add menu item. Please ensure the form is valid.')
+    else:
+        form = TimeslotForm()
+    
+    template = 'timeslot/create_timeslot.html'
+    context = {
+        'form': form,
+    }
+
+    return render(request, template, context)
+
+# @login_required
+# def create_day(request):
+#     """ Create a new delivery day on the site """
+
+#     if not request.user.is_superuser:
+#         messages.error(request, 'Sorry, only store owners can use this page.')
+#         return redirect(reverse('home'))

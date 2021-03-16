@@ -5,4 +5,5 @@ urlpatterns = [
     path('', views.timeslot, name='timeslot'),
     path('book/<s_id>/', views.book_a_slot, name='book_a_slot'),
     path('timeslot_refresh/', views.timeslot_refresh, name='timeslot_refresh'),
+    path('create_timeslot/', views.create_timeslot, name='create_timeslot'),
 ]
