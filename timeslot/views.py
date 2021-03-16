@@ -105,7 +105,7 @@ def edit_timeslot(request, s_id):
         form = TimeslotForm(request.POST, request.FILES, instance=slot)
         if form.is_valid():
             form.save()
-            messages.success(request, 'Successfully updated item!')
+            messages.success(request, 'Successfully updated timeslot!')
             return redirect(reverse('timeslot'))
         else:
             messages.error(request, 'Failed to update item. Please ensure the form is valid.')

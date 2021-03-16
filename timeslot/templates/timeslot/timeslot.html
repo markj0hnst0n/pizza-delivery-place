@@ -22,17 +22,19 @@
                 {% for d in days %}
                 <div class="col-12 col-md-4 text-center pb-5 intro-background">
                     <div class="row py-2">
-                        <div class="col text-uppercase">
+                        <div class="col text-uppercase">                  
                         {{ d.name }}
-                        </div>
                         {% if request.user.is_superuser %}
-                            <div class="row">
-                                <small class="ml-3">
+                        <div class="row">
+                            <div class="col text-center">
+                                <small>
                                     <a href="{% url 'edit_day' d.id %}">Edit</a>
                                     <a class="text-danger" href="{% url 'delete_day' d.id %}#">Delete</a>
                                 </small>
                             </div>
+                        </div>
                         {% endif %}
+                        </div>                        
                         <hr class="w-100 border-black">
                     </div>
                     {% for s in slots %}                
@@ -43,18 +45,20 @@
                                         {% csrf_token %}
                                         <div class="form-row">
                                             <div class="col">
-                                                <input type="submit" class="text-white nav-color btn btn-lg rounded-pill" value="{{ s.start_time }} - {{ s.end_time }}" {% if s.available_slots < 1 %} disabled {% endif %}>
+                                                <input type="submit" 
+                                                class="text-white nav-color btn btn-lg rounded-pill"
+                                                value="{{ s.start_time }} - {{ s.end_time }}" 
+                                                {% if s.available_slots < 1 %} disabled {% endif %}>
                                             </div>
                                             <input type="hidden" name="redirect_url" value="{{ request.path }}">
                                         </div>
                                     </form>
                                     {% if request.user.is_superuser %}
-                                        <div class="row">
-                                            <small class="ml-3">
-                                                <a href="{% url 'edit_timeslot' s.id %}">Edit</a>
-                                                <a class="text-danger" href="{% url 'delete_timeslot' s.id %}">Delete</a>
-                                            </small>
-                                        </div>
+                                        <small> {{ s.available_slots }} available</small>
+                                        <small class="ml-3">
+                                            <a href="{% url 'edit_timeslot' s.id %}">Edit</a>
+                                            <a class="text-danger" href="{% url 'delete_timeslot' s.id %}">Delete</a>
+                                        </small>
                                     {% endif %}
                                 </div>
                             </div>
