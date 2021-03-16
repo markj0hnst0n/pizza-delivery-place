@@ -78,8 +78,8 @@ def create_timeslot(request):
     if request.method == 'POST':
         form = TimeslotForm(request.POST, request.FILES)
         if form.is_valid():
-            menu_item = form.save()
-            messages.success(request, 'Successfully added Timelsot!')
+            form.save()
+            messages.success(request, 'Successfully added Timeslot!')
             return redirect(reverse('timeslot'))
         else:
             messages.error(request,
@@ -94,10 +94,19 @@ def create_timeslot(request):
 
     return render(request, template, context)
 
-# @login_required
-# def create_day(request):
-#     """ Create a new delivery day on the site """
+@login_required
+def add_day(request):
+    """ Create a new delivery day on the site """
 
-#     if not request.user.is_superuser:
-#         messages.error(request, 'Sorry, only store owners can use this page.')
-#         return redirect(reverse('home'))
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only store owners can use this page.')
+        return redirect(reverse('home'))
+    
+    if request.method == 'POST':
+        day = request.POST.get("day")
+        db_day = Day.objects.create(name=day)
+        db_day.save()
+        return redirect('timeslot')
+
+        
+    return render(request, 'timeslot/add_day.html')
