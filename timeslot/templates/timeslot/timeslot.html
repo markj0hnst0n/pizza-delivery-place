@@ -25,6 +25,14 @@
                         <div class="col text-uppercase">
                         {{ d.name }}
                         </div>
+                        {% if request.user.is_superuser %}
+                            <div class="row">
+                                <small class="ml-3">
+                                    <a href="{% url 'edit_day' d.id %}">Edit</a>
+                                    <a class="text-danger" href="{% url 'delete_day' d.id %}#">Delete</a>
+                                </small>
+                            </div>
+                        {% endif %}
                         <hr class="w-100 border-black">
                     </div>
                     {% for s in slots %}                

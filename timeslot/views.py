@@ -44,8 +44,7 @@ def book_a_slot(request, s_id):
 
 @login_required
 def timeslot_refresh(request):
-    """ Adds 2 available slots to all current timeslots on the site """
-    """ This view assumes all slots are sold out currently """
+    """ Adds the requested amount of available slots to all current timeslots on the site """
 
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, only store owners can use this page.')
@@ -110,3 +109,43 @@ def add_day(request):
 
         
     return render(request, 'timeslot/add_day.html')
+
+@login_required
+def edit_day(request, d_id):
+    """ Edit day """
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only store owners can do that.')
+        return redirect(reverse('home'))
+
+    day = get_object_or_404(Day, pk=d_id)
+
+    if request.method == 'POST':
+        day.name = request.POST.get("day")
+        day.save()
+        messages.success(request, 'Successfully edited day!')
+        return redirect('timeslot')
+        
+    else:
+        current_day = day.name
+        messages.info(request, f'You are editing {day.name}')
+
+    template = 'timeslot/edit_day.html'
+    context = {
+        'day': day,
+    }
+
+    return render(request, template, context)
+
+
+@login_required
+def delete_day(request, d_id):
+    """ Delete a day """
+
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only store owners can do that.')
+        return redirect(reverse('home'))
+    
+    day = get_object_or_404(Day, pk=d_id)
+    day.delete()
+    messages.success(request, 'Day deleted!')
+    return redirect(reverse('timeslot'))
