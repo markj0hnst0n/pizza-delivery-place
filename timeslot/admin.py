@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Day, Time, Timeslot
+from .models import Day, Timeslot
 
 # Register your models here.
 
@@ -21,4 +21,4 @@ class TimeAdmin(admin.ModelAdmin):
     ordering = ('id',)
 
 admin.site.register(Day, TimeslotAdmin)
-admin.site.register(Time, TimeAdmin)
+admin.site.register(Timeslot)

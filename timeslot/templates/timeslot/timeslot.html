@@ -23,7 +23,7 @@
                 <div class="col-12 col-md-4 text-center pb-5 intro-background">
                     <div class="row py-2">
                         <div class="col text-uppercase">
-                        {{ d.friendly_name }}
+                        {{ d.name }}
                         </div>
                         <hr class="w-100 border-black">
                     </div>
@@ -35,7 +35,7 @@
                                         {% csrf_token %}
                                         <div class="form-row">
                                             <div class="col">
-                                                <input type="submit" class="text-white nav-color btn btn-lg rounded-pill" value="{{ s.time }}" {% if s.available_slots < 1 %} disabled {% endif %}>
+                                                <input type="submit" class="text-white nav-color btn btn-lg rounded-pill" value="{{ s.start_time }} - {{ s.end_time }}" {% if s.available_slots < 1 %} disabled {% endif %}>
                                             </div>
                                             <input type="hidden" name="redirect_url" value="{{ request.path }}">
                                         </div>
