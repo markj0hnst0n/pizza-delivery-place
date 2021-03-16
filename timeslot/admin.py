@@ -1,14 +1,9 @@
 from django.contrib import admin
 from .models import Day, Timeslot
 
-# Register your models here.
-
-
-
 
 class SlotInline(admin.TabularInline):
     model = Timeslot
-    
     
 
 class TimeslotAdmin(admin.ModelAdmin):

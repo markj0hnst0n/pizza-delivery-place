@@ -94,6 +94,47 @@ def create_timeslot(request):
     return render(request, template, context)
 
 @login_required
+def edit_timeslot(request, s_id):
+    """ Edit a timeslot """
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only store owners can do that.')
+        return redirect(reverse('home'))
+
+    slot = get_object_or_404(Timeslot, pk=s_id)
+    if request.method == 'POST':
+        form = TimeslotForm(request.POST, request.FILES, instance=slot)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Successfully updated item!')
+            return redirect(reverse('timeslot'))
+        else:
+            messages.error(request, 'Failed to update item. Please ensure the form is valid.')
+    else:
+        form = TimeslotForm(instance=slot)
+        messages.info(request, f'You are editing a timeslot for {slot.day}')
+
+    template = 'timeslot/edit_timeslot.html'
+    context = {
+        'form': form,
+        'slot': slot,
+    }
+
+    return render(request, template, context)
+
+@login_required
+def delete_timeslot(request, s_id):
+    """ Delete a day """
+
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only store owners can do that.')
+        return redirect(reverse('home'))
+    
+    slot = get_object_or_404(Timeslot, pk=s_id)
+    slot.delete()
+    messages.success(request, 'Timeslot deleted!')
+    return redirect(reverse('timeslot'))
+
+@login_required
 def add_day(request):
     """ Create a new delivery day on the site """
 
