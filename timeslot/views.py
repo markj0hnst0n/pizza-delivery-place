@@ -9,7 +9,7 @@ from .models import Timeslot, Day
 def timeslot(request):    
     """ A view to show all available timeslots """
 
-    slots = Timeslot.objects.all().order_by('-start_time')
+    slots = Timeslot.objects.all().order_by('start_time')
     days = Day.objects.all()
     total_slot_list = []
     total_slots = 0
@@ -51,16 +51,18 @@ def timeslot_refresh(request):
         messages.error(request, 'Sorry, only store owners can use this page.')
         return redirect(reverse('home'))
 
-    all_slots = Timeslot.objects.all()
+    if request.method == 'POST':
+        all_slots = Timeslot.objects.all()
 
-    if all_slots:
-        for slot in all_slots:
-            slot.available_slots = 0
-            slot.available_slots += 2
-            slot.save()
-    else:
-       messages.error(request, 'No timeslots in database.  Please create a timeslot')
-       return redirect('home')
+        if all_slots:
+            slots_to_add = int(request.POST.get("slot_num"))
+            for slot in all_slots:
+                slot.available_slots = 0
+                slot.available_slots += slots_to_add
+                slot.save()
+        else:
+            messages.error(request, 'No timeslots in database.  Please create a timeslot')
+            return redirect('home')
 
     
     return redirect('timeslot')
