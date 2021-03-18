@@ -57,7 +57,7 @@ def contact(request):
     return render(request, 'home/contact.html')
 
 
-def error_400_view(request):
+def error_400_view(request, exception):
     messages.error(request, 'Bad request')
     return render(request, 'home/400.html')
 
