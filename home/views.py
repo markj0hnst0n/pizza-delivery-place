@@ -55,3 +55,23 @@ def contact(request):
         messages.success(request, "Contact From Sent")
 
     return render(request, 'home/contact.html')
+
+
+def error_400_view(request):
+    messages.error(request, 'Bad request')
+    return render(request, 'home/400.html')
+
+
+def error_403_view(request, exception):
+    messages.error(request, 'Forbidden')
+    return render(request, 'home/403.html')
+
+
+def error_404_view(request, exception):
+    messages.error(request, 'Page not found')
+    return render(request, 'home/404.html')
+
+
+def error_500_view(request):
+    messages.error(request, 'Server problem')
+    return render(request, 'home/500.html')
