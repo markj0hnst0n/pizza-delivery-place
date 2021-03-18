@@ -10,7 +10,7 @@ def cart_contents(request):
     booked_slot = ""
     total = 0
     item_count = 0
-    delivery = 2
+    delivery = settings.DEFAULT_DELIVERY_CHARGE
     grand_total = 0
     cart = request.session.get('cart', {})
     slot = request.session.get('slot', {})
