@@ -40,14 +40,14 @@ def checkout(request):
         s_id = list(slot.keys())[list(slot.values()).index(True)]
         db_slot = get_object_or_404(Timeslot, pk=s_id)
         if db_slot.available_slots < 1:
-            messages.error(request,
-            "All requested slots now booked. Please try another slot")
+            messages.error(request, "All requested slots now booked. "
+                                    "Please try another slot")
             del request.session['slot']
             return redirect('timeslot')
     else:
         messages.error(request, "You need to book a timeslot!")
         return redirect('timeslot')
-    
+
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
     stripe_secret_key = settings.STRIPE_SECRET_KEY
 
@@ -90,18 +90,19 @@ def checkout(request):
 
                 except MenuItem.DoesNotExist:
                     messages.error(request, (
-                        "One of the items in your cart wasn't found in our database. "
+                        "One of the items in your cart "
+                        "wasn't found in our database. "
                         "Please call us for assistance!")
                     )
                     order.delete()
                     return redirect(reverse('cart'))
 
             request.session['save_info'] = 'save-info' in request.POST
-            return redirect(reverse('checkout_success', args=[order.order_number]))
+            return redirect(reverse
+                            ('checkout_success', args=[order.order_number]))
         else:
             messages.error(request, 'There was an error with your form. \
                 Please double check your information.')
-        
 
     else:
         slot = request.session.get('slot', {})
@@ -145,7 +146,6 @@ def checkout(request):
     if not stripe_public_key:
         messages.warning(request, 'Stripe public key is not set')
 
-    
     template = 'checkout/checkout.html'
     context = {
         'order_form': order_form,
@@ -171,7 +171,7 @@ def checkout_success(request, order_number):
     else:
         messages.error(request, "You need to book a timeslot first!")
         return redirect('timeslot')
-    
+
     save_info = request.session.get('save_info')
     order = get_object_or_404(Order, order_number=order_number)
 
@@ -198,11 +198,9 @@ def checkout_success(request, order_number):
     messages.success(request, f'Order successfully processed! \
         Your order number is {order_number}. A confirmation \
         email will be sent to {order.email}.')
-    
-    
+
     if 'cart' in request.session:
         del request.session['cart']
-        
 
     template = 'checkout/checkout_success.html'
     context = {
