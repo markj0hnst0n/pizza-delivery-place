@@ -66,6 +66,7 @@ These businesses typically only work a few days a week and release all their del
 | Site Owner | Let customers see the menu even if this week is sold out | Let them see what they are missing and create demand for next week
 | Site Owner | Allow customers to book a time slot for delivery | Make sure I have the order ready for that time
 | Site Owner | Create, read, update or delete menu items and quantities | Easily manage the items on the menu
+| Site Owner | Create, read, update or delete timeslots and timeslot information | To give me control over opening times and slots and increase my flexibility
 | Site Owner | See a record of the order history sort by date | Check previous orders to make sure they are correct
 
 
