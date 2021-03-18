@@ -22,42 +22,7 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-12 col-lg-6 py-5 text-left">
-            
-            <h4 class="py-3">
-                <p class="text-muted">Refresh All Timeslots</p>
-                <form action="{% url 'timeslot_refresh' %}" method="POST">
-                    {% csrf_token %}
-                    <div class="form-group ">
-                        <input type="number" class="form-control w-25 my-auto" id="slot_num" 
-                        name="slot_num" aria-describedby="emailHelp" placeholder="0"
-                        value="0" min="0" max="10">
-                        <small id="slot_num" class="form-text text-muted">This is the number of slots you want to make available for each current timeslot</small>
-                      </div>
-                    <button type="submit"
-                    class="btn btn-black rounded-0">Refresh!</button>
-                </form>
-            </h4>
-            <hr class="my-3">
-            <div class="text-center">
-                <h4 class="py-3">
-                    <a href="{% url 'add_menu_item' %}" class="deals-button text-white nav-color btn btn-lg rounded-pill text-uppercase py-3">
-                    Add a new Menu Item
-                    </a>
-                </h4>
-                <h4 class="py-3">
-                    <a href="{% url 'add_day' %}" class="deals-button text-white nav-color btn btn-lg rounded-pill text-uppercase py-3">
-                    Add a new Day
-                    </a>
-                </h4>
-                <h4 class="py-3">
-                    <a href="{% url 'create_timeslot' %}" class="deals-button text-white nav-color btn btn-lg rounded-pill text-uppercase py-3">
-                    Create a new Timeslot
-                    </a>
-                </h4>
-            </div>
-        </div>
-        <div class="col-12 col-lg-6">
+        <div class="col-12 col-lg-6 py-5">
             <p class="text-muted">All Orders</p>
             <form method="GET" action="{% url 'admin' %}">
                 <div class="input-group w-100">
@@ -105,6 +70,40 @@
                         {% endfor %}
                     </tbody>
                 </table>
+            </div>
+        </div>
+        <div class="col-12 col-lg-6 py-5 text-left">            
+            <h4 class="py-3">
+                <p class="text-muted">Refresh All Timeslots</p>
+                <form action="{% url 'timeslot_refresh' %}" method="POST">
+                    {% csrf_token %}
+                    <div class="form-group ">
+                        <input type="number" class="form-control w-25 my-auto" id="slot_num" 
+                        name="slot_num" aria-describedby="emailHelp" placeholder="0"
+                        value="0" min="0" max="10">
+                        <small id="slot_num" class="form-text text-muted">This is the number of slots you want to make available for each current timeslot</small>
+                      </div>
+                    <button type="submit"
+                    class="btn btn-black rounded-0">Refresh!</button>
+                </form>
+            </h4>
+            <hr class="my-3">
+            <div class="text-center">
+                <h4 class="py-3">
+                    <a href="{% url 'add_menu_item' %}" class="deals-button text-white nav-color btn btn-lg rounded-pill text-uppercase py-3">
+                    Add a new Menu Item
+                    </a>
+                </h4>
+                <h4 class="py-3">
+                    <a href="{% url 'add_day' %}" class="deals-button text-white nav-color btn btn-lg rounded-pill text-uppercase py-3">
+                    Add a new Day
+                    </a>
+                </h4>
+                <h4 class="py-3">
+                    <a href="{% url 'create_timeslot' %}" class="deals-button text-white nav-color btn btn-lg rounded-pill text-uppercase py-3">
+                    Create a new Timeslot
+                    </a>
+                </h4>
             </div>
         </div>
     </div>

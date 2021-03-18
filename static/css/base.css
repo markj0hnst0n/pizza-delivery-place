@@ -191,7 +191,7 @@ footer {
     width: 100px;
 }
 
-@media (max-width: 450px) {
+@media (max-width: 540px) {
     footer {
         position: relative;
     }

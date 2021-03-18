@@ -9,3 +9,4 @@
 | Card can be charged and order created but if there is no slot available an error can be generated | Moved the function to check the number of timeslots left to the checkout page itself instead of success so that the slots remaining are checked before the card can be charged
 | User Email not being picked up from form on contact form | Name needed to be added to form data
 | Customer could sit on checkout page indefinitely ensuring that once there they could book a slot at any time this could mean multiple extra bookings for the same slot as slot database only checked when checkout page loaded | Timer added to checkout page to ensure fast checkout of user.  Only a 2 min window for multiple booking possibilities.
+| Profile page didn't display default saved address | form instance had syntax relating to request.POST when the request was GET so it was not filling the form data correctly
