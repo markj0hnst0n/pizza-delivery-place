@@ -1,8 +1,8 @@
-
 from django.conf import settings
 from django.shortcuts import get_object_or_404
 from menu.models import MenuItem
 from timeslot.models import Timeslot
+
 
 def cart_contents(request):
 
@@ -14,7 +14,7 @@ def cart_contents(request):
     grand_total = 0
     cart = request.session.get('cart', {})
     slot = request.session.get('slot', {})
-    
+
     for item_id, quantity in cart.items():
         item = get_object_or_404(MenuItem, pk=item_id)
         total += quantity * item.price
@@ -24,13 +24,13 @@ def cart_contents(request):
             'quantity': quantity,
             'item': item,
         })
-    
+
     if cart_items:
         grand_total = delivery + total
 
     for s_id in slot.keys():
-        booked_slot=get_object_or_404(Timeslot, pk=s_id)
-    
+        booked_slot = get_object_or_404(Timeslot, pk=s_id)
+
     context = {
         'cart_items': cart_items,
         'total': total,

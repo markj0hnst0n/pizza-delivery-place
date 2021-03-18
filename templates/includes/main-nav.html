@@ -22,7 +22,7 @@
         <ul class="list-inline list-unstyled text-center text-lg-right my-0">
             <li class="list-inline-item dropdown">
                 <a class="nav-link btn-black" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <div class="text-center">
+                    <div class="text-center" aria-labelledby="user-options">
                         <div><i class="fas fa-user-circle fa-lg"></i></div>
                         <p class="my-0">Profile</p>
                     </div>
@@ -41,7 +41,8 @@
                 </div>
             </li>
             <li class="list-inline-item">
-                <a class="{% if grand_total %}font-weight-bold{% else %}text-white{% endif %} nav-link btn-black" href="{% url 'cart' %}">
+                <a class="{% if grand_total %}font-weight-bold{% else %}text-white{% endif %} nav-link btn-black"
+                href="{% url 'cart' %}">
                     <div class="text-center">
                         <div><i class="fas fa-shopping-cart fa-lg"></i></div>
                         <p class="my-0">

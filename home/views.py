@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect, reverse
+from django.shortcuts import render
 from django.core.mail import send_mail
 from django.template.loader import render_to_string
 from django.contrib import messages
@@ -10,9 +10,11 @@ def index(request):
     """ Returns Index/Homepage """
     return render(request, 'home/index.html')
 
+
 def about(request):
     """ Shows about page for the business """
     return render(request, 'home/about.html')
+
 
 def contact(request):
     """ Shows and allows user to sent contact form """
@@ -24,12 +26,12 @@ def contact(request):
 
         if order_number == "":
             shop_subject = render_to_string(
-            'home/contact_emails/shop_contact_subject_no_order.txt')
+                'home/contact_emails/shop_contact_subject_no_order.txt')
         else:
             shop_subject = render_to_string(
-            'home/contact_emails/shop_contact_subject_order.txt',
-            {'order_number': order_number})
-        
+                'home/contact_emails/shop_contact_subject_order.txt',
+                {'order_number': order_number})
+
         shop_body = render_to_string(
             'home/contact_emails/shop_contact_body.txt',
             {'user_name': user_name, 'query': query})
@@ -38,14 +40,14 @@ def contact(request):
             'home/contact_emails/contact_customer_confirmation_subject.txt')
         customer_body = render_to_string(
             'home/contact_emails/contact_customer_confirmation_body.txt')
-        
+
         send_mail(
             shop_subject,
             shop_body,
             user_email,
             [settings.DEFAULT_FROM_EMAIL]
         )
-        
+
         send_mail(
             customer_subject,
             customer_body,

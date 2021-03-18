@@ -1,4 +1,6 @@
-from django.shortcuts import render, redirect, reverse, get_object_or_404, HttpResponse
+from django.shortcuts import render, redirect, reverse
+from django.shortcuts import get_object_or_404, HttpResponse
+
 from django.views.decorators.http import require_POST
 from django.contrib import messages
 from django.conf import settings
@@ -37,8 +39,9 @@ def checkout(request):
     if 'slot' in request.session:
         s_id = list(slot.keys())[list(slot.values()).index(True)]
         db_slot = get_object_or_404(Timeslot, pk=s_id)
-        if db_slot.available_slots < 1:        
-            messages.error(request, "All requested slots now booked.  Please try another slot")
+        if db_slot.available_slots < 1:
+            messages.error(request,
+            "All requested slots now booked. Please try another slot")
             del request.session['slot']
             return redirect('timeslot')
     else:
@@ -151,6 +154,7 @@ def checkout(request):
     }
 
     return render(request, template, context)
+
 
 def checkout_success(request, order_number):
     """

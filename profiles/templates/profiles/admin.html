@@ -78,10 +78,11 @@
                 <form action="{% url 'timeslot_refresh' %}" method="POST">
                     {% csrf_token %}
                     <div class="form-group ">
-                        <input type="number" class="form-control w-25 my-auto" id="slot_num" 
-                        name="slot_num" aria-describedby="emailHelp" placeholder="0"
+                        <input type="number" class="form-control w-25 my-auto" id="slot_number" 
+                        name="slot_num" aria-describedby="number of slots to refresh" placeholder="0"
                         value="0" min="0" max="10">
-                        <small id="slot_num" class="form-text text-muted">This is the number of slots you want to make available for each current timeslot</small>
+                        <label for="slot_number" hidden>number of slots to refresh</label>
+                        <small class="form-text text-muted">This is the number of slots you want to make available for each current timeslot</small>
                       </div>
                     <button type="submit"
                     class="btn btn-black rounded-0">Refresh!</button>
