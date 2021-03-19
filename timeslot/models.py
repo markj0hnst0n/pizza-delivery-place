@@ -1,7 +1,6 @@
 from django.db import models
 from django.core.validators import MinValueValidator, MaxValueValidator
 
-# Create your models here
 
 class Day(models.Model):
     name = models.CharField(max_length=32)
@@ -10,10 +9,18 @@ class Day(models.Model):
         return self.name
 
 
-class Timeslot(models.Model):    
-    day = models.ForeignKey('Day', null=True, blank=True, on_delete=models.CASCADE)
-    start_time = models.TimeField('Start Time', null=True, help_text="Please use the following format: <em>XX:XX</em>")
-    end_time = models.TimeField('End Time', null=True, help_text="Please use the following format: <em>XX:XX</em>")
+class Timeslot(models.Model):
+    helptext = "Please use the following format: <em>XX:XX</em>"
+    day = models.ForeignKey('Day',
+                            null=True,
+                            blank=True,
+                            on_delete=models.CASCADE)
+    start_time = models.TimeField('Start Time',
+                                  null=True,
+                                  help_text=helptext)
+    end_time = models.TimeField('End Time',
+                                null=True,
+                                help_text=helptext)
     available_slots = models.PositiveSmallIntegerField(null=True,
-                                                       validators=[MinValueValidator(0),
-                                                       MaxValueValidator(10)])
+                                  validators=[MinValueValidator(0),
+                                              MaxValueValidator(10)])

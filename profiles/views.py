@@ -23,8 +23,8 @@ def profile(request):
         else:
             messages.error(request, 'Update failed.  Form is not valid.')
     else:
-       form = UserProfileForm(instance=profile)
-    
+        form = UserProfileForm(instance=profile)
+
     orders = profile.orders.all().order_by('-date')
 
     template = 'profiles/profile.html'
@@ -48,15 +48,16 @@ def admin(request):
     orders = Order.objects.all()
     query = None
 
-
     if request.GET:
         if 'order_q' in request.GET:
             query = request.GET['order_q']
             if not query:
-                messages.error(request, "You didn't enter any search criteria!")
+                messages.error(request,
+                               "You didn't enter any search criteria!")
                 return redirect(reverse('admin'))
-            
-            queries = Q(order_number__icontains=query) | Q(full_name__icontains=query)
+
+            queries = Q(
+                order_number__icontains=query) | Q(full_name__icontains=query)
             orders = orders.filter(queries)
 
     template = 'profiles/admin.html'

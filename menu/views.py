@@ -10,7 +10,7 @@ from .models import MenuItem, Category
 # Create your views here.
 
 
-def menu(request):    
+def menu(request):
     """ A view to show all menu items, including sorting and search queries """
 
     menu = MenuItem.objects.all()
@@ -21,10 +21,15 @@ def menu(request):
         if 'q' in request.GET:
             query = request.GET['q']
             if not query:
-                messages.error(request, "You didn't enter any search criteria!")
+                messages.error(request,
+                               "You didn't enter any search criteria!")
                 return redirect(reverse('menu'))
-            
-            queries = Q(name__icontains=query) | Q(description__icontains=query)
+
+            queries = Q(
+                name__icontains=query
+                ) | Q(
+                    description__icontains=query
+                    )
             menu = menu.filter(queries)
     if 'category' in request.GET:
         categories = request.GET['category'].split(',')
@@ -39,11 +44,11 @@ def menu(request):
     return render(request, 'menu/menu.html', context)
 
 
-def item_detail(request, item_id):    
+def item_detail(request, item_id):
     """ A view to show a specific menu item """
 
     item = get_object_or_404(MenuItem, pk=item_id)
-    
+
     context = {
         'item': item,
     }
@@ -65,10 +70,11 @@ def add_menu_item(request):
             return redirect(reverse('item_detail', args=[menu_item.id]))
         else:
             messages.error(request,
-                           'Failed to add menu item. Please ensure the form is valid.')
+                           'Failed to add menu item. '
+                           'Please ensure the form is valid.')
     else:
         form = MenuItemForm()
-    
+
     template = 'menu/add_menu_item.html'
     context = {
         'form': form,
@@ -92,7 +98,9 @@ def edit_menu_item(request, item_id):
             messages.success(request, 'Successfully updated item!')
             return redirect(reverse('item_detail', args=[item.id]))
         else:
-            messages.error(request, 'Failed to update item. Please ensure the form is valid.')
+            messages.error(request,
+                           'Failed to update item. '
+                           'Please ensure the form is valid.')
     else:
         form = MenuItemForm(instance=item)
         messages.info(request, f'You are editing {item.name}')
@@ -113,7 +121,7 @@ def delete_menu_item(request, item_id):
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, only store owners can do that.')
         return redirect(reverse('home'))
-    
+
     item = get_object_or_404(MenuItem, pk=item_id)
     item.delete()
     messages.success(request, 'Menu item deleted!')

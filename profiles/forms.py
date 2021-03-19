@@ -16,7 +16,7 @@ class UserProfileForm(forms.ModelForm):
         placeholders = {
             'default_full_name': 'Full Name',
             'default_street_address1': 'Street Address 1',
-            'default_street_address2': 'Street Address 2',            
+            'default_street_address2': 'Street Address 2',
             'default_town_or_city': 'Town or City',
             'default_county': 'County, State or Locality',
             'default_postcode': 'Postal Code',
@@ -27,5 +27,7 @@ class UserProfileForm(forms.ModelForm):
         for field in self.fields:
             placeholder = placeholders[field]
             self.fields[field].widget.attrs['placeholder'] = placeholder
-            self.fields[field].widget.attrs['class'] = 'border-black rounded-0 profile-form-imput'
+            self.fields[field].\
+                widget.\
+                attrs['class'] = 'border-black rounded-0 profile-form-imput'
             self.fields[field].label = False

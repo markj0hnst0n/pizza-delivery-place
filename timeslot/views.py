@@ -6,7 +6,7 @@ from .forms import TimeslotForm
 from .models import Timeslot, Day
 
 
-def timeslot(request):    
+def timeslot(request):
     """ A view to show all available timeslots """
 
     slots = Timeslot.objects.all().order_by('start_time')
@@ -16,7 +16,7 @@ def timeslot(request):
 
     for s in slots:
         total_slot_list.append(s.available_slots)
-    
+
     total_slots = sum(total_slot_list)
 
     context = {
@@ -24,8 +24,9 @@ def timeslot(request):
         'days': days,
         'total_slots': total_slots,
     }
-    
+
     return render(request, 'timeslot/timeslot.html', context)
+
 
 def book_a_slot(request, s_id):
     """ Reserve a slot from the database and add it to the session """
@@ -44,7 +45,8 @@ def book_a_slot(request, s_id):
 
 @login_required
 def timeslot_refresh(request):
-    """ Adds the requested amount of available slots to all current timeslots on the site """
+    """ Adds the requested amount of available slots"""
+    """to all current timeslots on the site """
 
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, only store owners can use this page.')
@@ -60,11 +62,12 @@ def timeslot_refresh(request):
                 slot.available_slots += slots_to_add
                 slot.save()
         else:
-            messages.error(request, 'No timeslots in database.  Please create a timeslot')
+            messages.error(
+                request, 'No timeslots in database.  Please create a timeslot')
             return redirect('home')
 
-    
     return redirect('timeslot')
+
 
 @login_required
 def create_timeslot(request):
@@ -81,17 +84,19 @@ def create_timeslot(request):
             messages.success(request, 'Successfully added Timeslot!')
             return redirect(reverse('timeslot'))
         else:
-            messages.error(request,
-                           'Failed to add menu item. Please ensure the form is valid.')
+            messages.error(
+                request,
+                'Failed to add menu item. Please ensure the form is valid.')
     else:
         form = TimeslotForm()
-    
+
     template = 'timeslot/create_timeslot.html'
     context = {
         'form': form,
     }
 
     return render(request, template, context)
+
 
 @login_required
 def edit_timeslot(request, s_id):
@@ -108,7 +113,9 @@ def edit_timeslot(request, s_id):
             messages.success(request, 'Successfully updated timeslot!')
             return redirect(reverse('timeslot'))
         else:
-            messages.error(request, 'Failed to update item. Please ensure the form is valid.')
+            messages.error(
+                request,
+                'Failed to update item. Please ensure the form is valid.')
     else:
         form = TimeslotForm(instance=slot)
         messages.info(request, f'You are editing a timeslot for {slot.day}')
@@ -121,6 +128,7 @@ def edit_timeslot(request, s_id):
 
     return render(request, template, context)
 
+
 @login_required
 def delete_timeslot(request, s_id):
     """ Delete a day """
@@ -128,11 +136,12 @@ def delete_timeslot(request, s_id):
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, only store owners can do that.')
         return redirect(reverse('home'))
-    
+
     slot = get_object_or_404(Timeslot, pk=s_id)
     slot.delete()
     messages.success(request, 'Timeslot deleted!')
     return redirect(reverse('timeslot'))
+
 
 @login_required
 def add_day(request):
@@ -141,15 +150,15 @@ def add_day(request):
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, only store owners can use this page.')
         return redirect(reverse('home'))
-    
+
     if request.method == 'POST':
         day = request.POST.get("day")
         db_day = Day.objects.create(name=day)
         db_day.save()
         return redirect('timeslot')
 
-        
     return render(request, 'timeslot/add_day.html')
+
 
 @login_required
 def edit_day(request, d_id):
@@ -165,7 +174,7 @@ def edit_day(request, d_id):
         day.save()
         messages.success(request, 'Successfully edited day!')
         return redirect('timeslot')
-        
+
     else:
         current_day = day.name
         messages.info(request, f'You are editing {day.name}')
@@ -185,7 +194,7 @@ def delete_day(request, d_id):
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, only store owners can do that.')
         return redirect(reverse('home'))
-    
+
     day = get_object_or_404(Day, pk=d_id)
     day.delete()
     messages.success(request, 'Day deleted!')
