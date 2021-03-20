@@ -11,6 +11,8 @@ class Day(models.Model):
 
 class Timeslot(models.Model):
     helptext = "Please use the following format: <em>XX:XX</em>"
+    min_val = MinValueValidator(0)
+    max_val = MaxValueValidator(10)
     day = models.ForeignKey('Day',
                             null=True,
                             blank=True,
@@ -22,5 +24,5 @@ class Timeslot(models.Model):
                                 null=True,
                                 help_text=helptext)
     available_slots = models.PositiveSmallIntegerField(null=True,
-                                  validators=[MinValueValidator(0),
-                                              MaxValueValidator(10)])
+                                                       validators=[min_val,
+                                                                   max_val])

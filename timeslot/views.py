@@ -176,7 +176,6 @@ def edit_day(request, d_id):
         return redirect('timeslot')
 
     else:
-        current_day = day.name
         messages.info(request, f'You are editing {day.name}')
 
     template = 'timeslot/edit_day.html'

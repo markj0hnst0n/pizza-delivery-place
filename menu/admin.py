@@ -24,6 +24,7 @@ class MenuAdmin(admin.ModelAdmin):
 
     ordering = ('name',)
 
+
 admin.site.register(MenuItem, MenuAdmin)
 admin.site.register(Category)
 admin.site.register(Allergens)

@@ -16,4 +16,5 @@ class TimeslotAdmin(admin.ModelAdmin):
 class TimeAdmin(admin.ModelAdmin):
     ordering = ('id',)
 
+
 admin.site.register(Day, TimeslotAdmin)
