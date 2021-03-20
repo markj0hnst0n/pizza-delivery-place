@@ -32,6 +32,9 @@
                             {{ field }}
                         {% endif %}
                     {% endfor %}
+                    <div class="pb-3">
+                        <small>Click to select allergens.  (crtl/cmd click to add more than 1) </small>
+                    </div>
                     <div class="text-right">
                         <a class="btn border-black" href="{% url 'menu' %}">Cancel</a>
                         <button class="btn btn-black rounded-0" type="submit">Edit Product</button>
