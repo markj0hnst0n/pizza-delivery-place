@@ -23,6 +23,17 @@ class UserProfileForm(forms.ModelForm):
             'default_phone_number': 'Phone Number',
         }
 
+        labels = {
+           'default_full_name': 'Full Name',
+           'default_email': 'Email Address',
+           'default_phone_number': 'Phone Number',
+           'default_postcode': 'Postal Code',
+           'default_town_or_city': 'Town or City',
+           'default_street_address1': 'Street Address line 1',
+           'default_street_address2': 'Street Address line 2',
+           'default_county': 'County',
+        }
+
         self.fields['default_full_name'].widget.attrs['autofocus'] = True
         for field in self.fields:
             placeholder = placeholders[field]
@@ -30,4 +41,4 @@ class UserProfileForm(forms.ModelForm):
             self.fields[field].\
                 widget.\
                 attrs['class'] = 'border-black rounded-0 profile-form-imput'
-            self.fields[field].label = False
+            self.fields[field].label = labels[field]

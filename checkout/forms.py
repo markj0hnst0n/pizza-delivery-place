@@ -32,8 +32,8 @@ class OrderForm(forms.ModelForm):
            'phone_number': 'Phone Number',
            'postcode': 'Postal Code',
            'town_or_city': 'Town or City',
-           'street_address1': 'Street Address 1',
-           'street_address2': 'Street Address 2',
+           'street_address1': 'Street Address line 1',
+           'street_address2': 'Street Address line 2',
            'county': 'County',
         }
 
@@ -45,4 +45,4 @@ class OrderForm(forms.ModelForm):
                 placeholder = placeholders[field]
             self.fields[field].widget.attrs['placeholder'] = placeholder
             self.fields[field].widget.attrs['class'] = 'stripe-style-input'
-            self.fields[field].label = False
+            self.fields[field].label = labels[field]
