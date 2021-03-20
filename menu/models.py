@@ -38,8 +38,8 @@ class MenuItem(models.Model):
     image = models.ImageField(null=True, blank=True)
     spicy = models.BooleanField(default=False)
     vegetarian = models.BooleanField(default=False)
-    allergens = models.ForeignKey('Allergens', null=True, blank=True,
-                                  on_delete=models.SET_NULL)
+    allergens = models.ManyToManyField('Allergens', blank=True)
+    
 
     def __str__(self):
         return self.name
