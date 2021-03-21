@@ -44,7 +44,7 @@ def admin(request):
         messages.error(request, 'Sorry, only store owners can use this page.')
         return redirect(reverse('home'))
 
-    orders = Order.objects.all()
+    orders = Order.objects.all().order_by('-date')
     query = None
 
     if request.GET:

@@ -70,6 +70,7 @@ def checkout(request):
 
         if order_form.is_valid():
             order = order_form.save(commit=False)
+            order.timeslot = db_slot
             pid = request.POST.get('client_secret').split('_secret')[0]
             order.stripe_pid = pid
             order.original_cart = json.dumps(cart)

@@ -20,8 +20,9 @@ class Order(models.Model):
     street_address2 = models.CharField(max_length=80, null=True, blank=True)
     town_or_city = models.CharField(max_length=40, null=False, blank=False)
     county = models.CharField(max_length=80, null=True, blank=True)
-    postcode = models.CharField(max_length=20, null=True, blank=True)
+    postcode = models.CharField(max_length=20, null=False, blank=False, default='XXX XXX')
     email = models.EmailField(max_length=254, null=False, blank=False)
+    delivery_info = models.CharField(max_length=256, null=True, blank=True)
     timeslot = models.ForeignKey(Timeslot, on_delete=models.CASCADE,
                                  null=True, blank=True, editable=False)
     phone_number = models.CharField(max_length=20, null=False, blank=False)
