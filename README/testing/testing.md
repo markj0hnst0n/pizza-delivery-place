@@ -53,8 +53,6 @@ No obvious bugs were detected in any of the tested browsers. :heavy_check_mark:
 
 ### Behaviour of Shared Site Components
 
-#### Preloader
-
 #### Navbar (Navigation Bar)
 
 #### Search function
@@ -63,9 +61,35 @@ No obvious bugs were detected in any of the tested browsers. :heavy_check_mark:
 
 #### Menu Category navbar
 
-### Behaviour of App Pages
+### Behaviour of Site Pages
 
+#### Index page
 
+#### Timeslot page
+
+#### Menu Items page
+
+#### Cart page
+
+#### Checkout page
+
+- Preloader
+
+#### Checkout success page
+
+#### User Profile page
+
+#### Admin Profile page
+
+### Automated testing
+
+#### W3C HTML Validation
+
+#### W3C CSS Validation
+
+Custom static CSS file run through w3c CSS validator without any issues.
+
+#### Google Lighthouse Testing information
 
 |   Bug	    | Debug                |
 |-----------|----------------------|
