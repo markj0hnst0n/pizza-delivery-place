@@ -1,3 +1,72 @@
+## Testing
+
+### Manual Testing
+
+Manual testing was used to test navigation, responsiveness on different screen sizes, database operations (Create, Read, Update and Delete) and application functions.
+
+### Responsiveness
+
+#### Desired Result
+
+All information from each page on the app should be viewable on all screen sizes from small mobile phone, to tablet sized devices up to very large monitor screens.
+
+#### Steps Taken to Ensure Result
+
+The Bootstrap grid system was used to ensure data displayed in a satisfactory manner on vaious screen sizes. CSS was used to make images responsive and create appropriate behavour.
+
+On Chrome Developer Tools the following devices were emulated to check responsiveness:
+
+- Moto G4 (smallest phone screen width available)
+- Pixel XL
+- iPhone X
+- iPad
+
+
+These physical devices were also used for testing:
+
+- Macbook Pro 15-inch retina screen
+- HP e233 23-inch monitor
+- Samsung S10e
+- iPhone SE2020
+
+#### Verdict
+
+### Cross-browser Compatability
+
+#### Desired Result
+
+Display correctly in any browser users are likely to use.
+
+#### Steps Taken to Ensure Result
+
+Tested site on the following browsers:
+
+- [Chrome](https://www.google.com/chrome/) - Desktop and Mobile
+- [Firefox](https://www.mozilla.org/en-US/firefox/new/) - Desktop and Mobile
+- [Opera](https://www.opera.com/) - Dekstop and Mobile
+- [Safari](https://www.safari.com/) - Desktop and Mobile
+- [DuckDuckGo](https://duckduckgo.com) - Mobile
+
+#### Verdict
+
+No obvious bugs were detected in any of the tested browsers. :heavy_check_mark:
+
+### Behaviour of Shared Site Components
+
+#### Preloader
+
+#### Navbar (Navigation Bar)
+
+#### Search function
+
+#### Footer
+
+#### Menu Category navbar
+
+### Behaviour of App Pages
+
+
+
 |   Bug	    | Debug                |
 |-----------|----------------------|
 | Database stopped working due to information in one of the fields not fitting the data model | Ran python3 manage.py flush to delete all information in database |
