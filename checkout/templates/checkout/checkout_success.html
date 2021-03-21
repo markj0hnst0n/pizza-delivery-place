@@ -167,6 +167,7 @@
                     </div>
                 </div>
 
+                {% if order.delivery_info %}
                 <div class="row">
                     <div class="col-12 col-md-4">
                         <p class="mb-0 text-black font-weight-bold">Delivery Instructions</p>
@@ -175,6 +176,7 @@
                         <p class="mb-0">{{ order.delivery_info }}</p>
                     </div>
                 </div>
+                {% endif %}
 
                 <div class="row">
                     <div class="col">

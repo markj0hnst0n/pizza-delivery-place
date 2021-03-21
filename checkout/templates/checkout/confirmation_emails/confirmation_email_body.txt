@@ -14,9 +14,9 @@ Grand Total: £{{ order.grand_total }}
 Your order will be delivered to {{ order.street_address1 }} in {{ order.town_or_city }}, {{ order.postcode }}.
 
 You order will be delivered this {{ order.timeslot.day }} between {{ order.timeslot.start_time }} and {{ order.timeslot.end_time }} so be ready!
-
+{% if order.delivery_info %}
 You told us to {{ order.delivery_info }}.
-
+{% endif %}
 We've got your phone number on file as {{ order.phone_number }}.
 
 If you have any questions, feedback or any issues feel free to contact us at {{ contact_email }}.
