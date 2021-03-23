@@ -34,7 +34,7 @@ DEBUG = os.environ.get('DEVELOPMENT')
 
 ALLOWED_HOSTS = [
     '127.0.0.1',
-    '3d444f8ebb4a.ngrok.io',
+    'the-pizza-place-mj.herokuapp.com',
 ]
 
 
@@ -127,18 +127,18 @@ WSGI_APPLICATION = 'pizza_place.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
+if 'DATABASE_URL' in os.environ:
+    DATABASES = {
+        'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
+    }
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
+        }
+    }
 
-POSTGRES_DATABASE_URL = os.getenv('POSTGRES_DATABASE_URL', '')
-
-DATABASES = {
-    'default': dj_database_url.parse(POSTGRES_DATABASE_URL)
-}
 
 
 # Password validation
