@@ -31,6 +31,11 @@ def menu(request):
                     description__icontains=query
                     )
             menu = menu.filter(queries)
+            if not menu:
+                messages.info(request,
+                               "Your search returned no results")
+                return redirect(reverse('menu'))
+
     if 'category' in request.GET:
         categories = request.GET['category'].split(',')
         menu = menu.filter(category__name__in=categories)

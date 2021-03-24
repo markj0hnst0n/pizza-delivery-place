@@ -232,11 +232,48 @@ for fonts used in the project.
 
 # Information Architechture
 
+
 ## Data Models
 
 
-#### Menu App
+#### Checkout App
 
+
+##### Order Model
+
+
+| Name | Field Type | Validation
+| --- | --- | --- 
+| order_number | CharField | max_length=32, null=False, editable=False
+| user_profile | ForeignKey | on_delete=models.SET_NULL, null=True, blank=True, related_name='orders'
+| full_name | CharField | max_length=50, null=False, blank=False 
+| street_address1 | CharField | max_length=80, null=False, blank=False 
+| street_address2 | CharField | max_length=80, null=True, blank=True
+| town_or_city | CharField | max_length=40, null=False, blank=False
+| county | CharField | max_length=80, null=True, blank=True
+| postcode | CharField | max_length=20, null=False, blank=False, default='XXX XXX'
+| email | EmailField | max_length=254, null=False, blank=False
+| delivery_info | CharField | max_length=256, null=True, blank=True
+| timeslot | ForeignKey | on_delete=models.CASCADE, null=True, blank=True, editable=False 
+| phone_number | CharField | max_length=20, null=False, blank=False
+| date | DateTimeField | auto_now_add=True
+| delivery_cost | DecimalField | max_digits=6, decimal_places=2, null=False, default=0
+| order_total | DecimalField | max_digits=10, decimal_places=2, null=False, default=0
+| grand_total | DecimalField | max_digits=10, decimal_places=2, null=False, default=0
+| original_cart | TextField | null=False, blank=False, default=''
+| stripe_pid | CharField | max_length=254, null=False, blank=False, default=''
+
+
+##### OrderLineItem Model
+
+| Name | Field Type | Validation
+| --- | --- | --- 
+| order = ForeignKey | null=False, blank=False, on_delete=models.CASCADE, related_name='lineitems'
+| item = ForeignKey | null=False, blank=False, on_delete=models.CASCADE
+| quantity = IntegerField | null=False, blank=False, default=0
+| lineitem_total = DecimalField | max_digits=6, decimal_places=2, null=False, blank=False, editable=False
+
+#### Menu App
 
 ##### Category Model
 
@@ -268,10 +305,39 @@ for fonts used in the project.
 | vegetarian | BooleanField | null=True, blank=True
 | allergens | ManyToManyField | blank=True
 
+#### Profiles App
 
 ### User Model
 
 The model used was the Django standard user model from django.contrib.auth.models
+
+| Name | Field Type | Validation
+| --- | --- | --- 
+| user | OneToOneField | User, on_delete=models.CASCADE
+| default_full_name | CharField | max_length=20, null=True, blank=True
+| default_street_address1 | CharField | max_length=80, null=True, blank=True
+| default_street_address2 | CharField | max_length=80, null=True, blank=True
+| default_town_or_city | CharField | max_length=40, null=True, blank=True
+| default_county | CharField | max_length=80, null=True, blank=True
+| default_postcode | CharField | max_length=20, null=True, blank=True
+| default_phone_number | CharField | max_length=20, null=True, blank=True
+
+#### Timeslot App
+
+### Day Model
+
+| Name | Field Type | Validation
+| --- | --- | --- 
+| name | Charfield | max_length=32
+
+### Timeslot Model
+
+| Name | Field Type | Validation
+| --- | --- | --- 
+| day | ForeignKey | null=True, blank=True, on_delete=models.CASCADE
+| start_time | TimeField | null=True, help_text= Time Format
+| end_time | TimeField | null=True, help_text= Time Format
+| available_slots | PositiveSmallIntegerField | null=True, min value = 0, max value = 10
 
 ## Logical Data Model
 
@@ -281,10 +347,6 @@ The model used was the Django standard user model from django.contrib.auth.model
     <img height="400" src="https://github.com/markj0hnst0n/pizza-delivery-place/blob/master/README/database_schema/pizza-place-logical-data-modelv2.0.png">
 </p>
 </details>
-
-## Security considerations
-
-Put form validation information here.
 
 # Testing
 
