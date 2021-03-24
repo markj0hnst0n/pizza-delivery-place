@@ -260,26 +260,95 @@ See separate Testing.md file [here](testing/testing.md)
 
 # Deployment
 
+## Run Locally
+
+Ensure that you have an IDE of your choice installed:
+
+- An example is [Visual Studio Code](https://code.visualstudio.com/), which was used for the development of this project
+
+Ensure that the following is installed on your machine.
+
+*Please click the links below for documentation on how to set up the following requirements and retrieve the necessary environment variables.*
+
+- [Python 3](https://www.python.org/downloads/) as the site's backend is written in Python
+- [PIP](https://pip.pypa.io/en/stable/installing/) for installing Python packages
+- [Git](https://gist.github.com/derhuerst/1b15ff4652a867391f03) for version control
+
+You will also need to create free accounts with the following services:
+
+- [AWS](https://aws.amazon.com/) and [set up an S3 bucket](https://docs.aws.amazon.com/AmazonS3/latest/gsg/CreatingABucket.html)
+- [Stripe](https://dashboard.stripe.com/register)
+
+
+#### Instructions
+
+1. Using Git, clone the repository as follows.
+
+        git clone https://github.com/markj0hnst0n/pizza-delivery-place)
+
+2. Open your preferred IDE and open a terminal session
+3. Using a virtual environment is recommended. virtualenv can be installed as follows:
+
+        pip3 install virtualenv
+
+4. Create and navigate to a project folder of your choice
+5. Create a virtual environment using the following command:
+
+        virtualenv venv
+
+6. Activate your virtual environment as follows:
+
+        source venv/bin/activate
+
+7. Install all required modules with the following command:
+
+        pip3 -r requirements.txt
+
+8. Set up the required environment variables
+
+    - Create a file called `env.py` in the root directory of your project and open it your IDE for editing
+    - In the `env.py` file, set your environment variables as follows:
+
+    ```python
+        import os
+        os.environ["SECRET_KEY"] = "<your secret key here>"
+        os.environ["STRIPE_PUBLIC_KEY"] = "<your key here>"
+        os.environ["STRIPE_SECRET_KEY"] = "<your key here>"
+        os.environ["STRIPE_WH_SECRET"] = "<your key here>"
+        os.environ["DEVELOPMENT"] = "True"
+    ```
+
+    NOTE: Ensure that the filename `env.py` is added to the `.gitignore` file in your project's root directory.  Instructions on how to set up a postgres database are found in the heroku deployment information below.
+
+9. Ensure that your virtual environment is activated using the command in step 6
+10. From the terminal in your IDE, migrate the database models to your database using the command:
+
+        python3 manage.py migrate
+
+11. Load data into the database using the following commands:
+
+        python3 manage.py loaddata timeslot/fixtures/initial_data.json
+        python3 manage.py loaddata menu/fixtures/initial_data.json
+
+12. Create a super user to access the admin panel using the following command and follow the instructions:
+
+        python3 manage.py createsuperuser
+
+13. Run the app locally using the following command:
+
+        python3 manage.py runserver
+
+14. To access to admin panel, add `/admin` to the end of the app's url in the browser and log in using your super user details.
+
+15. The app should now be running.
+
 ## Using Heroku
 
 Github address for the project: https://github.com/markj0hnst0n/pizza-delivery-place
 
-If you want to use the database records you used in development on the live site.  I created a fixtures folder in the menu app and inside a folder called initial_data.json.  I did the same in the timeslot app.  I then used the following commands to make a JSON dump of the data in these files:
-
-        python3 manage.py dumpdata --format=json menu > menu/fixtures/initial_data.json
-        python3 manage.py dumpdata --format=json timeslot > timeslot/fixtures/initial_data.json
-
 1. Log in to or create a Heroku account and create a new app by clicking ‘New’ then ‘Create New App’ then choose a name and the relevant region for the app.
 
 2. Click on the resources tab and in the search bar type heroku postgres, select this add-on and makes sure it is using the the free plan and click on provision.  This provides a database for the app to use.
-
-3. In settings.py import dj_database_url and in the database sections change the default database.  Use dj_database_url to parse the Postgres database URL.  The database URL will be in config vars under the settings tab in Heroku if step 2 has been followed correctly.  You can add the actual URL from the settings tab but for security I used the following syntax for settings.py:
-
-        DATABASES = {
-        'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
-        }
-
-    This way the URL is taken from the environment variables and does not appear in the code, making it a more secure way of working.  Makes sure settings.py is saved.
 
 4. Use the command below to apply migrations to the new database:
 
@@ -296,7 +365,34 @@ If you want to use the database records you used in development on the live site
         python3 manage.py loaddata timeslot/fixtures/initial_data.json
         python3 manage.py loaddata menu/fixtures/initial_data.json
 
+9. Make sure the app web address is in 'ALLOWED HOSTS' in settings.py in the project folder and push to git.
 
+10. On the Heroku app page click the ‘Settings’ tab and then the ‘Reveal Config Vars’ button and the following variables need to be set as key value pairs:
+
+
+    NOTE: Wherever text is surrounded by <> (angle brackets), you will need to provide your own values without the angle brackets as determined by your Stripe account, mail server, secret key, AWS etc.
+
+    | Key | Value |
+    --- | ---
+    AWS_ACCESS_KEY_ID | <"your key here">
+    AWS_SECRET_ACCESS_KEY | <"your key here">
+    AWS_STORAGE_BUCKET_NAME | <"your bucket name here">
+    DEFAULT_FROM_EMAIL | <"the email address you'd like the email to be sent from, e.g. ">
+    DEVELOPMENT | "False"
+    EMAIL_HOST_PASSWORD | <"your app password as generated by Gmail for example">
+    EMAIL_HOST_USER | <"your email address that is used to send emails">
+    SECRET_KEY | <"your key here">
+    STRIPE_PUBLIC_KEY | <"your key here">
+    STRIPE_SECRET_KEY | <"your key here">
+    STRIPE_WH_SECRET | <"your key here">
+    USE_AWS | "True"
+    
+
+11. Click the ‘Deploy’ tab and in the ‘Deployment Method’ section select GitHub then search for markj0hnst0n/LeMunch by markj0hnst0n.
+
+12. In the ‘Automatic deploys’ section click on the ‘Enable Automatic Deploys’ button the in the ‘Manual deploy’ section click the ‘Deploy Branch’ button as long as ‘master’ is the selected branch.
+
+13. Once the app has been successfully built you should receive a message saying ‘Your app was successfully deployed’ you can then click on the ‘View’ button or the ‘Open app’ button at the top of the page to go to the deployed app.
 
 # Credits
 
