@@ -38,7 +38,6 @@ def book_a_slot(request, s_id):
     else:
         slot[s_id] = True
         request.session['slot'] = slot
-
         messages.success(request, "Slot booked in!")
         return redirect('menu')
 
