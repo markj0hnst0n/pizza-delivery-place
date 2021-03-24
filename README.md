@@ -234,12 +234,44 @@ for fonts used in the project.
 
 ## Data Models
 
+
+#### Menu App
+
+
+##### Category Model
+
+| Name | Field Type | Validation
+| --- | --- | --- 
+| name | CharField | max_length=254
+| friendly_name | CharField | max_length=254, blank=True, null=True 
+
+
+##### Allergens Model
+
+| Name | Field Type | Validation
+| --- | --- | --- 
+| name | CharField | max_length=254
+| friendly_name | CharField | max_length=254, blank=True, null=True
+
+
+##### MenuItem Model
+
+| Name | Field Type | Validation
+| --- | --- | --- 
+| category | ForeignKey | max_length=254, blank=True, null=True, on_delete=models.SET_NULL
+| name | CharField | max_length=254
+| description | TextField | max_length=254, blank=True, null=True
+| price | DecimalField | max_digits=6, decimal_places=2
+| image_url | URLField | max_length=1024, null=True, blank=True
+| image | ImageField | null=True, blank=True
+| spicy | BooleanField | null=True, blank=True
+| vegetarian | BooleanField | null=True, blank=True
+| allergens | ManyToManyField | blank=True
+
+
 ### User Model
 
 The model used was the Django standard user model from django.contrib.auth.models
-
-
-## Conceptual Database Design
 
 ## Logical Data Model
 
