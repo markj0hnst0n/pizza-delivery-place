@@ -268,10 +268,10 @@ for fonts used in the project.
 
 | Name | Field Type | Validation
 | --- | --- | --- 
-| order = ForeignKey | null=False, blank=False, on_delete=models.CASCADE, related_name='lineitems'
-| item = ForeignKey | null=False, blank=False, on_delete=models.CASCADE
-| quantity = IntegerField | null=False, blank=False, default=0
-| lineitem_total = DecimalField | max_digits=6, decimal_places=2, null=False, blank=False, editable=False
+| order | ForeignKey | null=False, blank=False, on_delete=models.CASCADE, related_name='lineitems'
+| item | ForeignKey | null=False, blank=False, on_delete=models.CASCADE
+| quantity | IntegerField | null=False, blank=False, default=0
+| lineitem_total | DecimalField | max_digits=6, decimal_places=2, null=False, blank=False, editable=False
 
 #### Menu App
 
