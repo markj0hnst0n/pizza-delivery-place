@@ -388,7 +388,7 @@ Github address for the project: https://github.com/markj0hnst0n/pizza-delivery-p
     USE_AWS | "True"
     
 
-11. Click the ‘Deploy’ tab and in the ‘Deployment Method’ section select GitHub then search for markj0hnst0n/LeMunch by markj0hnst0n.
+11. Click the ‘Deploy’ tab and in the ‘Deployment Method’ section select GitHub then search for markj0hnst0n/pizza-delivery-place by markj0hnst0n.
 
 12. In the ‘Automatic deploys’ section click on the ‘Enable Automatic Deploys’ button the in the ‘Manual deploy’ section click the ‘Deploy Branch’ button as long as ‘master’ is the selected branch.
 
