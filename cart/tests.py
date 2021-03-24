@@ -3,8 +3,8 @@ from django.contrib.messages import get_messages
 from django.shortcuts import reverse
 from menu.models import MenuItem, Category
 
-class TestCartViews(TestCase):
 
+class TestCartViews(TestCase):
 
     def setUp(self):
         new_category = Category.objects.create(
@@ -17,7 +17,6 @@ class TestCartViews(TestCase):
             name='test product',
             price=1.00
             )
-
 
     def test_view_cart(self):
         response = self.client.get(reverse('cart'), follow=True)
@@ -35,7 +34,7 @@ class TestCartViews(TestCase):
                                 kwargs={'item_id': new_product.id}),
                                 data=post_data)
         messages = list(get_messages(response.wsgi_request))
-        expected_message = (f"You need to book a timeslot first!")
+        expected_message = ("You need to book a timeslot first!")
 
         self.assertRedirects(response, '/timeslot/')
         self.assertEqual(messages[0].tags, 'error')
@@ -43,7 +42,7 @@ class TestCartViews(TestCase):
 
     def tearDown(self):
         new_category = Category.objects.get(name='test_category')
-        new_product = Product.objects.get(product_name='test product')
+        new_product = MenuItem.objects.get(product_name='test product')
 
         del new_category
         del new_product
