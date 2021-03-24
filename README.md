@@ -260,6 +260,43 @@ See separate Testing.md file [here](testing/testing.md)
 
 # Deployment
 
+## Using Heroku
+
+Github address for the project: https://github.com/markj0hnst0n/pizza-delivery-place
+
+If you want to use the database records you used in development on the live site.  I created a fixtures folder in the menu app and inside a folder called initial_data.json.  I did the same in the timeslot app.  I then used the following commands to make a JSON dump of the data in these files:
+
+        python3 manage.py dumpdata --format=json menu > menu/fixtures/initial_data.json
+        python3 manage.py dumpdata --format=json timeslot > timeslot/fixtures/initial_data.json
+
+1. Log in to or create a Heroku account and create a new app by clicking ‘New’ then ‘Create New App’ then choose a name and the relevant region for the app.
+
+2. Click on the resources tab and in the search bar type heroku postgres, select this add-on and makes sure it is using the the free plan and click on provision.  This provides a database for the app to use.
+
+3. In settings.py import dj_database_url and in the database sections change the default database.  Use dj_database_url to parse the Postgres database URL.  The database URL will be in config vars under the settings tab in Heroku if step 2 has been followed correctly.  You can add the actual URL from the settings tab but for security I used the following syntax for settings.py:
+
+        DATABASES = {
+        'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
+        }
+
+    This way the URL is taken from the environment variables and does not appear in the code, making it a more secure way of working.  Makes sure settings.py is saved.
+
+4. Use the command below to apply migrations to the new database:
+
+        python3 manage.py migrate
+
+5. You can manually add database records in the site admin on the site itself or django admin.  Just follow the below command to add a superuser and follow the instructions on the command line.  Then once all other deployment steps are done login in at the site address /admin or on the site itself and use the site admin tab.
+
+        python3 manage.py createsuperuser
+
+    n.b. Even if you use the fixtures instead of manually adding records it is important that you create a superuser as you will still need this.
+
+6. If you want to now use the fixtures to load the data using the commands below:
+
+        python3 manage.py loaddata timeslot/fixtures/initial_data.json
+        python3 manage.py loaddata menu/fixtures/initial_data.json
+
+
 
 # Credits
 
