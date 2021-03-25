@@ -41,7 +41,12 @@ def checkout(request):
         db_slot = get_object_or_404(Timeslot, pk=s_id)
         if db_slot.available_slots < 1:
             messages.error(request, "All requested slots now booked. "
-                                    "Please try another slot")
+                                    "Please try another slot if you h"
+                                    "ave not checked out.  If you"
+                                    " are seeing this message after "
+                                    " you have paid please contact"
+                                    " the store on 07777777777.  Do n"
+                                    "ot attempt to checkout again. ")
             del request.session['slot']
             return redirect('timeslot')
     else:
@@ -103,8 +108,9 @@ def checkout(request):
             return redirect(reverse
                             ('checkout_success', args=[order.order_number]))
         else:
-            messages.error(request, 'There was an error with your form. \
-                Please double check your information.')
+            messages.error(
+                request,
+                'There was an error with your form. Check your information.')
 
     else:
         slot = request.session.get('slot', {})

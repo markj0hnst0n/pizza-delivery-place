@@ -117,7 +117,7 @@ Notes
 - Verify that if there are available timeslots in the database they displayed on screen sorted with the earliest times at the top of the page :heavy_check_mark:
 - Verify that the timeslots are sorted into columns based on days in the database :heavy_check_mark:
 - Verify that if a single timeslot is sold out the button for that timeslot is disabled :heavy_check_mark:
-- Verify that if logged in as a super user the user can see the amount remaining for each slot and also edit and delete links to change the timselot if neccessary :heavy_check_mark:
+- Verify that if logged in as a super user the user can see the amount remaining for each slot and also edit and delete links to change the timselot if neccessary.  CRUD operations tested on the relevant page links :heavy_check_mark:
 - Clicking on any of the timeslots books this timeslot, dislpays a user feedback message confirming that the slot was booked and takes the customer to the menu to choose their food :heavy_check_mark:
 
 #### Menu Items page
@@ -126,36 +126,63 @@ Notes
 - Verify that image, price and icons displaying product info display :heavy_check_mark:
 - Verify that quick add button appears for all items and clicking this adds 1 of the item to the shopping cart :heavy_check_mark:
 - Verify that clicking on the item image takes the user to the menu item display page :heavy_check_mark:
+- Verify that is logged in as a superuser there is an option to edit or delete item and CRUD operations have been tested on the relevant links :heavy_check_mark: 
 
 #### Menu Item Detail page
 
 - Verify that all relevant information about the product is dislpayed on screen :heavy_check_mark:
 - Verify that clicking on the image takes the user to link of the product image in full size in a new tab :heavy_check_mark:
-- Verify that quantity selector is displayed and any quantity of 1 or less makes the minus button disable
-- Verify that the quantity selector will not accept values of less than 1 or more than 4 for each product
+- Verify that quantity selector is displayed and any quantity of 1 or less and 4 or more makes the minus button disable :heavy_check_mark:
+- Verify that the quantity selector will not accept values of less than 1 or more than 4 for each product :heavy_check_mark:
 
 #### Cart page
 
+- Verify that a preview of each item in the cart is displayed :heavy_check_mark:
+- Verify that quantity selector is displayed and any quantity of 1 or less and 4 or more makes the minus button disable :heavy_check_mark:
+- Verify that the quantity selector will not accept values of less than 1 or more than 4 for each product :heavy_check_mark:
+- Verify that delivery charge, item totals and grand total figures are displayed correctly :heavy_check_mark:
+- Secure Checkout button is displayed and clicking this takes user to the checkout page :heavy_check_mark:
 
 
 #### Checkout page
 
-- Timer
-- Preloader
+- Verify that if user is not logged in a form displays for them to provide all delivery information required.  An option to log in is given at the bottom :heavy_check_mark:
+- Verify that if user is logged in a form displays with all their default delivery information if held.  This can be updated and saved via the save information checkbox :heavy_check_mark:
+- Verify that a preview of the timeslot booked and cart are displayed to make any final checks prior to payment :heavy_check_mark:
+- Verify that an input for credit/debit card info is displayed and errors generate by the input are displayed below the input :heavy_check_mark:
+- Verify that the page displays a 2 minute timer at the bottom with a message informing the user that their timeslot is in danger of being booked if they do not check out in that time :heavy_check_mark:
+- Verify that a pizza slice loader screen displays once the payment button has been clciked :heavy_check_mark:
+- Verify a back button is displayed if the user wants to go back to their cart to adjust items :heavy_check_mark:
+- Verify that even if checkout success page is not displayed an order will be generated via information from the payment company and a confirmation email will be sent :heavy_check_mark:
+
+Notes
+- Before this page is generated the timeslot database is checked and the user can only get onto the page if there is at least 1 of the chosen timeslot left.  In theory 1 or more users with the same timeslot could get onto this page at the same time if there is only 1 slot left when they attempt to navigate to this page.  The reason for the timer is to minimise the window the user has to checkout to minimise the chance for the same slot to be booked more than once.  If a user manages to checkout and pay but there are no timeslots available an error is generated but they need to contact the shop.  Their card is charged and the order is generated in the webhook.  They will also receive a confirmation email.  The shop can either honour this order or cancel it and refund.
 
 #### Checkout Success page
 
-#### Profile page
+- Verify that a summary of the order is generated and displayed for the user with all relevant information :heavy_check_mark:
+- Verify that a success user feedback message will be displayed :heavy_check_mark:
+- Verify that once the order has been generated a confirmation will be sent to the customer :heavy_check_mark:
 
-#### Admin page
-
-#### Checkout success page
+Notes
+- It is only when this page is generated does the site take the timeslot out of the database so that it cannot be used
 
 #### User Profile page
 
+- Verify that a form displays with all the users default delivery information if held.  This can be updated and save.  CRUD operations checked :heavy_check_mark:
+- Verify that the history of the users orders is displays with the most recent showing at the top :heavy_check_mark:
+- Users can click on the order number to get a summary of their order. It is a reproduction of the checkout success page :heavy_check_mark:
+
 #### Admin Profile page
 
+- Verify that the order history of all users orders is displays with the most recent showing at the top and a search function to search by order name or customer name :heavy_check_mark:
+- Admins can click on the order number to get a summary of the order. It is a reproduction of the checkout success page.  Admins also have the ability to delete an order :heavy_check_mark:
+- Refresh timeslot section gives the admin the ability to put a set number of available timeslots into each record on the database :heavy_check_mark:
+- Options to Add menu item, add new day or create new timeslot are available to the admin.  All CRUD options available on the relevant pages have been tested :heavy_check_mark:
+
 #### About page
+
+
 
 #### Contact page
 

@@ -350,7 +350,7 @@ The model used was the Django standard user model from django.contrib.auth.model
 
 # Testing
 
-See separate Testing.md file [here](testing/testing.md)
+See separate Testing.md file [here](https://github.com/markj0hnst0n/pizza-delivery-place/blob/master/README/testing/testing.md)
 
 # Deployment
 
