@@ -1,11 +1,11 @@
 <script type="text/javascript">
     // from Boutique ado project in code institute course
     
-    // Disable +/- buttons outside 1-99 range
+    // Disable +/- buttons outside 1-4 range
     function handleEnableDisable(itemId) {
         let currentValue = parseInt($(`#id_qty_${itemId}`).val());
         let minusDisabled = currentValue < 2;
-        let plusDisabled = currentValue > 98;
+        let plusDisabled = currentValue > 3;
         $(`#decrement-qty_${itemId}`).prop('disabled', minusDisabled);
         $(`#increment-qty_${itemId}`).prop('disabled', plusDisabled);
     }

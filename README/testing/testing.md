@@ -104,13 +104,35 @@ Notes
 
 ### Behaviour of Site Pages
 
-#### Index page
+#### Index/Home page
+
+- Verify that the expected background image is displayed :heavy_check_mark:
+- Verify that the expected text is displayed on all screen sizes :heavy_check_mark:
+- Confirm that the CTA (Call to Action) button to book a timslot is displayed and clicking it takes customeer to the timeslot booking page :heavy_check_mark:
+- Verify correct colour transition of CTA button on hover :heavy_check_mark:
 
 #### Timeslot page
 
+- Verify that if there are no available timeslots in the database an appropriate message is displayed :heavy_check_mark:
+- Verify that if there are available timeslots in the database they displayed on screen sorted with the earliest times at the top of the page :heavy_check_mark:
+- Verify that the timeslots are sorted into columns based on days in the database :heavy_check_mark:
+- Verify that if a single timeslot is sold out the button for that timeslot is disabled :heavy_check_mark:
+- Verify that if logged in as a super user the user can see the amount remaining for each slot and also edit and delete links to change the timselot if neccessary :heavy_check_mark:
+- Clicking on any of the timeslots books this timeslot, dislpays a user feedback message confirming that the slot was booked and takes the customer to the menu to choose their food :heavy_check_mark:
+
 #### Menu Items page
 
+- Verify that items are displayed on screen based on how the user has navigated to this screen.  If the come from booking a timeslot all menu items are displayed but if they choose an option from the menu navbar only options matching the selected category appear :heavy_check_mark:
+- Verify that image, price and icons displaying product info display :heavy_check_mark:
+- Verify that quick add button appears for all items and clicking this adds 1 of the item to the shopping cart :heavy_check_mark:
+- Verify that clicking on the item image takes the user to the menu item display page :heavy_check_mark:
+
 #### Menu Item Detail page
+
+- Verify that all relevant information about the product is dislpayed on screen :heavy_check_mark:
+- Verify that clicking on the image takes the user to link of the product image in full size in a new tab :heavy_check_mark:
+- Verify that quantity selector is displayed and any quantity of 1 or less makes the minus button disable
+- Verify that the quantity selector will not accept values of less than 1 or more than 
 
 #### Cart page
 
@@ -134,6 +156,9 @@ Notes
 #### About page
 
 #### Contact page
+
+
+
 
 ### Automated testing
 
