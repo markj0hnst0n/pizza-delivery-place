@@ -55,12 +55,14 @@ def adjust_cart(request, item_id):
             return redirect('cart')
         if quantity > 0:
             cart[item_id] = quantity
-            messages.success(request, f'Updated {item.name}\
-                quantity to {cart[item_id]}')
+            messages.success(
+                request,
+                f'Updated {item.name} quantity to {cart[item_id]}')
         else:
-            cart.pop[item_id]
-            messages.success(request, f'Removed {item.name}\
-                from shopping cart')
+            cart.pop(item_id)
+            messages.success(
+                request,
+                f'Removed {item.name} from shopping cart')
 
         request.session['cart'] = cart
         return redirect(reverse('cart'))
@@ -79,8 +81,9 @@ def remove_from_cart(request, item_id):
             return redirect('timeslot')
         else:
             cart.pop(item_id)
-            messages.success(request, f'Removed {item.name}\
-                 from shopping cart')
+            messages.success(
+                request,
+                f'Removed {item.name} from shopping cart')
 
         request.session['cart'] = cart
         return HttpResponse(status=200)

@@ -50,6 +50,7 @@ class TestCartViews(TestCase):
         new_product = MenuItem.objects.get(name='test_product')
         session = self.client.session
         session['slot'] = {'1': True}
+        session['cart'] = {'1': 1}
         session.save()
         post_data = {
             'quantity': '1',
@@ -64,6 +65,117 @@ class TestCartViews(TestCase):
         expected_message = (f'Added {new_product.name} to cart!')
 
         self.assertRedirects(response, '/')
+        self.assertEqual(messages[0].tags, 'success')
+        self.assertEqual(str(messages[0]), expected_message)
+
+    def test_add_more_than_4_to_cart_with_timeslot(self):
+        new_product = MenuItem.objects.get(name='test_product')
+        session = self.client.session
+        session['slot'] = {'1': True}
+        session['cart'] = {'1': 5}
+        session.save()
+        post_data = {
+            'quantity': '1',
+            'redirect_url': '/'
+        }
+
+        response = self.client.post(reverse(
+                                'add_to_cart',
+                                kwargs={'item_id': new_product.id}),
+                                data=post_data)
+        messages = list(get_messages(response.wsgi_request))
+        expected_message = ("No more than 4 per item, sorry! :)")
+
+        self.assertRedirects(response, '/cart/')
+        self.assertEqual(messages[0].tags, 'error')
+        self.assertEqual(str(messages[0]), expected_message)
+
+    def test_adjust_cart_with_no_timeslot(self):
+        new_product = MenuItem.objects.get(name='test_product')
+        post_data = {
+            'quantity': '1',
+            'redirect_url': '/'
+        }
+        response = self.client.post(reverse(
+                                'adjust_cart',
+                                kwargs={'item_id': new_product.id}),
+                                data=post_data)
+        messages = list(get_messages(response.wsgi_request))
+        expected_message = ("You need to book a timeslot first!")
+
+        self.assertRedirects(response, '/timeslot/')
+        self.assertEqual(messages[0].tags, 'error')
+        self.assertEqual(str(messages[0]), expected_message)
+    
+    def test_adjust_cart_with_timeslot(self):
+        new_product = MenuItem.objects.get(name='test_product')
+        session = self.client.session
+        session['slot'] = {'1': True}
+        session['cart'] = {'1': 1}
+        session.save()
+        post_data = {
+            'quantity': '3',
+            'redirect_url': '/'
+        }
+        response = self.client.post(reverse(
+                                'adjust_cart',
+                                kwargs={'item_id': new_product.id}),
+                                data=post_data)
+        messages = list(get_messages(response.wsgi_request))
+        expected_message = (f'Updated {new_product.name} quantity to 3')
+
+        self.assertRedirects(response, '/cart/')
+        self.assertEqual(messages[0].tags, 'success')
+        self.assertEqual(str(messages[0]), expected_message)
+    
+    def test_adjust_cart_to_zero_with_timeslot(self):
+        new_product = MenuItem.objects.get(name='test_product')
+        session = self.client.session
+        session['slot'] = {'1': True}
+        session['cart'] = {'1': 1}
+        session.save()
+        post_data = {
+            'quantity': '0',
+            'redirect_url': '/'
+        }
+        response = self.client.post(reverse(
+                                'adjust_cart',
+                                kwargs={'item_id': new_product.id}),
+                                data=post_data)
+        messages = list(get_messages(response.wsgi_request))
+        expected_message = (f'Removed {new_product.name} from shopping cart')
+
+        self.assertRedirects(response, '/cart/')
+        self.assertEqual(messages[0].tags, 'success')
+        self.assertEqual(str(messages[0]), expected_message)
+    
+    def test_remove_from_cart_with_no_timeslot(self):
+        new_product = MenuItem.objects.get(name='test_product')
+        post_data = {
+            'quantity': '1',
+            'redirect_url': '/'
+        }
+        response = self.client.post(reverse(
+                                'remove_from_cart',
+                                kwargs={'item_id': new_product.id}),
+                                data=post_data)
+        messages = list(get_messages(response.wsgi_request))
+        expected_message = ("You need to book a timeslot first!")
+    
+    def test_remove_from_cart__with_timeslot(self):
+        new_product = MenuItem.objects.get(name='test_product')
+        session = self.client.session
+        session['slot'] = {'1': True}
+        session['cart'] = {'1': 1}
+        session.save()
+        response = self.client.post(reverse(
+                                'remove_from_cart',
+                                kwargs={'item_id': new_product.id})
+                                )
+        messages = list(get_messages(response.wsgi_request))
+        expected_message = (f'Removed {new_product.name} from shopping cart')
+
+
         self.assertEqual(messages[0].tags, 'success')
         self.assertEqual(str(messages[0]), expected_message)
 

@@ -182,11 +182,11 @@ Notes
 
 #### About page
 
-
+- Verify about page brings up a short message explaining the premise of the company
 
 #### Contact page
 
-
+- Verify contact link brings up a contact form giving the user the ability to contact the store onwer with any issues or feedback
 
 
 ### Automated testing
