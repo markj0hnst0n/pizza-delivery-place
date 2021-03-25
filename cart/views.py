@@ -22,9 +22,14 @@ def add_to_cart(request, item_id):
         messages.error(request, "You need to book a timeslot first!")
         return redirect('timeslot')
     else:
-        print(cart)
         if item_id in list(cart.keys()):
-            cart[item_id] += quantity
+            if cart[item_id] > 3:
+                messages.error(
+                    request,
+                    "No more than 4 per item, sorry! :)")
+                return redirect('cart')
+            else:
+                cart[item_id] += quantity
         else:
             cart[item_id] = quantity
 
@@ -45,33 +50,20 @@ def adjust_cart(request, item_id):
         messages.error(request, "You need to book a timeslot first!")
         return redirect('timeslot')
     else:
-        if item.category != 'drinks' or 'sweets':
-            if quantity > 4:
-                messages.error(request, "Too much food for one order, sorry.  There's only 1 chef! :)")
-                return redirect('cart')
-            if quantity > 0:
-                cart[item_id] = quantity
-                messages.success(request, f'Updated {item.name}\
-                    quantity to {cart[item_id]}')
-            else:
-                cart.pop[item_id]
-                messages.success(request, f'Removed {item.name}\
-                    from shopping cart')
-
-            request.session['cart'] = cart
-            return redirect(reverse('cart'))
+        if quantity > 4:
+            messages.error(request, "No more than 4 per item, sorry! :)")
+            return redirect('cart')
+        if quantity > 0:
+            cart[item_id] = quantity
+            messages.success(request, f'Updated {item.name}\
+                quantity to {cart[item_id]}')
         else:
-            if quantity > 0:
-                cart[item_id] = quantity
-                messages.success(request, f'Updated {item.name}\
-                    quantity to {cart[item_id]}')
-            else:
-                cart.pop[item_id]
-                messages.success(request, f'Removed {item.name}\
-                    from shopping cart')
+            cart.pop[item_id]
+            messages.success(request, f'Removed {item.name}\
+                from shopping cart')
 
-            request.session['cart'] = cart
-            return redirect(reverse('cart'))
+        request.session['cart'] = cart
+        return redirect(reverse('cart'))
 
 
 def remove_from_cart(request, item_id):

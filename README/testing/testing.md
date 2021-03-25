@@ -132,9 +132,11 @@ Notes
 - Verify that all relevant information about the product is dislpayed on screen :heavy_check_mark:
 - Verify that clicking on the image takes the user to link of the product image in full size in a new tab :heavy_check_mark:
 - Verify that quantity selector is displayed and any quantity of 1 or less makes the minus button disable
-- Verify that the quantity selector will not accept values of less than 1 or more than 
+- Verify that the quantity selector will not accept values of less than 1 or more than 4 for each product
 
 #### Cart page
+
+
 
 #### Checkout page
 
