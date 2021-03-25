@@ -92,7 +92,7 @@ def order_delete(request, order_number):
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, only store owners can use this page.')
         return redirect(reverse('home'))
-    
+
     order = get_object_or_404(Order, order_number=order_number)
     order.delete()
     messages.info(request, 'Order deleted!')

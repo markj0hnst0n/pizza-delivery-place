@@ -18,7 +18,7 @@ class TestCartViews(TestCase):
             name='test_product',
             price=1.00
             )
-        
+
         new_timeslot = Timeslot.objects.create(
             pk=1,
             available_slots=1
@@ -106,7 +106,7 @@ class TestCartViews(TestCase):
         self.assertRedirects(response, '/timeslot/')
         self.assertEqual(messages[0].tags, 'error')
         self.assertEqual(str(messages[0]), expected_message)
-    
+
     def test_adjust_cart_with_timeslot(self):
         new_product = MenuItem.objects.get(name='test_product')
         session = self.client.session
@@ -127,7 +127,7 @@ class TestCartViews(TestCase):
         self.assertRedirects(response, '/cart/')
         self.assertEqual(messages[0].tags, 'success')
         self.assertEqual(str(messages[0]), expected_message)
-    
+
     def test_adjust_cart_to_zero_with_timeslot(self):
         new_product = MenuItem.objects.get(name='test_product')
         session = self.client.session
@@ -148,7 +148,7 @@ class TestCartViews(TestCase):
         self.assertRedirects(response, '/cart/')
         self.assertEqual(messages[0].tags, 'success')
         self.assertEqual(str(messages[0]), expected_message)
-    
+
     def test_remove_from_cart_with_no_timeslot(self):
         new_product = MenuItem.objects.get(name='test_product')
         post_data = {
@@ -161,7 +161,11 @@ class TestCartViews(TestCase):
                                 data=post_data)
         messages = list(get_messages(response.wsgi_request))
         expected_message = ("You need to book a timeslot first!")
-    
+
+        self.assertRedirects(response, '/timeslot/')
+        self.assertEqual(messages[0].tags, 'error')
+        self.assertEqual(str(messages[0]), expected_message)
+
     def test_remove_from_cart__with_timeslot(self):
         new_product = MenuItem.objects.get(name='test_product')
         session = self.client.session

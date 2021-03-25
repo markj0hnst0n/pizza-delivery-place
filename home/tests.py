@@ -11,10 +11,8 @@ def response_400_error_handler(request, exception=None):
 def response_403_error_handler(request, exception=None):
     return HttpResponse('home/403.html', status=403)
 
-
 def permission_denied_400_view(request):
     raise SuspiciousOperation
-
 
 def permission_denied_403_view(request):
     raise PermissionDenied
