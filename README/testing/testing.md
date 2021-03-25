@@ -12,7 +12,7 @@ All information from each page on the app should be viewable on all screen sizes
 
 #### Steps Taken to Ensure Result
 
-The Bootstrap grid system was used to ensure data displayed in a satisfactory manner on vaious screen sizes. CSS was used to make images responsive and create appropriate behavour.
+The Bootstrap grid system was used to ensure data displayed in a satisfactory manner on vaious screen sizes. CSS was used to make images responsive and create appropriate behavour also media queries were used to ensure readbility on all screen sizes.
 
 On Chrome Developer Tools the following devices were emulated to check responsiveness:
 
@@ -30,6 +30,8 @@ These physical devices were also used for testing:
 - iPhone SE2020
 
 #### Verdict
+
+The app adapts to all tested screen sizes and devices and displays as expected. :heavy_check_mark:
 
 ### Cross-browser Compatability
 
@@ -53,13 +55,52 @@ No obvious bugs were detected in any of the tested browsers. :heavy_check_mark:
 
 ### Behaviour of Shared Site Components
 
-#### Navbar (Navigation Bar)
+#### Security
 
-#### Search function
+All views where important database CRUD operations are completed have been secured to the best of my knowledge and only verified, authenticated superusers should be able to complete them :heavy_check_mark:
+
+#### Toasts
+
+- Any time user feedback is mentioned this is usually given in the form of a toast pop up at the top of the screen just below the navbar.
+- Appear at appropriate times giving user feedback :heavy_check_mark:
+- Sit on top of any other content on the screen and a wholely legible and visible :heavy_check_mark:
+
+Note
+- The 'arrow' at the top of the toast does not point to the cart on large screens.  This was deemed a minor issue and was not corrected as of the time of writing.
+
+#### Main Navbar (Navigation Bar)
+
+- Verify clicking on page logo takes you to the homepage :heavy_check_mark:
+- Verify correct colour transition of navigation links on hover :heavy_check_mark:
+- Verify profile dropdown works correctly showing register or login options before login, profile and logout options when the suer is logged in.  Superusers can also see the site admin link here :heavy_check_mark:
+- Verify clicking on cart takes you to the cart page :heavy_check_mark:
+- Verify that the cart gives and accurate total of the bill to be paid from the items which are in the cart :heavy_check_mark:
+- Verify that using the search input redirects the user to the **Menu** page which displays the relevant results or user feedback message stating that no results were found :heavy_check_mark:
+- Confirm that the navbar stays fixed at the top of the screen and is displayed on top of all other site content :heavy_check_mark:
+
+#### Tablet/Mobile Navbar
+
+- Verify clicking on page logo takes you to the homepage :heavy_check_mark:
+- Verify correct colour transition of navigation links on click :heavy_check_mark:
+- Verify profile dropdown works correctly showing register or login options before login, profile and logout options when the suer is logged in.  Superusers can also see the site admin link here :heavy_check_mark:
+- Verify clicking on cart takes you to the cart page :heavy_check_mark:
+- Verify that the cart gives and accurate total of the bill to be paid from the items which are in the cart :heavy_check_mark:
+- Verify that using the search input redirects the user to the **Menu** page which displays the relevant results or user feedback message stating that no results were found :heavy_check_mark:
+- Confirm that the navbar stays fixed at the top of the screen and is displayed on top of all other site content :heavy_check_mark:
+
+Notes
+- In testing the logo was cut off slightly on 'Galaxy fold' device emulation.  This appears to only show 1 half of screen size of the device on research so was not deemed to be a major issue.
+- In Chrome dev tools there was a bug where on small screen sizes the navbar did not fill the entire width of the screen byt a tine amount unless the burger icon was tapped.  This is not present in the deployed version on any of the live testing I've used.
+
+#### Menu Category navbar
+
+- Verify that it displays the menu category options on all screen sizes and clicking the links take you to all the menu options of that category with a descriptive URL :heavy_check_mark:
 
 #### Footer
 
-#### Menu Category navbar
+- Click on navigation links to confirm correct redirection to the appropriate pages :heavy_check_mark:
+- All information is legible and visibile on all screen sizes :heavy_check_mark:
+- Confirm that the footer stays fixed at the bottom of the screen and is displayed on top of all other site content :heavy_check_mark:
 
 ### Behaviour of Site Pages
 
@@ -69,17 +110,30 @@ No obvious bugs were detected in any of the tested browsers. :heavy_check_mark:
 
 #### Menu Items page
 
+#### Menu Item Detail page
+
 #### Cart page
 
 #### Checkout page
 
+- Timer
 - Preloader
+
+#### Checkout Success page
+
+#### Profile page
+
+#### Admin page
 
 #### Checkout success page
 
 #### User Profile page
 
 #### Admin Profile page
+
+#### About page
+
+#### Contact page
 
 ### Automated testing
 
