@@ -35,7 +35,6 @@ DEBUG = os.environ.get('DEVELOPMENT')
 ALLOWED_HOSTS = [
     '127.0.0.1',
     'the-pizza-place-mj.herokuapp.com',
-    'b9cfc98d80ae.ngrok.io'
 ]
 
 
