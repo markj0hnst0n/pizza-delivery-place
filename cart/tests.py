@@ -179,7 +179,6 @@ class TestCartViews(TestCase):
         messages = list(get_messages(response.wsgi_request))
         expected_message = (f'Removed {new_product.name} from shopping cart')
 
-
         self.assertEqual(messages[0].tags, 'success')
         self.assertEqual(str(messages[0]), expected_message)
 

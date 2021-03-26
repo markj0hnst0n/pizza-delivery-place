@@ -1,9 +1,5 @@
 from django.test import TestCase
 from .forms import OrderForm
-from django.contrib.messages import get_messages
-from django.shortcuts import reverse
-from menu.models import MenuItem, Category
-from timeslot.models import Timeslot
 
 
 class TestOrderFrom(TestCase):

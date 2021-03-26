@@ -40,6 +40,5 @@ class MenuItem(models.Model):
     vegetarian = models.BooleanField(default=False)
     allergens = models.ManyToManyField('Allergens', blank=True)
 
-
     def __str__(self):
         return self.name
