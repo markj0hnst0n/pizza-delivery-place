@@ -15,6 +15,7 @@ from cart.contexts import cart_contents
 
 import stripe
 import json
+import urllib
 
 
 @require_POST
@@ -27,6 +28,7 @@ def cache_checkout_data(request):
             'save_info': request.POST.get('save_info'),
             'username': request.user,
         })
+        
         return HttpResponse(status=200)
     except Exception as e:
         messages.error(request, 'Sorry, your payment cannot be \
@@ -35,23 +37,6 @@ def cache_checkout_data(request):
 
 
 def checkout(request):
-    slot = request.session.get('slot', {})
-    if 'slot' in request.session:
-        s_id = list(slot.keys())[list(slot.values()).index(True)]
-        db_slot = get_object_or_404(Timeslot, pk=s_id)
-        if db_slot.available_slots < 1:
-            messages.error(request, "All requested slots now booked. "
-                                    "Please try another slot if you h"
-                                    "ave not checked out.  If you"
-                                    " are seeing this message after "
-                                    " you have paid please contact"
-                                    " the store on 07777777777.  Do n"
-                                    "ot attempt to checkout again. ")
-            del request.session['slot']
-            return redirect('timeslot')
-    else:
-        messages.error(request, "You need to book a timeslot!")
-        return redirect('timeslot')
 
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
     stripe_secret_key = settings.STRIPE_SECRET_KEY
@@ -76,6 +61,8 @@ def checkout(request):
 
         if order_form.is_valid():
             order = order_form.save(commit=False)
+            s_id = list(slot.keys())[list(slot.values()).index(True)]
+            db_slot = get_object_or_404(Timeslot, pk=s_id)
             order.timeslot = db_slot
             pid = request.POST.get('client_secret').split('_secret')[0]
             order.stripe_pid = pid
@@ -105,6 +92,18 @@ def checkout(request):
                     return redirect(reverse('cart'))
 
             request.session['save_info'] = 'save-info' in request.POST
+            if db_slot.available_slots < 1:
+                messages.info(request, "Contact shop on 07777 777777.  "
+                                       "You Will still receive a "
+                                       "Confirmation E-Mail "
+                                       "Your requested timeslot is "
+                                       f"{db_slot.start_time} - "
+                                       f"{db_slot.end_time}")
+                del request.session['slot']
+                del request.session['cart']
+
+                return redirect('home')
+            
             return redirect(reverse
                             ('checkout_success', args=[order.order_number]))
         else:
@@ -160,6 +159,19 @@ def checkout(request):
         'stripe_public_key': stripe_public_key,
         'client_secret': intent.client_secret,
     }
+    slot = request.session.get('slot', {})
+    if 'slot' in request.session:
+        s_id = list(slot.keys())[list(slot.values()).index(True)]
+        db_slot = get_object_or_404(Timeslot, pk=s_id)
+        if db_slot.available_slots < 1:
+            messages.error(request, "All requested slots now booked. "
+                                    "Please try another slot.")
+            del request.session['slot']
+
+            return redirect('timeslot')
+    else:
+        messages.error(request, "You need to book a timeslot!")
+        return redirect('timeslot')
 
     return render(request, template, context)
 

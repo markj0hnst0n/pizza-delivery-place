@@ -341,12 +341,10 @@ The model used was the Django standard user model from django.contrib.auth.model
 
 ## Logical Data Model
 
-<details>
-<summary>Data Schema</summary>
+Data Schema
 <p align="center">
     <img height="400" src="https://github.com/markj0hnst0n/pizza-delivery-place/blob/master/README/database_schema/pizza-place-logical-data-modelv2.0.png">
 </p>
-</details>
 
 # Testing
 
