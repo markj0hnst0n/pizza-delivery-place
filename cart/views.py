@@ -3,7 +3,6 @@ from django.contrib import messages
 from django.shortcuts import render, redirect, reverse, HttpResponse
 from django.shortcuts import get_object_or_404
 
-
 def cart(request):
     """ This view returns the cart """
     return render(request, 'cart/cart.html')
