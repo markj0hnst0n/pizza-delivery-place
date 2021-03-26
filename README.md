@@ -1,5 +1,5 @@
 <div align="center">
-<h1></h1>
+<h1>The Pizza Place</h1>
 </div>
 
 ![]()
@@ -350,7 +350,12 @@ The model used was the Django standard user model from django.contrib.auth.model
 
 # Testing
 
-See separate Testing.md file [here](https://github.com/markj0hnst0n/pizza-delivery-place/blob/master/README/testing/testing.md)
+To test the admin functions of the site use the following data:
+
+        Username: admin
+        Password: @dm1n$taff
+
+See separate testing file [here](https://github.com/markj0hnst0n/pizza-delivery-place/blob/master/README/testing/testing.md)
 
 # Deployment
 
