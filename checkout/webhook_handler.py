@@ -104,6 +104,7 @@ class StripeWH_Handler:
         else:
             order = None
             try:
+                profile = UserProfile.objects.get(user__username=username)
                 order = Order.objects.create(
                     full_name=shipping_details.name,
                     user_profile=profile,
