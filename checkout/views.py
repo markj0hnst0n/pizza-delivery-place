@@ -35,24 +35,6 @@ def cache_checkout_data(request):
 
 
 def checkout(request):
-    slot = request.session.get('slot', {})
-    if 'slot' in request.session:
-        s_id = list(slot.keys())[list(slot.values()).index(True)]
-        db_slot = get_object_or_404(Timeslot, pk=s_id)
-        if db_slot.available_slots < 1:
-            messages.error(request, "All requested slots now booked. "
-                                    "Please try another slot if you h"
-                                    "ave not checked out.  If you"
-                                    " are seeing this message after "
-                                    " you have paid please contact"
-                                    " the store on 07777777777.  Do n"
-                                    "ot attempt to checkout again. ")
-            del request.session['slot']
-            return redirect('timeslot')
-    else:
-        messages.error(request, "You need to book a timeslot!")
-        return redirect('timeslot')
-
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
     stripe_secret_key = settings.STRIPE_SECRET_KEY
 
@@ -76,6 +58,8 @@ def checkout(request):
 
         if order_form.is_valid():
             order = order_form.save(commit=False)
+            s_id = list(slot.keys())[list(slot.values()).index(True)]
+            db_slot = get_object_or_404(Timeslot, pk=s_id)
             order.timeslot = db_slot
             pid = request.POST.get('client_secret').split('_secret')[0]
             order.stripe_pid = pid
@@ -105,6 +89,10 @@ def checkout(request):
                     return redirect(reverse('cart'))
 
             request.session['save_info'] = 'save-info' in request.POST
+            if db_slot.available_slots < 1:
+                messages.info(request, "There was an issue with your timeslot but your order has been processed and you will still receive a confirmation email.  Do not worry.  Please contact the store for more details")
+                del request.session['slot']
+                return redirect('timeslot')
             return redirect(reverse
                             ('checkout_success', args=[order.order_number]))
         else:
