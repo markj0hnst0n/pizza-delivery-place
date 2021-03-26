@@ -67,8 +67,6 @@ def checkout(request):
             current_cart = cart_contents(request)
             delivery = current_cart['delivery']
             order.delivery_cost = delivery
-            profile = UserProfile.objects.get(user=request.user)
-            order.user_profile = profile
             order.save()
             for item_id, quantity in cart.items():
                 try:
