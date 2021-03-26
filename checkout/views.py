@@ -92,7 +92,8 @@ def checkout(request):
             if db_slot.available_slots < 1:
                 messages.info(request, "There was an issue with your timeslot but your order has been processed and you will still receive a confirmation email.  Do not worry.  Please contact the store for more details")
                 del request.session['slot']
-                return redirect('timeslot')
+                del request.session['cart']
+                return redirect('home')
             return redirect(reverse
                             ('checkout_success', args=[order.order_number]))
         else:
