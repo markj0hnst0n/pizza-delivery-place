@@ -148,6 +148,13 @@ def checkout(request):
         'stripe_public_key': stripe_public_key,
         'client_secret': intent.client_secret,
     }
+    slot = request.session.get('slot', {})
+    s_id = list(slot.keys())[list(slot.values()).index(True)]
+    db_slot = get_object_or_404(Timeslot, pk=s_id)
+    if db_slot.available_slots < 1:
+        messages.info(request, "All timeslots booked.  Please choose an other")
+        del request.session['slot']
+        return redirect('timeslot')
 
     return render(request, template, context)
 
