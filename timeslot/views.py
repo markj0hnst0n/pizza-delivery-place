@@ -10,7 +10,7 @@ def timeslot(request):
     """ A view to show all available timeslots """
 
     slots = Timeslot.objects.all().order_by('start_time')
-    days = Day.objects.all()
+    days = Day.objects.all().order_by('pk')
     total_slot_list = []
     total_slots = 0
 
