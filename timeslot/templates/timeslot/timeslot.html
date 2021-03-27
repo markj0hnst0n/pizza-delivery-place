@@ -6,12 +6,11 @@
 <div class="row"></div>
 {% endblock %}
 
-{% block content %}
 
-<div class="container py-5 px-0 h-100">
-    <div class="container w-100">
+{% block content %}
+<div class="container-fluid">
+    <div class="container pb-3">
         <div class="row">
-            
             {% if total_slots <= 0 %}
                 <div class="col-sm-12 col-md-4 offset-md-4 intro-background">
                     <p class="pt-2">
@@ -69,6 +68,10 @@
             {% endif %}
         </div>
     </div>
+    <div class="row footer-container"></div>
 </div>
-<div class="row footer-container"></div>
+{% endblock %}
+
+{% block page_footer %}
+
 {% endblock %}

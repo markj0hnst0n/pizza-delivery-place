@@ -83,6 +83,21 @@ body {
     color: #f5f5f5;
 }
 
+.btt-button {
+    height: 42px;
+    width: 42px;
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    z-index: 99999;
+}
+
+.btt-link,
+.update-link,
+.remove-item {
+    cursor: pointer;
+}
+
 .intro-background {
     background-color: #FCF8CA;
     border: 1.5px solid #000;
@@ -181,22 +196,6 @@ img {
     overflow-y: auto;
 }
 
-footer {
-    position: absolute;
-    bottom: 0;
-}
-
-.footer-container {
-    height: 180px;
-    width: 100px;
-}
-
-@media (max-width: 540px) {
-    footer {
-        position: relative;
-    }
-}
-
 /* Allauth form formatting */
 
 .allauth-form-inner-content p {
@@ -277,4 +276,65 @@ footer {
     background-color: #dc3545;
     border-color: #dc3545;
     border-radius: 0;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+}
+
+.footer-container {
+    height: 180px;
+    width: 100px;
+}
+
+/* Media Queries */
+
+@media (max-width: 540px) {
+    footer {
+        position: relative;
+    }
+    .footer-container {
+        height: 0px;
+        width: 100px;
+    }
+}
+
+@media (max-width: 991px) {
+    .header-container {
+        padding-top: 116px;
+    }
+
+    body {
+        height: calc(100vh - 116px);
+    }
+
+
+    .nav-link {
+        padding: 0.15rem;
+    }
+
+    .nav-link i.fa-lg {
+        font-size: 1rem;
+    }
+
+    .navbar-toggler {
+        padding: .6rem .6rem;
+        font-size: 1rem;
+    }
+
+    .btn.btn-outline-black.rounded-0,
+    .btn.btn-black.rounded-0 {
+        padding: .375rem .375rem;
+    }
+
+    .btn.border-black.rounded-0.btn-lg,
+    .btn.btn-black.rounded-0.btn-lg {
+        padding: .375rem .375rem;
+        font-size: .75rem;
+    }
+
+    .increment-qty, .decrement-qty {
+        padding: .25rem .5rem !important;
+    }
 }
