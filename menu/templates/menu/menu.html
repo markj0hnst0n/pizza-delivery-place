@@ -44,8 +44,8 @@
                             {% if request.user.is_superuser %}
                                 <div class="row">
                                     <small class="ml-3">
-                                        <a href="{% url 'edit_menu_item' item.id %}">Edit</a>
-                                        <a class="text-danger" href="{% url 'delete_menu_item' item.id %}">Delete</a>
+                                        <a aria-label="edit" href="{% url 'edit_menu_item' item.id %}">Edit</a>
+                                        <a aria-label="delete" class="flame" href="{% url 'delete_menu_item' item.id %}">Delete</a>
                                     </small>
                                 </div>
                             {% endif %}

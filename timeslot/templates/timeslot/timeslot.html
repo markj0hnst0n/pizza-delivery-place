@@ -27,8 +27,8 @@
                         <div class="row">
                             <div class="col text-center">
                                 <small>
-                                    <a href="{% url 'edit_day' d.id %}">Edit</a>
-                                    <a class="text-danger" href="{% url 'delete_day' d.id %}#">Delete</a>
+                                    <a aria-label="edit" href="{% url 'edit_day' d.id %}">Edit</a>
+                                    <a aria-label="delete" class="flame" href="{% url 'delete_day' d.id %}#">Delete</a>
                                 </small>
                             </div>
                         </div>
@@ -55,8 +55,8 @@
                                     {% if request.user.is_superuser %}
                                         <small> {{ s.available_slots }} available</small>
                                         <small class="ml-3">
-                                            <a href="{% url 'edit_timeslot' s.id %}">Edit</a>
-                                            <a class="text-danger" href="{% url 'delete_timeslot' s.id %}">Delete</a>
+                                            <a href="{% url 'edit_timeslot' s.id %}" aria-label="edit">Edit</a>
+                                            <a class="flame" aria-label="delete" href="{% url 'delete_timeslot' s.id %}">Delete</a>
                                         </small>
                                     {% endif %}
                                 </div>

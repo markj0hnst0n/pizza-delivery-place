@@ -168,13 +168,11 @@ These businesses typically only work a few days a week and release all their del
 
 ## Fonts
 
-Noto sans jp for the logo.
-
-Montserrat for the body.
+Noto sans jp for the logo for a clean bold style.  Montserrat for the body for contrast but still an easily readble sans-serif style.
 
 ## Colour Scheme
 
-<img height="200" src="https://github.com/markj0hnst0n/pizza-delivery-place/blob/master/README/pizza-place-colour-palette.png">
+<img height="100" src="https://github.com/markj0hnst0n/pizza-delivery-place/blob/master/README/pizza-place-colour-palette.png">
 
 Colour scheme was taken from the cartoon pizza image and analysed using the [Coolors](https://coolors.co/) site to find the exact colour matches.  Cream was chosen as the main background colour dues to it's contrast with the mainly black body text.  This was done to enhance user experience for visually impaired users.
 
@@ -423,7 +421,7 @@ You will also need to create free accounts with the following services:
 
 1. Using Git, clone the repository as follows.
 
-        git clone https://github.com/markj0hnst0n/pizza-delivery-place)
+        git clone https://github.com/markj0hnst0n/pizza-delivery-place
 
 2. Open your preferred IDE and open a terminal session
 3. Using a virtual environment is recommended. virtualenv can be installed as follows:
@@ -537,7 +535,9 @@ Github address for the project: https://github.com/markj0hnst0n/pizza-delivery-p
 
 ## Content
 
-Written content by Mark Johnston
+Written content by Mark Johnston.
+
+Stripe payments js and functionality from https://stripe.com/
 
 ## Media
 
