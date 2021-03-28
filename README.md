@@ -168,14 +168,60 @@ These businesses typically only work a few days a week and release all their del
 
 ## Fonts
 
+Noto sans jp for the logo.
+
+Montserrat for the body.
+
 ## Colour Scheme
 
+<img height="200" src="https://github.com/markj0hnst0n/pizza-delivery-place/blob/master/README/pizza-place-colour-palette.png">
+
+Colour scheme was taken from the cartoon pizza image and analysed using the [Coolors](https://coolors.co/) site to find the exact colour matches.  Cream was chosen as the main background colour dues to it's contrast with the mainly black body text.  This was done to enhance user experience for visually impaired users.
+
+Fon
 
 ### Features
 
+Navbar
+
+- Easily navigate the website on all screens and use it to search for products.
+
+Footer
+
+- To show relevant customer information that whould be availabel on all screens.
+
+Timeslot App
+
+- For Users to select and find information on timeslots if available.
+- For Admins to be able to create, read, update and delete timeslots.
+- User feedback success message displayed when timeslot is booked.
+
+Menu App
+
+- For users to select and find information on menu items if available.
+- For admins to be able to create, read, update and delete timeslots.
+- Users can get detailed information about menu items and choose quantity by clicking on the item image.
+- User feedback success message displayed when item added to cart.
+
+Cart App
+
+- For users to be able to see items in their shopping cart, check them and make amendments before moving to checkout.
+- Actions give the user suitable feedback.
+
+Checkout App
+
+- For users to be able to put in their details for delivery and if logged in to be able to save these details.
+- To get a brief summary for the their order and timeslot.
+- Payment information so they can pay for their order.
+- To see relevant user feedback if they have successfully processed an order or if there are any errors.
 
 ### Features not implimented
 
+- API for looking up address from just postcode
+- Login via social media
+- An option to collect the order rather than have it delivered
+- The ability to sign up for alerts when time slots are released
+- For the user to have more than 1 address
 
 # Technologies Used
 
@@ -329,6 +375,7 @@ The model used was the Django standard user model from django.contrib.auth.model
 | Name | Field Type | Validation
 | --- | --- | --- 
 | name | Charfield | max_length=32
+| date | Datefield | null=True, blank=True
 
 ### Timeslot Model
 
@@ -343,15 +390,10 @@ The model used was the Django standard user model from django.contrib.auth.model
 
 Data Schema
 <p align="center">
-    <img height="400" src="https://github.com/markj0hnst0n/pizza-delivery-place/blob/master/README/database_schema/pizza-place-logical-data-modelv2.0.png">
+    <img height="400" src="https://github.com/markj0hnst0n/pizza-delivery-place/blob/master/README/database_schema/pizza-place-logical-data-modelv2.1.png">
 </p>
 
 # Testing
-
-To test the admin functions of the site use the following data:
-
-        Username: admin
-        Password: @dm1n$taff
 
 See separate testing file [here](https://github.com/markj0hnst0n/pizza-delivery-place/blob/master/README/testing/testing.md)
 
@@ -497,15 +539,26 @@ Github address for the project: https://github.com/markj0hnst0n/pizza-delivery-p
 
 Written content by Mark Johnston
 
-
-
 ## Media
 
+Background cartoon pizza images from [pngtree](https://pngtree.com/) used with permission.
 
+Pizza images from [piguyni](https://www.instagram.com/piguyni/) used with permission.
+
+Sides images from [pixabay](https://pixabay.com/) used with permission.
+
+Dessert images from [fruitshop](https://www.instagram.com/fruitshopbelfast) used with permission.
+
+Drink images from [dominos](https://www.dominos.co.uk/)
 
 ## Influences
 
+Dominos website:
+
+ https://www.dominos.co.uk/
+
 Pizza Loader code from:
+
 https://codepen.io/arcs/pen/pbPkPL
 
 JS Timer in minutes and seconds from:
@@ -518,8 +571,8 @@ https://stackoverflow.com/questions/41035992/jquery-countdown-timer-for-minutes-
 Thanks to the following people for making the project happen:
 
 - My Mentor Can Suncullu for his advice, patience and motivation.
-- The [Code Institute](https://codeinstitute.net/) Slack Community.
-- The [Code Institute](https://codeinstitute.net/) tutors and instructional material.  Espcially tutor Johann for his help with the like functionality.
+- The [Code Institute](https://codeinstitute.net/) Slack Community with special thanks to the gentleman Thomas Muat.
+- The [Code Institute](https://codeinstitute.net/) tutors and instructional material.  Especially tutors Igor and Jo.
 - My Wife Joanna Johnston for her (constructive) criticism and understanding when I lock myself away in the attic for hours on end
 
 ## Disclaimer

@@ -191,6 +191,30 @@ Notes
 
 ### Automated testing
 
+#### How to run Python automated tests
+
+To run the existing Python tests:
+1. Activate your IDE.
+2. In the terminal enter the following command: `python3 manage.py test`
+    * If you wish to run the tests for a specific app you can enter the following command: `python3 manage.py test <app name>`
+3. The test results will be shown within the terminal.
+
+### Coverage
+
+[Coverage.py](https://coverage.readthedocs.io/) was used to provide feedback during testing.
+
+My code coverage currently stands at 63%, and covers most major functionality. 
+
+Due to time constraints 100% coverage was not acheived.
+
+#### How to run coverage
+
+To view the coverage, you can run the following commands:
+
+1. `coverage run --source=. manage.py test` This will run all tests/
+2. `coverage report` The coverage will be shown within the terminal, broken down by .py file.
+3. You can view an interactive version by using `coverage html`, and then `python3 -m http.server`, and you can view the htmlcov folder in the browser, select specific files, and view which particular sections of code are or aren't being covered by the e
+
 #### W3C HTML Validation
 
 #### W3C CSS Validation

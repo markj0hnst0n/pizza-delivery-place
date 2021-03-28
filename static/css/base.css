@@ -128,6 +128,24 @@ img {
     cursor: pointer;
 }
 
+/*-- Convenience colours */
+
+.burlywood {
+    color: #DAB378;
+}
+
+.orange-yellow {
+    color: #f2b930;
+}
+
+.cream {
+    color: #fcf8ca;
+}
+
+.flame {
+    color: #d25317;
+}
+
 /*-- Toasts */
 
 .message-container {
