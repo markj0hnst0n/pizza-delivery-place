@@ -25,7 +25,7 @@ class OrderForm(forms.ModelForm):
             'street_address1': 'Street Address 1',
             'street_address2': 'Street Address 2',
             'county': 'County',
-            'delivery_info': 'ring the bell, 3rd floor etc',
+            'delivery_info': 'Anything else we should know?  Food or Delivery',
         }
         labels = {
            'full_name': 'Full Name',
@@ -36,7 +36,7 @@ class OrderForm(forms.ModelForm):
            'street_address1': 'Street Address line 1',
            'street_address2': 'Street Address line 2',
            'county': 'County',
-           'delivery_info': 'Delivery instructions:',
+           'delivery_info': 'Additional Information:',
         }
 
         self.fields['full_name'].widget.attrs['autofocus'] = True

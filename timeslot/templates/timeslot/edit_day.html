@@ -21,13 +21,16 @@
             </div>
         </div>
 
-        <div class="row">
-            <div class="col-12 col-md-6">
+        <div class="row mb-4">
+            <div class="col-12 col-lg-6">
                 <form method="POST" action="{% url 'edit_day' day.id %}" class="form mb-2" enctype="multipart/form-data">
                     {% csrf_token %}
                     <input class="my-2" type="text" 
                            name="day" id="day"
                            value="{{ day.name }}">
+                    <input class="my-2" type="date" 
+                           name="date" id="date"
+                           value="{{ date }}">
                     <div class="text-left">
                         <a class="btn border-black" href="{% url 'timeslot' %}">Cancel</a>
                         <button class="btn btn-black rounded-0" type="submit">Edit Day</button>

@@ -6,7 +6,7 @@
 
 Pizza place is the solution to a new kind of food delivery/collection business; the artisan micro-seller.  These businesses focus on simplicity, are usually the work of one person and put a lot of work into creating a small output of super high quality products, which in turn creates a very high demand.  There is minimal customisation available for the customer (no different sizes, minimal topping options) due to time constraints on the service provider.
 
-To make sure they can prepare correctly for their customers the process for ordering is a bit different to how a normal food delivery app/site would work because the delivery slot comes first.  While the customer should be able to get an idea of what products are available they must always book a delivery slot before proceeding with an order.
+To make sure they can prepare correctly for their customers the process for ordering is a bit different to how a normal food delivery app/site would work because the delivery slot comes first.  While the customer should be able to get an idea of what products are available they must always book a delivery slot before proceeding with an order.  Thus creating demand for the delivery slot and getting a chance to try the food and also demand for the food itself.
 
 These businesses typically only work a few days a week and release all their delivery slots on one day, due to the small number of slots these typically sell out quite quickly if they have done their social media marketing correctly!  The Pizza project aims to create an app/site which creates a simple and elegant solution to this situation.
 
@@ -159,7 +159,7 @@ These businesses typically only work a few days a week and release all their del
 <details>
 <summary>Contact Form Page wireframes</summary>
 <p align="center">
-    <img height="400" src="https://github.com/markj0hnst0n/pizza-delivery-place/blob/master/README/wireframes/admin-page-browser.png">
+    <img height="400" src="https://github.com/markj0hnst0n/pizza-delivery-place/blob/master/README/wireframes/contact-form-browser.png">
     <img height="400" src="https://github.com/markj0hnst0n/pizza-delivery-place/blob/master/README/wireframes/sample-input-form-tablet.png">
     <img height="400" src="https://github.com/markj0hnst0n/pizza-delivery-place/blob/master/README/wireframes/sample-input-form-phone.png">
 </p>

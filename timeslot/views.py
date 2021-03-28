@@ -10,7 +10,7 @@ def timeslot(request):
     """ A view to show all available timeslots """
 
     slots = Timeslot.objects.all().order_by('start_time')
-    days = Day.objects.all().order_by('pk')
+    days = Day.objects.all().order_by('date')
     total_slot_list = []
     total_slots = 0
 
@@ -152,7 +152,8 @@ def add_day(request):
 
     if request.method == 'POST':
         day = request.POST.get("day")
-        db_day = Day.objects.create(name=day)
+        date = request.POST.get("date")
+        db_day = Day.objects.create(name=day, date=date)
         db_day.save()
         return redirect('timeslot')
 
@@ -167,9 +168,11 @@ def edit_day(request, d_id):
         return redirect(reverse('home'))
 
     day = get_object_or_404(Day, pk=d_id)
-
+    date = str(day.date)
+    
     if request.method == 'POST':
         day.name = request.POST.get("day")
+        day.date = request.POST.get("date")
         day.save()
         messages.success(request, 'Successfully edited day!')
         return redirect('timeslot')
@@ -180,6 +183,7 @@ def edit_day(request, d_id):
     template = 'timeslot/edit_day.html'
     context = {
         'day': day,
+        'date': date,
     }
 
     return render(request, template, context)
