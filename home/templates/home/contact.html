@@ -7,13 +7,12 @@
 {% endblock %}
 
 {% block content %}
-
 <div class="container intro-background mb-3">
     <div class="text-center pt-3">
         <h2 class="logo-font">Contact us!</h2>
     </div>
     <hr class="hr-black w-50">
-    <form method="POST" action="{% url 'contact' %}">
+    <form id="contact" class="pb-3" method="POST" action="{% url 'contact' %}">
         {% csrf_token %}
         <div class="form-group">
             <label for="name">Name</label>

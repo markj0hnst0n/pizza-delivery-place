@@ -22,10 +22,10 @@
         </div>
 
         <div class="row">
-            <div class="col-12 col-md-6">
+            <div class="col-12 col-md-6 mb-4">
                 <form method="POST" action="{% url 'add_day' %}" class="form mb-2" enctype="multipart/form-data">
                     {% csrf_token %}
-                    <input class="my-2" type="text" name="day" id="day">
+                    <input class="my-2" type="text" name="day" id="day" placeholder="Day Name">
                     <input class="my-2" type="date" name="date" id="date">
                     <div class="text-left">
                         <a class="btn border-black" href="{% url 'admin' %}">Cancel</a>
