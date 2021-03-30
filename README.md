@@ -579,7 +579,7 @@ Drink images from [dominos](https://www.dominos.co.uk/)
 
 Dominos website:
 
- https://www.dominos.co.uk/
+https://www.dominos.co.uk/
 
 Pizza Loader code from:
 
@@ -594,7 +594,7 @@ https://stackoverflow.com/questions/41035992/jquery-countdown-timer-for-minutes-
 
 Thanks to the following people for making the project happen:
 
-- My Mentor Can Suncullu for his advice, patience and motivation.
+- My truly great mentor Can Suncullu for his advice, patience and motivation.
 - The [Code Institute](https://codeinstitute.net/) Slack Community with special thanks to the gentleman Thomas Muat.
 - The [Code Institute](https://codeinstitute.net/) tutors and instructional material.  Especially tutors Igor and Jo.
 - My Wife Joanna Johnston for her (constructive) criticism and understanding when I lock myself away in the attic for hours on end
