@@ -75,11 +75,13 @@
                                         V <i class="fas fa-seedling"></i>
                                     </div>
                                     {% endif %}
-                                    {% if item.allergens %}
-                                    <div class="col text-center">
-                                        A <i class="fas fa-ban"></i>
-                                    </div>
-                                    {% endif %}
+                                    {% for allergen in item.allergens.all|slice:":1" %}
+                                        {% if allergen %}
+                                            <div class="col text-center">
+                                                A <i class="fas fa-ban"></i>
+                                            </div>
+                                        {% endif %}
+                                    {% endfor %}
                                 </div>
                             {% endif %}
                         </div>
