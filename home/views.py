@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.core.mail import send_mail
 from django.template.loader import render_to_string
 from django.contrib import messages
+from profiles.models import UserProfile
 
 from django.conf import settings
 
@@ -18,6 +19,12 @@ def about(request):
 
 def contact(request):
     """ Shows and allows user to sent contact form """
+
+    email = ""
+    if request.user.is_authenticated:
+        profile = UserProfile.objects.get(user=request.user)
+        email = profile.user.email
+
     if request.method == 'POST':
         user_email = request.POST.get("email")
         user_name = request.POST.get("name")
@@ -56,7 +63,11 @@ def contact(request):
         )
         messages.info(request, "Contact form sent")
 
-    return render(request, 'home/contact.html')
+    context = {
+        'email': email,
+    }
+
+    return render(request, 'home/contact.html', context)
 
 
 def error_400_view(request, exception):

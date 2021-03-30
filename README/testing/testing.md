@@ -264,3 +264,4 @@ Accessibility was marked down on cart screen and menu item detail screen due to 
 | Only 1 allergen could be added to each menu item | Changed relationship from foreignkey to many to many which enabled multiple allergens for each menu item
 | It is possible for the user to complete an order when there are no timeslots available.  While the impact on the store should be minimal it may cause issues | Users impacted receive a custom message asking them to contact the store and still receive a confirmation email.
 | If a menu item is deleted while it is in the cart it causes an error and the site will generate a 404 error on all pages | Issue with cache.  If all site data is cleared from browser cache the issue does not persist.
+| On cart page on large screens increment and decrement buttons would take numbers above 4 and below zero | Rewrote code based on item detail page increment and decrement buttons and bug no longer persisted
