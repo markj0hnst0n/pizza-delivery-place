@@ -1,6 +1,8 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block extra_title %} Menu{% endblock %}
+
 {% block page_header %}
 <div class="container header-container"></div>
 <div class="row"></div>
@@ -112,6 +114,11 @@
                     <i class="fas fa-arrow-up text-white mx-auto my-auto"></i>
                 </a>	
             </div>
+                <div class="col text-center pt-3">
+                    Spicy =  <i class="fas fa-pepper-hot"></i>
+                    Vegetarian = <i class="fas fa-seedling"></i>
+                    Allergens = <i class="fas fa-ban"></i>
+                </div>
             <div class="row footer-container"></div>
             </div>
         </div>

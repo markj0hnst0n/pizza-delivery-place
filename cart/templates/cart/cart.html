@@ -2,6 +2,8 @@
 {% load static %}
 {% load cart_tools %}
 
+{% block extra_title %} Shopping Cart{% endblock %}
+
 {% block page_header %}
 <div class="container header-container"></div>
 <div class="row"></div>
@@ -118,13 +120,14 @@
 
 {% block postloadjs %}
 {{ block.super }}
-<script>
+<script type="text/javascript">
     $('.btt-link').click(function(e) {
         window.scrollTo(0,0)
     })
 </script>
 {% include 'menu/includes/quantity_input_script.html' %}
-<script>
+
+<script type="text/javascript">
     // From Boutique ado project
 
     // Update quantity on click

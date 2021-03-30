@@ -237,6 +237,18 @@ Most issues being flagged are for variables that are not being used but removing
 
 #### Google Lighthouse Testing information
 
+Extensive lighthouse testing information can be found in pdf form [here](https://github.com/markj0hnst0n/pizza-delivery-place/blob/master/README/testing/lighthouse-testing/)
+
+The main focus was to test for any accessibilty issues for visually impaired readers.  Pages were testing with user logged in as an admin to put the maximum amount of content on each page.  The scores for most pages were acceptable with the index, about, contact, menu, timeslot and cart pages being particularly good.
+
+Performance scores were variable and I have foudn that some pages scored well at certain times and less well at others so it's assumed that ISP speed variability is the issue and as such less credence was given to these scores.
+
+Search engine optimisation scores were consistently in the high 80s but could have been improved by a meta description.
+
+Accessibility was marked down on cart screen and menu item detail screen due to the increment and decrement buttons.  These were given aria labels to mitigate against this but scores did not improve.
+
+#### Debug Table
+
 |   Bug	    | Debug                |
 |-----------|----------------------|
 | Database stopped working due to information in one of the fields not fitting the data model | Ran python3 manage.py flush to delete all information in database |
