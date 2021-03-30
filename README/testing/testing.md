@@ -12,7 +12,7 @@ All information from each page on the app should be viewable on all screen sizes
 
 #### Steps Taken to Ensure Result
 
-The Bootstrap grid system was used to ensure data displayed in a satisfactory manner on vaious screen sizes. CSS was used to make images responsive and create appropriate behavour also media queries were used to ensure readbility on all screen sizes.
+The Bootstrap grid system was used to ensure data displayed in a satisfactory manner on vaious screen sizes. CSS was used to make images responsive and create appropriate behaviour also media queries were used to ensure readbility on all screen sizes.
 
 On Chrome Developer Tools the following devices were emulated to check responsiveness:
 
@@ -72,9 +72,9 @@ Note
 
 - Verify clicking on page logo takes you to the homepage :heavy_check_mark:
 - Verify correct colour transition of navigation links on hover :heavy_check_mark:
-- Verify profile dropdown works correctly showing register or login options before login, profile and logout options when the suer is logged in.  Superusers can also see the site admin link here :heavy_check_mark:
+- Verify profile dropdown works correctly showing register or login options before login, profile and logout options when the user is logged in.  Superusers can also see the site admin link here :heavy_check_mark:
 - Verify clicking on cart takes you to the cart page :heavy_check_mark:
-- Verify that the cart gives and accurate total of the bill to be paid from the items which are in the cart :heavy_check_mark:
+- Verify that the cart gives an accurate total of the bill to be paid from the items which are in the cart :heavy_check_mark:
 - Verify that using the search input redirects the user to the **Menu** page which displays the relevant results or user feedback message stating that no results were found :heavy_check_mark:
 - Confirm that the navbar stays fixed at the top of the screen and is displayed on top of all other site content :heavy_check_mark:
 
@@ -82,15 +82,15 @@ Note
 
 - Verify clicking on page logo takes you to the homepage :heavy_check_mark:
 - Verify correct colour transition of navigation links on click :heavy_check_mark:
-- Verify profile dropdown works correctly showing register or login options before login, profile and logout options when the suer is logged in.  Superusers can also see the site admin link here :heavy_check_mark:
+- Verify profile dropdown works correctly showing register or login options before login, profile and logout options when the user is logged in.  Superusers can also see the site admin link here :heavy_check_mark:
 - Verify clicking on cart takes you to the cart page :heavy_check_mark:
-- Verify that the cart gives and accurate total of the bill to be paid from the items which are in the cart :heavy_check_mark:
+- Verify that the cart gives an accurate total of the bill to be paid from the items which are in the cart :heavy_check_mark:
 - Verify that using the search input redirects the user to the **Menu** page which displays the relevant results or user feedback message stating that no results were found :heavy_check_mark:
 - Confirm that the navbar stays fixed at the top of the screen and is displayed on top of all other site content :heavy_check_mark:
 
 Notes
 - In testing the logo was cut off slightly on 'Galaxy fold' device emulation.  This appears to only show 1 half of screen size of the device on research so was not deemed to be a major issue.
-- In Chrome dev tools there was a bug where on small screen sizes the navbar did not fill the entire width of the screen byt a tine amount unless the burger icon was tapped.  This is not present in the deployed version on any of the live testing I've used.
+- In Chrome dev tools there was a bug where on small screen sizes the navbar did not fill the entire width of the screen but a tine amount unless the burger icon was tapped.  This is not present in the deployed version on any of the live testing I've used.
 
 #### Menu Category navbar
 
@@ -114,7 +114,7 @@ Notes
 #### Timeslot page
 
 - Verify that if there are no available timeslots in the database an appropriate message is displayed :heavy_check_mark:
-- Verify that if there are available timeslots in the database they displayed on screen sorted with the earliest times at the top of the page :heavy_check_mark:
+- Verify that if there are available timeslots in the database they are displayed on screen sorted with the earliest times at the top of the page :heavy_check_mark:
 - Verify that the timeslots are sorted into columns based on days in the database :heavy_check_mark:
 - Verify that if a single timeslot is sold out the button for that timeslot is disabled :heavy_check_mark:
 - Verify that if logged in as a super user the user can see the amount remaining for each slot and also edit and delete links to change the timselot if neccessary.  CRUD operations tested on the relevant page links :heavy_check_mark:
@@ -122,7 +122,7 @@ Notes
 
 #### Menu Items page
 
-- Verify that items are displayed on screen based on how the user has navigated to this screen.  If the come from booking a timeslot all menu items are displayed but if they choose an option from the menu navbar only options matching the selected category appear :heavy_check_mark:
+- Verify that items are displayed on screen based on how the user has navigated to this screen.  If they come from booking a timeslot all menu items are displayed but if they choose an option from the menu navbar only options matching the selected category appear :heavy_check_mark:
 - Verify that image, price and icons displaying product info display :heavy_check_mark:
 - Verify that quick add button appears for all items and clicking this adds 1 of the item to the shopping cart :heavy_check_mark:
 - Verify that clicking on the item image takes the user to the menu item display page :heavy_check_mark:
@@ -133,7 +133,7 @@ Deleting a menu item when it is in the cart causes and error.
 
 #### Menu Item Detail page
 
-- Verify that all relevant information about the product is dislpayed on screen :heavy_check_mark:
+- Verify that all relevant information about the product is displayed on screen :heavy_check_mark:
 - Verify that clicking on the image takes the user to link of the product image in full size in a new tab :heavy_check_mark:
 - Verify that quantity selector is displayed and any quantity of 1 or less and 4 or more makes the minus button disable :heavy_check_mark:
 - Verify that the quantity selector will not accept values of less than 1 or more than 4 for each product :heavy_check_mark:
@@ -156,7 +156,7 @@ Notes
 - Verify that a preview of the timeslot booked and cart are displayed to make any final checks prior to payment :heavy_check_mark:
 - Verify that an input for credit/debit card info is displayed and errors generate by the input are displayed below the input :heavy_check_mark:
 - Verify that the page displays a 2 minute timer at the bottom with a message informing the user that their timeslot is in danger of being booked if they do not check out in that time :heavy_check_mark:
-- Verify that a pizza slice loader screen displays once the payment button has been clciked :heavy_check_mark:
+- Verify that a pizza slice loader screen displays once the payment button has been clicked :heavy_check_mark:
 - Verify a back button is displayed if the user wants to go back to their cart to adjust items :heavy_check_mark:
 - Verify that even if checkout success page is not displayed an order will be generated via information from the payment company and a confirmation email will be sent :heavy_check_mark:
 
@@ -174,7 +174,7 @@ Notes
 
 #### User Profile page
 
-- Verify that a form displays with all the users default delivery information if held.  This can be updated and save.  CRUD operations checked :heavy_check_mark:
+- Verify that a form displays with all the users default delivery information if held.  This can be updated and saved.  CRUD operations checked :heavy_check_mark:
 - Verify that the history of the users orders is displays with the most recent showing at the top :heavy_check_mark:
 - Users can click on the order number to get a summary of their order. It is a reproduction of the checkout success page :heavy_check_mark:
 
@@ -191,7 +191,7 @@ Notes
 
 #### Contact page
 
-- Verify contact link brings up a contact form giving the user the ability to contact the store onwer with any issues or feedback
+- Verify contact link brings up a contact form giving the user the ability to contact the store owner with any issues or feedback
 
 
 ### Automated testing
@@ -218,7 +218,7 @@ To view the coverage, you can run the following commands:
 
 1. `coverage run --source=. manage.py test` This will run all tests/
 2. `coverage report` The coverage will be shown within the terminal, broken down by .py file.
-3. You can view an interactive version by using `coverage html`, and then `python3 -m http.server`, and you can view the htmlcov folder in the browser, select specific files, and view which particular sections of code are or aren't being covered by the e
+3. You can view an interactive version by using `coverage html`, and then `python3 -m http.server`, and you can view the htmlcov folder in the browser, select specific files, and view which particular sections of code are or aren't being covered.
 
 #### W3C HTML Validation
 
@@ -241,7 +241,7 @@ Extensive lighthouse testing information can be found in pdf form [here](https:/
 
 The main focus was to test for any accessibilty issues for visually impaired readers.  Pages were testing with user logged in as an admin to put the maximum amount of content on each page.  The scores for most pages were acceptable with the index, about, contact, menu, timeslot and cart pages being particularly good.
 
-Performance scores were variable and I have foudn that some pages scored well at certain times and less well at others so it's assumed that ISP speed variability is the issue and as such less credence was given to these scores.
+Performance scores were variable and I have found that some pages scored well at certain times and less well at others so it's assumed that ISP speed variability is the issue and as such less credence was given to these scores.
 
 Search engine optimisation scores were consistently in the high 80s but could have been improved by a meta description.
 
@@ -255,7 +255,7 @@ Accessibility was marked down on cart screen and menu item detail screen due to 
 | Error message of "'decimal.Decimal' object is not iterable" being returned when trying to use context processor to add up cart item total | There was a return statement in my function in contexts.py which meant the contexts where not being rendered correctly.  Cart total now works correctly.
 | Quantity increase and decrease buttons were not disabling below 1 and above 99 as per js. | The classes which the js used to identify the buttons were named as the wrong variable names.
 | Remove button not working on cart page. | JQuery version being used did not have the correct POST functionality and there were indentation errors in the remove from cart view.  I was also using square brackets as opposed to normal brackets in the view to reomve the item from cart.
-| While developing on VScode I couldn't use the local server to test webhooks | I tired to use gitpod and transfer code across but this was un wieldly.  I then used a service called ngrok to create a tunnel from my localhost address which allowed the local site to be available on a public server.  This enabled me to test webhooks.
+| While developing on VScode I couldn't use the local server to test webhooks | I tried to use gitpod and transfer code across but this was un wieldly.  I then used a service called ngrok to create a tunnel from my localhost address which allowed the local site to be available on a public server.  This enabled me to test webhooks.
 | Users could book a timeslot but technically never check out and therefore use up slots the that could be used by another customer | I Moved the timeslot database call to the checkout so that the slot is only booked in when the order goes through
 | Card can be charged and order created but if there is no slot available an error can be generated | Moved the function to check the number of timeslots left to the checkout page itself instead of success so that the slots remaining are checked before the card can be charged
 | User Email not being picked up from form on contact form | Name needed to be added to form data
@@ -263,4 +263,4 @@ Accessibility was marked down on cart screen and menu item detail screen due to 
 | Profile page didn't display default saved address | form instance had syntax relating to request.POST when the request was GET so it was not filling the form data correctly
 | Only 1 allergen could be added to each menu item | Changed relationship from foreignkey to many to many which enabled multiple allergens for each menu item
 | It is possible for the user to complete an order when there are no timeslots available.  While the impact on the store should be minimal it may cause issues | Users impacted receive a custom message asking them to contact the store and still receive a confirmation email.
-| If a menu item is delete while it is in the cart it causes an error and the site will generate a 404 error on all pages | Issue with cache.  If all site data is cleared from browser cache the issue does not persist.
+| If a menu item is deleted while it is in the cart it causes an error and the site will generate a 404 error on all pages | Issue with cache.  If all site data is cleared from browser cache the issue does not persist.

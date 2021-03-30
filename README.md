@@ -32,8 +32,8 @@ These businesses typically only work a few days a week and release all their del
 |   As a	| I want to be able to | So that I can |
 |-----------|----------------------|---------------|
 | User | Register for an account | See my Order History and save my personal information
-| User | Receive email confirmations | See my registration has been successful
-| User | Log in easily | see my order history and see/update my personal details
+| User | Receive email confirmations | See if my registration has been successful
+| User | Log in easily | Aee my order history and see/update my personal details
 | User | Recover access to my account if I forget my password | Retreive my information
 
 
@@ -43,7 +43,7 @@ These businesses typically only work a few days a week and release all their del
 |   As a	| I want to be able to | So that I can |
 |-----------|----------------------|---------------|
 | User | Sort a list of available menu items | See the menu items sorted by category
-| Customer | Search by name for a specific menu item | Quickly find the one i want to purchase
+| Customer | Search by name for a specific menu item | Quickly find the one I want to purchase
 | Customer | Add an item to basket as soon as I see it | Get to the checkout as soon as possible
 
 
@@ -213,7 +213,7 @@ Checkout App
 - Payment information so they can pay for their order.
 - To see relevant user feedback if they have successfully processed an order or if there are any errors.
 
-### Features not implimented
+### Features not implemented
 
 - API for looking up address from just postcode
 - Login via social media
@@ -499,7 +499,7 @@ You will also need to create free accounts with the following services:
 
         python3 manage.py runserver
 
-14. To access to admin panel, add `/admin` to the end of the app's url in the browser and log in using your super user details.
+14. To access to the admin panel, add `/admin` to the end of the app's url in the browser and log in using your super user details.
 
 15. The app should now be running.
 
