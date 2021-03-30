@@ -76,8 +76,8 @@ body {
     font-size: 110%;
 }
 
+.deals-button,
 .btn-black:hover,
-
 .btn-black:active,
 .btn-black:focus {
     background: #222;

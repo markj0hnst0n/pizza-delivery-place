@@ -13,7 +13,7 @@ Grand Total: £{{ order.grand_total }}
 
 Your order will be delivered to {{ order.street_address1 }} in {{ order.town_or_city }}, {{ order.postcode }}.
 
-You order will be delivered this {{ order.timeslot.day }} between {{ order.timeslot.start_time }} and {{ order.timeslot.end_time }} so be ready!
+You order will be delivered on {{ order.timeslot.day }} ({{ order.timeslot.date }}) between {{ order.timeslot.start_time }} and {{ order.timeslot.end_time }} so be ready!
 {% if order.delivery_info %}
 You told us to {{ order.delivery_info }}.
 {% endif %}
