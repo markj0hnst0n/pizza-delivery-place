@@ -21,13 +21,13 @@
     <div class="col-12 col-lg-4 my-auto py-1 py-lg-3">
         <ul class="list-inline list-unstyled text-center text-lg-right my-0">
             <li class="list-inline-item dropdown">
-                <a class="nav-link btn-black" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <div class="text-center" aria-labelledby="user-options">
+                <a class="nav-link btn-black" href="#" id="user-options-1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <div class="text-center" aria-labelledby="user-options-1">
                         <div><i class="fas fa-user-circle fa-lg"></i></div>
                         <p class="my-0">Profile</p>
                     </div>
                 </a>
-                <div class="dropdown-menu border-0" aria-labelledby="user-options">
+                <div class="dropdown-menu border-0" aria-labelledby="user-options-1">
                     {% if request.user.is_authenticated %}
                         {% if request.user.is_superuser %}
                             <a href="{% url 'admin' %}" class="dropdown-item">Site Admin</a>
