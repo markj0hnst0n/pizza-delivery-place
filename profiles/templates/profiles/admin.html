@@ -70,24 +70,23 @@
                         {% endfor %}
                     </tbody>
                 </table>
+                <hr class="my-3">
             </div>
         </div>
         <div class="col-12 col-lg-6 py-5 text-left">            
-            <h4 class="py-3">
-                <p class="text-muted">Refresh All Timeslots</p>
-                <form action="{% url 'timeslot_refresh' %}" method="POST">
-                    {% csrf_token %}
-                    <div class="form-group ">
-                        <input type="number" class="form-control w-25 my-auto" id="slot_number" 
-                        name="slot_num" aria-describedby="number of slots to refresh" placeholder="0"
-                        value="0" min="0" max="10">
-                        <label for="slot_number" hidden>number of slots to refresh</label>
-                        <small class="form-text text-muted">This is the number of slots you want to make available for each current timeslot</small>
-                      </div>
-                    <button type="submit"
-                    class="btn btn-black nav-menu-or-footer-link rounded-0">Refresh!</button>
-                </form>
-            </h4>
+            <h4>Refresh All Timeslots</h4>
+            <form action="{% url 'timeslot_refresh' %}" method="POST">
+                {% csrf_token %}
+                <div class="form-group ">
+                    <input type="number" class="form-control w-25 my-auto" id="slot_number" 
+                    name="slot_num" aria-label="number of slots to refresh" placeholder="0"
+                    value="0" min="0" max="10">
+                    <label for="slot_number" hidden>number of slots to refresh</label>
+                    <small class="form-text text-muted">This is the number of slots you want to make available for each current timeslot</small>
+                    </div>
+                <button type="submit"
+                class="btn btn-black nav-menu-or-footer-link rounded-0">Refresh!</button>
+            </form>
             <hr class="my-3">
             <div class="text-center">
                 <h4 class="py-3">
@@ -110,5 +109,5 @@
     </div>
     </div>
     <div class="row footer-container"></div>
-</div>
+
 {% endblock %}

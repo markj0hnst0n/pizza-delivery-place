@@ -143,6 +143,8 @@ Notes
 - Verify that delivery charge, item totals and grand total figures are displayed correctly :heavy_check_mark:
 - Secure Checkout button is displayed and clicking this takes user to the checkout page :heavy_check_mark:
 
+Notes
+- Quantity selector checking is completed by both HTML and at the back end so that even though on larger screens one is able to take the quatity selector higher than 4 and lower than -1 input of incorrect figures is not allowed and provides relevant message.
 
 #### Checkout page
 
@@ -217,9 +219,13 @@ To view the coverage, you can run the following commands:
 
 #### W3C HTML Validation
 
+HTML validation carried out and no major issues.  Type/javascript information was removed from script taqgs as they were causing a warning.
+
+Errors were caused by duplicate ids on cart page but the elements which trigger these errors are never on the screen at the same time one part of the html relates to small screens and one to med/large so this was not investigated further.
+
 #### W3C CSS Validation
 
-Custom static CSS file run through w3c CSS validator without any issues.
+Custom static CSS files run through w3c CSS validator without any issues.
 
 #### Google Lighthouse Testing information
 
