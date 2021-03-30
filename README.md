@@ -42,7 +42,7 @@ These businesses typically only work a few days a week and release all their del
 
 |   As a	| I want to be able to | So that I can |
 |-----------|----------------------|---------------|
-| User | Sort a list of available menu items | See the best rated, cheapest and menu items sorted by category
+| User | Sort a list of available menu items | See the menu items sorted by category
 | Customer | Search by name for a specific menu item | Quickly find the one i want to purchase
 | Customer | Add an item to basket as soon as I see it | Get to the checkout as soon as possible
 
@@ -52,8 +52,8 @@ These businesses typically only work a few days a week and release all their del
 
 |   As a	| I want to be able to | So that I can |
 |-----------|----------------------|---------------|
-| Customer | Easily select the size and quantity of the item | Purchase the right quantity for my needs
-| Customer | Make purchases easily using my credit card | Just think about my food after I have ordered
+| Customer | Easily select the quantity of the item | Purchase the right quantity for my needs
+| Customer | Make purchases easily using my credit or debit card | Just think about my food after I have ordered
 | Customer | View summary of my order before completing my purchase | Make sure I have selected the right items
 | User | Get an email confirming my purchase | See the process has worked correctly
 
@@ -65,7 +65,7 @@ These businesses typically only work a few days a week and release all their del
 |-----------|----------------------|---------------|
 | Site Owner | Let customers see the menu even if this week is sold out | Let them see what they are missing and create demand for next week
 | Site Owner | Allow customers to book a time slot for delivery | Make sure I have the order ready for that time
-| Site Owner | Create, read, update or delete menu items and quantities | Easily manage the items on the menu
+| Site Owner | Create, read, update or delete menu items | Easily manage the items on the menu
 | Site Owner | Create, read, update or delete timeslots and timeslot information | To give me control over opening times and slots and increase my flexibility
 | Site Owner | See a record of the order history sort by date | Check previous orders to make sure they are correct
 
@@ -172,7 +172,7 @@ Noto sans jp for the logo for a clean bold style.  Montserrat for the body for c
 
 ## Colour Scheme
 
-<img height="100" src="https://github.com/markj0hnst0n/pizza-delivery-place/blob/master/README/pizza-place-colour-palette.png">
+<img height="100" src="https://github.com/markj0hnst0n/pizza-delivery-place/blob/master/README/pizza-place-colour-palette1.png">
 
 Colour scheme was taken from the cartoon pizza image and analysed using the [Coolors](https://coolors.co/) site to find the exact colour matches.  Cream was chosen as the main background colour dues to it's contrast with the mainly black body text.  This was done to enhance user experience for visually impaired users.
 
@@ -232,7 +232,7 @@ for the look of the website
 [Python 3 Language](https://www.python.org/)
 to write code for data manipulation at the back end of the app within the flask framework.
 
-[Bootstrap](https://getbootstrap.com/
+[Bootstrap](https://getbootstrap.com/)
 website framework with html, css and javascript.
 
 [Fontawesome](https://fontawesome.com/)
