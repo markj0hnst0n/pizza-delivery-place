@@ -47,18 +47,20 @@
                                     Veggie
                                 </div>
                                 {% endif %}
-                                {% if item.allergens %}
-                                <div class="col text-center">
-                                    <div class="row">
-                                        Allergens
-                                    </div>
+                                <div class="col">
+                                    {% for allergen in item.allergens.all|slice:":1" %}
+                                        {% if allergen %}
+                                            <div class="row">
+                                                Allergens
+                                            </div>
+                                        {% endif %}
+                                    {% endfor %}
                                     {% for allergen in item.allergens.all %}
                                         <div class="row">
                                             {{ allergen }}
                                         </div>
                                     {% endfor %}
                                 </div>
-                                {% endif %}
                             </div>
                         {% endif %}
                     </div>
@@ -159,18 +161,20 @@
                                     Vegetarian
                                 </div>
                                 {% endif %}
-                                {% if item.allergens %}
-                                <div class="col text-center">
-                                    <div class="row">
-                                        Allergens
-                                    </div>
+                                <div class="col">
+                                    {% for allergen in item.allergens.all|slice:":1" %}
+                                        {% if allergen %}
+                                            <div class="row">
+                                                Allergens
+                                            </div>
+                                        {% endif %}
+                                    {% endfor %}
                                     {% for allergen in item.allergens.all %}
                                         <div class="row">
                                             {{ allergen }}
                                         </div>
                                     {% endfor %}
                                 </div>
-                                {% endif %}
                             </div>
                         {% endif %}
                         <p class="mt-3">{{ product.description }}</p>
