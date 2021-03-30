@@ -169,7 +169,7 @@ def edit_day(request, d_id):
 
     day = get_object_or_404(Day, pk=d_id)
     date = str(day.date)
-    
+
     if request.method == 'POST':
         day.name = request.POST.get("day")
         day.date = request.POST.get("date")

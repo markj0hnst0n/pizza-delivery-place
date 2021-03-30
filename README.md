@@ -223,6 +223,9 @@ Checkout App
 
 # Technologies Used
 
+[Django](https://www.djangoproject.com/)
+An amazingly powerful framework on which the project is built.  It has been love at first sight.
+
 [HTML5](https://en.wikipedia.org/wiki/HTML5)
 for the structure of the website
 
@@ -232,7 +235,7 @@ for the look of the website
 [Python 3 Language](https://www.python.org/)
 to write code for data manipulation at the back end of the app within the flask framework.
 
-[Bootstrap](https://getbootstrap.com/)
+[Bootstrap 4](https://getbootstrap.com/)
 website framework with html, css and javascript.
 
 [Fontawesome](https://fontawesome.com/)
@@ -259,18 +262,39 @@ for project management
 [Balsamiq Wireframes](https://balsamiq.com/wireframes/)
 for creating Wireframes for initial visual development
 
+[Visual Studio Code](https://code.visualstudio.com/)
+
 [Gitpod](https://www.gitpod.io/)
 for writing and testing code.
 
 [GitHub](https://github.com/)
 for storing code.
 
+[Crispy Forms](https://django-crispy-forms.readthedocs.io/en/latest/)
+for quick easy forms based on user models.
+
+[Boto3](https://boto3.amazonaws.com/v1/documentation/api/latest/index.html)
+to configure amazon web services s3 bucket.
+
+[Dj Database URL](https://pypi.org/project/dj-database-url/)
+to create a dictionary of the database info
+
+[Stripe](https://stripe.com/)
+for making debit and credit card payments on the site.
+
+[Psychopg](https://www.psycopg.org/)
+postgresql driver used in deployment.
+
+[Green Unicorn](https://gunicorn.org/)
+as a python wsgi http server.
+
 [Google Fonts](https://fonts.google.com/)
 for fonts used in the project.
 
 [Google Chrome Development Tools](https://developers.google.com/web/tools/chrome-devtools) for testing code on various device sizes during development and debugging.
 
-[Amazon Web Services](https://aws.amazon.com/) Simple Email Service for STMP mail server.
+[Amazon Web Services](https://aws.amazon.com/)
+S3 for cloud based static files.
 
 [Google Lighthouse](https://developers.google.com/web/tools/lighthouse) for testing code health, accessibility, speed and search engine optimisation.
 

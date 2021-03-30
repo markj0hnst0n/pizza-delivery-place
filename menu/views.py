@@ -33,7 +33,7 @@ def menu(request):
             menu = menu.filter(queries)
             if not menu:
                 messages.info(request,
-                               "Your search returned no results")
+                              "Your search returned no results")
                 return redirect(reverse('menu'))
 
     if 'category' in request.GET:
@@ -130,4 +130,4 @@ def delete_menu_item(request, item_id):
     item = get_object_or_404(MenuItem, pk=item_id)
     item.delete()
     messages.success(request, 'Menu item deleted!')
-    return redirect(reverse('menu'))
+    return redirect('menu')

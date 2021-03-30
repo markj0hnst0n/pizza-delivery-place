@@ -107,6 +107,11 @@
                 </div>
                 {% endfor %}
             </div>
+            <div class="d-block d-md-none btt-button shadow-sm btn-black rounded-0 border-black">
+                <a class="btt-link d-flex h-100">
+                    <i class="fas fa-arrow-up text-white mx-auto my-auto"></i>
+                </a>	
+            </div>
             <div class="row footer-container"></div>
             </div>
         </div>
@@ -116,4 +121,13 @@
 
 {% block page_footer %}
 
+{% endblock %}
+
+{% block postloadjs %}
+{{ block.super }}
+<script>
+    $('.btt-link').click(function(e) {
+        window.scrollTo(0,0)
+    })
+</script>
 {% endblock %}

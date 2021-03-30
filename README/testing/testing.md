@@ -126,7 +126,10 @@ Notes
 - Verify that image, price and icons displaying product info display :heavy_check_mark:
 - Verify that quick add button appears for all items and clicking this adds 1 of the item to the shopping cart :heavy_check_mark:
 - Verify that clicking on the item image takes the user to the menu item display page :heavy_check_mark:
-- Verify that is logged in as a superuser there is an option to edit or delete item and CRUD operations have been tested on the relevant links :heavy_check_mark: 
+- Verify that is logged in as a superuser there is an option to edit or delete item and CRUD operations have been tested on the relevant links :heavy_check_mark:
+
+Notes
+Deleting a menu item when it is in the cart causes and error.
 
 #### Menu Item Detail page
 
@@ -227,6 +230,11 @@ Errors were caused by duplicate ids on cart page but the elements which trigger 
 
 Custom static CSS files run through w3c CSS validator without any issues.
 
+#### Flake8/Pep8 Python Validation
+
+Most issues being flagged are for variables that are not being used but removing them would impact functionality of the code.  Line 
+148 in settings.py is too long but shortening may impact functionality.  Most other issues caused by automated files.
+
 #### Google Lighthouse Testing information
 
 |   Bug	    | Debug                |
@@ -243,3 +251,4 @@ Custom static CSS files run through w3c CSS validator without any issues.
 | Profile page didn't display default saved address | form instance had syntax relating to request.POST when the request was GET so it was not filling the form data correctly
 | Only 1 allergen could be added to each menu item | Changed relationship from foreignkey to many to many which enabled multiple allergens for each menu item
 | It is possible for the user to complete an order when there are no timeslots available.  While the impact on the store should be minimal it may cause issues | Users impacted receive a custom message asking them to contact the store and still receive a confirmation email.
+| If a menu item is delete while it is in the cart it causes an error and the site will generate a 404 error on all pages | Issue with cache.  If all site data is cleared from browser cache the issue does not persist.

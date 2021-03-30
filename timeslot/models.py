@@ -8,7 +8,6 @@ class Day(models.Model):
 
     def __str__(self):
         return self.name
-    
 
 
 class Timeslot(models.Model):

@@ -90,7 +90,12 @@ def checkout(request):
 
             request.session['save_info'] = 'save-info' in request.POST
             if db_slot.available_slots < 1:
-                messages.info(request, "There was an issue with your timeslot but your order has been processed and you will still receive a confirmation email.  Do not worry.  Please contact the store for more details")
+                messages.info(
+                    request,
+                    "There was an issue with your timeslot but your "
+                    "order has been processed and you will still receive "
+                    "a confirmation email.  Do not worry.  Please "
+                    "contact the store for more details")
                 profile = UserProfile.objects.get(user=request.user)
                 order.user_profile = profile
                 order.save()
