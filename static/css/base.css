@@ -72,9 +72,10 @@ body {
     color: #222;
 }
 
-.deals-button:hover,
-.deals-button:active,
-.deals-button:focus,
+.callout {
+    font-size: 110%;
+}
+
 .btn-black:hover,
 
 .btn-black:active,

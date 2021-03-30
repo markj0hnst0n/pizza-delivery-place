@@ -38,19 +38,25 @@
                         {% if item.spicy or item.vegetarian or item.allergens %}
                             <div class="row py-2">
                                 {% if item.spicy %}
-                                <div class="col text-center">
+                                <div class="col-4 text-center">
                                     Spicy
                                 </div>
                                 {% endif %}
                                 {% if item.vegetarian %}
-                                <div class="col text-center">
-                                    Vegetarian
+                                <div class="col-4 text-center">
+                                    Veggie
                                 </div>
                                 {% endif %}
                                 {% if item.allergens %}
-                                <div class="col text-center">
-                                    Allergens:
-                                    {{ item.allergens.friendly_name }}
+                                <div class="col-4 text-center">
+                                    <div class="row">
+                                        Allergens:
+                                    </div>
+                                        {% for allergen in item.allergens.all %}
+                                        <div class="row">
+                                            {{ allergen }}
+                                        </div>
+                                    {% endfor %}
                                 </div>
                                 {% endif %}
                             </div>
@@ -155,8 +161,14 @@
                                 {% endif %}
                                 {% if item.allergens %}
                                 <div class="col text-center">
-                                    Allergens:
-                                    {{ item.allergens.friendly_name }}
+                                    <div class="row">
+                                        Allergens:
+                                    </div>
+                                        {% for allergen in item.allergens.all %}
+                                        <div class="row">
+                                            {{ allergen }}
+                                        </div>
+                                    {% endfor %}
                                 </div>
                                 {% endif %}
                             </div>
