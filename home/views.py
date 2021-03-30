@@ -37,9 +37,9 @@ def contact(request):
             {'user_name': user_name, 'query': query})
 
         customer_subject = render_to_string(
-            'home/contact_emails/contact_customer_confirmation_subject.txt')
+            'home/contact_emails/contact_email_subject.txt')
         customer_body = render_to_string(
-            'home/contact_emails/contact_customer_confirmation_body.txt')
+            'home/contact_emails/contact_email_body.txt')
 
         send_mail(
             shop_subject,
@@ -54,7 +54,7 @@ def contact(request):
             settings.DEFAULT_FROM_EMAIL,
             [user_email]
         )
-        messages.success(request, "Contact From Sent")
+        messages.info(request, "Contact form sent")
 
     return render(request, 'home/contact.html')
 
