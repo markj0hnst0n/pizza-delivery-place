@@ -121,6 +121,19 @@ def checkout(request):
             messages.error(request, "You have no items in your cart")
             return redirect(reverse('menu'))
 
+        s_id = list(slot.keys())[list(slot.values()).index(True)]
+        db_slot = get_object_or_404(Timeslot, pk=s_id)
+
+        if db_slot.slot_reserved:
+            messages.info(
+                request, "All timeslots booked.  Please choose an other")
+            del request.session['slot']
+            return redirect('timeslot')
+
+        if db_slot.available_slots <= 1:
+            db_slot.slot_reserved = True
+            db_slot.save()
+
         current_cart = cart_contents(request)
         total = current_cart['grand_total']
         stripe_total = round(total * 100)

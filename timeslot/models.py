@@ -27,3 +27,4 @@ class Timeslot(models.Model):
     available_slots = models.PositiveSmallIntegerField(null=True,
                                                        validators=[min_val,
                                                                    max_val])
+    slot_reserved = models.BooleanField(null=True)
